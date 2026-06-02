@@ -7,43 +7,80 @@
 
 <style>
 
-/* ===== BASE LUXURY ===== */
+/* ===== LOADING SCREEN ===== */
+#loader{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:9999;
+}
+
+.loader-logo{
+  width:90px;
+  animation:pulse 1.5s infinite;
+}
+
+.loader-text{
+  color:white;
+  margin-top:15px;
+  letter-spacing:3px;
+  font-size:12px;
+  opacity:0.7;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1); opacity:0.5;}
+  50%{transform:scale(1.2); opacity:1;}
+  100%{transform:scale(1); opacity:0.5;}
+}
+
+/* ===== BODY ===== */
 body{
   margin:0;
-  font-family: "Arial", sans-serif;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  font-family:Arial;
+  background: radial-gradient(circle at top,#111,#000);
   color:white;
 }
 
-/* ===== TOP BAR (DIOR STYLE) ===== */
+/* ===== TOPBAR ===== */
 .topbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 25px;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(15px);
+  padding:12px 20px;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(15px);
   position:sticky;
   top:0;
   z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .left{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
 }
 
 .logo{
-  width:55px;
+  width:50px;
   border-radius:10px;
+  animation:logoFloat 3s infinite ease-in-out;
+}
+
+@keyframes logoFloat{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-3px);}
+  100%{transform:translateY(0px);}
 }
 
 .brand{
-  font-size:15px;
+  font-size:14px;
   letter-spacing:2px;
-  font-weight:bold;
 }
 
 .nav a{
@@ -51,80 +88,70 @@ body{
   margin-left:15px;
   text-decoration:none;
   font-size:13px;
-  transition:0.3s;
 }
 
 .nav a:hover{
   color:#d4af37;
 }
 
-/* ===== PRODUCT ===== */
+/* ===== PRODUCT LAYOUT ===== */
 .container{
   display:flex;
   justify-content:center;
-  padding:60px 20px;
+  padding:40px 20px;
 }
 
 .card{
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(18px);
-  width:340px;
-  border-radius:20px;
-  padding:20px;
+  background:rgba(255,255,255,0.06);
+  width:280px;   /* 👈 أصغر عشان ما يبلع الصفحة */
+  padding:15px;
+  border-radius:18px;
   border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 20px 40px rgba(0,0,0,0.5);
+  backdrop-filter:blur(15px);
   transition:0.4s;
+  animation:fade 1s ease;
 }
 
 .card:hover{
-  transform: translateY(-10px);
+  transform:translateY(-8px);
 }
 
 .card img{
   width:100%;
-  border-radius:15px;
-  transition:0.4s;
+  border-radius:12px;
 }
 
-.card img:hover{
-  transform: scale(1.05);
-}
-
+/* ===== TEXT ===== */
 .title{
-  font-size:20px;
+  font-size:18px;
   margin-top:10px;
-  font-weight:bold;
-  letter-spacing:1px;
 }
 
 .price{
-  margin-top:10px;
-  font-size:16px;
+  margin-top:8px;
 }
 
 .old{
   text-decoration:line-through;
   color:gray;
-  margin-right:10px;
 }
 
 .new{
   color:#d4af37;
-  font-size:20px;
+  font-size:18px;
   font-weight:bold;
 }
 
 /* ===== BUTTONS ===== */
 .btn{
   display:block;
+  padding:10px;
+  margin-top:8px;
   text-align:center;
-  padding:12px;
-  margin-top:10px;
   border-radius:10px;
   text-decoration:none;
   font-weight:bold;
   cursor:pointer;
-  transition:0.3s;
 }
 
 .cartbtn{
@@ -132,64 +159,54 @@ body{
   color:white;
 }
 
-.cartbtn:hover{
-  background:#333;
-}
-
 .buybtn{
   background:#d4af37;
   color:black;
 }
 
-.buybtn:hover{
-  transform:scale(1.05);
-}
-
 /* ===== ABOUT ===== */
 .about{
-  max-width:800px;
+  max-width:900px;
   margin:60px auto;
-  background: rgba(255,255,255,0.05);
   padding:30px;
+  background:rgba(255,255,255,0.05);
   border-radius:20px;
   border:1px solid rgba(255,255,255,0.1);
-  text-align:center;
+  line-height:1.8;
 }
 
-/* ===== CART (REAL) ===== */
+.about h2{
+  color:#d4af37;
+}
+
+/* ===== CART ===== */
 .cart{
   position:fixed;
   right:15px;
   bottom:15px;
-  width:260px;
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(15px);
+  width:240px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
   padding:15px;
   border-radius:15px;
-  border:1px solid rgba(255,255,255,0.1);
-}
-
-.cart h3{
-  margin:0 0 10px;
 }
 
 .cart-item{
-  font-size:13px;
-  margin-bottom:5px;
+  font-size:12px;
 }
 
 .total{
   margin-top:10px;
-  font-weight:bold;
   color:#d4af37;
+  font-weight:bold;
 }
 
 /* ===== CONTACT ===== */
 .contact{
-  margin-top:60px;
   background:black;
   padding:40px;
   text-align:center;
+  margin-top:60px;
 }
 
 .contact a{
@@ -199,20 +216,15 @@ body{
   border-radius:8px;
   text-decoration:none;
   color:white;
-  font-weight:bold;
 }
 
 .wa{background:#25D366;}
 .insta{background:#E1306C;}
 
-/* ===== ANIMATIONS ===== */
+/* ===== ANIMATION ===== */
 @keyframes fade{
   from{opacity:0; transform:translateY(20px);}
   to{opacity:1; transform:translateY(0);}
-}
-
-.card, .about{
-  animation:fade 1s ease;
 }
 
 </style>
@@ -220,12 +232,18 @@ body{
 
 <body>
 
+<!-- ===== LOADER ===== -->
+<div id="loader">
+  <img src="logo.png" class="loader-logo">
+  <div class="loader-text">LOR PERFUME LUXURY</div>
+</div>
+
 <!-- ===== TOPBAR ===== -->
 <div class="topbar">
 
   <div class="left">
     <img src="logo.png" class="logo">
-    <div class="brand">LOR PERFUME LUXURY</div>
+    <div class="brand">LOR PERFUME</div>
   </div>
 
   <div class="nav">
@@ -250,7 +268,7 @@ body{
       <span class="new">23 JD</span>
     </div>
 
-    <button class="btn cartbtn" onclick="addToCart('Luxury Butter Perfume', 23)">
+    <button class="btn cartbtn" onclick="addToCart('Luxury Butter Perfume',23)">
       Add to Cart
     </button>
 
@@ -264,13 +282,34 @@ body{
 
 </div>
 
-<!-- ===== ABOUT ===== -->
+<!-- ===== ABOUT (LONG LUXURY TEXT) ===== -->
 <div class="about" id="about">
   <h2>About The Perfume</h2>
+
   <p>
-    Luxury Butter Perfume is a high-end fragrance inspired by elegance and luxury.
-    It offers a long-lasting scent with soft buttery notes and warm aromatic depth,
-    designed for premium lifestyle lovers.
+    Luxury Butter Perfume is a high-end signature fragrance crafted for elegance and confidence.
+    It opens with a soft creamy vanilla note that immediately gives a warm and luxurious feeling.
+  </p>
+
+  <p>
+    The heart of the fragrance develops into smooth buttery accords mixed with subtle floral touches,
+    creating a rich and comforting scent profile that feels both modern and timeless.
+  </p>
+
+  <p>
+    As it dries down, the fragrance settles into deep musky and woody notes,
+    leaving a long-lasting trail that stays on the skin for hours.
+  </p>
+
+  <p>
+    Top Notes: Vanilla Cream, Soft Sugar  
+    Heart Notes: Butter Accord, White Flowers  
+    Base Notes: Musk, Amber, Light Woods
+  </p>
+
+  <p>
+    This perfume is designed for those who appreciate luxury lifestyle,
+    perfect for daily wear, evenings, and special occasions.
   </p>
 </div>
 
@@ -285,37 +324,40 @@ body{
 <div class="contact" id="contact">
   <h2>Contact Us</h2>
 
-  <a class="wa" href="https://wa.me/962787727783" target="_blank">WhatsApp</a>
-
-  <a class="insta"
-     href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw"
-     target="_blank">
-     Instagram
-  </a>
+  <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
+  <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">Instagram</a>
 </div>
 
 <script>
 
-let cart = [];
-let total = 0;
+/* ===== LOADER ===== */
+window.onload = function(){
+  setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+  },1500);
+};
 
-function addToCart(name, price){
-  cart.push({name, price});
-  total += price;
+/* ===== CART ===== */
+let cart=[];
+let total=0;
+
+function addToCart(name,price){
+  cart.push({name,price});
+  total+=price;
   updateCart();
 }
 
 function updateCart(){
-  let box = document.getElementById("cartItems");
-  let totalBox = document.getElementById("total");
+  let box=document.getElementById("cartItems");
+  let totalBox=document.getElementById("total");
 
-  box.innerHTML = "";
+  box.innerHTML="";
 
   cart.forEach(i=>{
-    box.innerHTML += `<div class='cart-item'>• ${i.name} - ${i.price} JD</div>`;
+    box.innerHTML+=`<div class='cart-item'>• ${i.name} - ${i.price} JD</div>`;
   });
 
-  totalBox.innerHTML = "Total: " + total + " JD";
+  totalBox.innerHTML="Total: "+total+" JD";
 }
 
 </script>
