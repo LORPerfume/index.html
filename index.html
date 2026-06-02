@@ -7,16 +7,16 @@
 
 <style>
 
-/* ===== BODY ===== */
 body{
   margin:0;
   font-family:Arial;
   background: radial-gradient(circle at top,#0e0e0e,#000);
   color:white;
   overflow-x:hidden;
+  scroll-behavior:smooth;
 }
 
-/* ===== LOADER FIX (NO FLICKER) ===== */
+/* ===== LOADER ===== */
 #loader{
   position:fixed;
   inset:0;
@@ -58,15 +58,34 @@ body{
   z-index:1000;
 }
 
-.left{display:flex;align-items:center;gap:10px;}
+/* LEFT NAV */
+.nav{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:13px;
+  padding:6px 10px;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+.nav a:hover{
+  background:#d4af37;
+  color:black;
+}
 
 .logo{
-  width:50px;
+  width:45px;
   border-radius:10px;
 }
 
 .brand{
-  font-size:14px;
+  font-size:13px;
   letter-spacing:2px;
 }
 
@@ -124,7 +143,7 @@ body{
 .prev{left:10px;}
 .next{right:10px;}
 
-/* ===== PRODUCT TEXT ===== */
+/* ===== PRODUCT ===== */
 .product-text{
   text-align:center;
   padding:20px;
@@ -178,6 +197,7 @@ body{
 
 .wa{background:#25D366;}
 .insta{background:#E1306C;}
+.buy{background:#d4af37;color:black;}
 
 </style>
 </head>
@@ -186,15 +206,23 @@ body{
 
 <!-- LOADER -->
 <div id="loader">
-  <img src="logo.png" alt="logo">
+  <img src="logo.png">
 </div>
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="left">
+
+  <div class="nav">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="https://wa.me/962787727783" target="_blank" class="buy">Buy</a>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:10px;">
     <img src="logo.png" class="logo">
     <div class="brand">LOR PERFUME</div>
   </div>
+
 </div>
 
 <!-- HERO -->
@@ -224,21 +252,23 @@ body{
 </div>
 
 <!-- ABOUT -->
-<div class="about">
+<div class="about" id="about">
   <div class="about-card">Vanilla Opening luxury scent</div>
   <div class="about-card">Butter heart notes elegance</div>
   <div class="about-card">Musk amber long lasting trail</div>
 </div>
 
 <!-- CONTACT -->
-<div class="contact">
+<div class="contact" id="contact">
+  <h2>Contact Us</h2>
+
   <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
   <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">Instagram</a>
 </div>
 
 <script>
 
-/* ===== LOADER FIX (NO FLICKER) ===== */
+/* loader fix */
 document.addEventListener("DOMContentLoaded", function(){
 
   const loader = document.getElementById("loader");
@@ -254,12 +284,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-/* ===== SLIDER SAFE ===== */
+/* slider */
 let index = 0;
 
 function move(dir){
   let slides = document.getElementById("slides");
-  if(!slides) return;
 
   let total = 3;
 
@@ -271,9 +300,7 @@ function move(dir){
   slides.style.transform = "translateX(" + (-index * 100) + "%)";
 }
 
-setInterval(function(){
-  move(1);
-}, 4000);
+setInterval(()=>move(1),4000);
 
 </script>
 
