@@ -3,56 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOR' PERFUME</title>
+
+<title>LOR' Luxury Butter Perfume</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --gold:#d4af37;
-  --black:#0d0d0d;
-  --gray:#777;
-  --bg:#f7f7f7;
+  --black:#0b0b0b;
+  --bg:#f8f8f8;
 }
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Inter, sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
+  font-family:'Inter',sans-serif;
   background:var(--bg);
   color:#222;
 }
 
 /* NAVBAR */
+
 nav{
   position:fixed;
   top:0;
   left:0;
   width:100%;
-  background:rgba(0,0,0,.85);
-  backdrop-filter: blur(10px);
+  background:rgba(0,0,0,.92);
+  backdrop-filter:blur(10px);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 40px;
+  padding:18px 40px;
   z-index:1000;
 }
 
-nav h1{
-  font-family:'Playfair Display', serif;
+.logo-text{
   color:var(--gold);
-  letter-spacing:2px;
+  font-size:30px;
+  font-family:'Playfair Display',serif;
 }
 
 nav a{
   color:white;
-  margin-left:20px;
   text-decoration:none;
-  font-size:14px;
+  margin-left:20px;
   transition:.3s;
 }
 
@@ -61,275 +66,318 @@ nav a:hover{
 }
 
 /* HERO */
-.hero{
-  height:100vh;
-  background:url('https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=1600&q=80') center/cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-}
 
-.hero::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.6);
+.hero{
+  min-height:100vh;
+  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+  url("product.jpg");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:120px 20px 60px;
 }
 
 .hero-content{
-  position:relative;
-  color:white;
-  max-width:700px;
+  max-width:800px;
 }
 
-.hero h2{
-  font-size:52px;
-  font-family:'Playfair Display', serif;
+.hero-logo{
+  width:140px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  color:white;
+  font-size:70px;
+  font-family:'Playfair Display',serif;
 }
 
 .hero p{
-  margin-top:15px;
   color:#ddd;
+  font-size:18px;
+  line-height:1.8;
+  margin-top:20px;
+}
+
+.price{
+  color:var(--gold);
+  font-size:48px;
+  font-weight:bold;
+  margin-top:25px;
 }
 
 .btn{
   display:inline-block;
   margin-top:25px;
-  padding:14px 30px;
+  padding:15px 35px;
   background:var(--gold);
   color:black;
-  font-weight:bold;
   text-decoration:none;
-  border-radius:30px;
+  border-radius:40px;
+  font-weight:700;
   transition:.3s;
 }
 
 .btn:hover{
-  transform:scale(1.05);
+  transform:translateY(-3px);
 }
 
-/* SECTIONS */
+/* PRODUCT */
+
 .section{
-  padding:90px 20px;
   max-width:1200px;
   margin:auto;
+  padding:100px 20px;
 }
 
 .title{
   text-align:center;
-  font-size:36px;
-  font-family:'Playfair Display', serif;
+  font-size:42px;
+  font-family:'Playfair Display',serif;
 }
 
-.subtitle{
-  text-align:center;
-  color:var(--gray);
-  margin-top:10px;
-  max-width:700px;
-  margin-left:auto;
-  margin-right:auto;
+.product-box{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:60px;
+  margin-top:60px;
 }
 
-/* PRODUCTS */
-.grid{
-  margin-top:50px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
+.product-box img{
+  width:380px;
+  max-width:100%;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
 }
 
-.card{
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  transition:.4s;
+.product-info{
+  max-width:500px;
 }
 
-.card:hover{
-  transform:translateY(-10px);
+.product-info h2{
+  font-size:40px;
+  font-family:'Playfair Display',serif;
+  margin-bottom:20px;
 }
 
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
+.product-info p{
+  color:#666;
+  line-height:1.9;
 }
 
-.card-body{
-  padding:20px;
-  text-align:center;
-}
-
-.card h3{
-  font-family:'Playfair Display', serif;
-  margin-bottom:10px;
-}
-
-.price{
-  margin-top:10px;
-  color:var(--gold);
-  font-size:20px;
-  font-weight:bold;
-}
-
-/* FEATURES */
 .features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  margin-top:50px;
+  margin-top:25px;
 }
 
-.feature{
+.features li{
+  margin-bottom:12px;
+}
+
+/* ABOUT */
+
+.about{
   background:white;
-  padding:25px;
-  border-radius:12px;
+}
+
+.about-text{
   text-align:center;
-  box-shadow:0 5px 20px rgba(0,0,0,.05);
+  max-width:850px;
+  margin:auto;
+  margin-top:30px;
+  line-height:2;
+  color:#666;
 }
 
 /* CONTACT */
+
 .contact{
   background:#111;
   color:white;
   text-align:center;
-  padding:70px 20px;
+  padding:80px 20px;
+}
+
+.contact h2{
+  font-family:'Playfair Display',serif;
+  font-size:40px;
 }
 
 .contact p{
+  margin-top:15px;
   color:#ccc;
 }
 
 /* FOOTER */
+
 footer{
   background:black;
-  color:#aaa;
+  color:#999;
   text-align:center;
   padding:20px;
-  font-size:13px;
 }
 
-/* WHATSAPP FLOAT */
+/* WHATSAPP */
+
 .whatsapp{
   position:fixed;
-  bottom:20px;
-  right:20px;
+  bottom:25px;
+  right:25px;
   background:#25D366;
   color:white;
-  padding:15px 18px;
-  border-radius:50px;
   text-decoration:none;
+  padding:15px 22px;
+  border-radius:50px;
   font-weight:bold;
-  box-shadow:0 10px 20px rgba(0,0,0,.2);
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
-/* RESPONSIVE */
+/* MOBILE */
+
 @media(max-width:768px){
-  nav{
-    padding:15px 20px;
-  }
-  .hero h2{
-    font-size:36px;
-  }
-}
-</style>
 
+.hero h1{
+  font-size:48px;
+}
+
+.price{
+  font-size:38px;
+}
+
+nav{
+  padding:15px 20px;
+}
+
+.logo-text{
+  font-size:24px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <nav>
-  <h1>LOR' PERFUME</h1>
+  <div class="logo-text">LOR'</div>
+
   <div>
-    <a href="#products">Products</a>
+    <a href="#product">Product</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="hero-content">
-    <h2>Luxury That Defines You</h2>
-    <p>Discover exclusive fragrances crafted for elegance, confidence, and timeless identity.</p>
-    <a class="btn" href="https://wa.me/962787727783">Shop Now</a>
-  </div>
+
+<div class="hero-content">
+
+<img src="logo.png" class="hero-logo" alt="LOR Logo">
+
+<h1>LOR'</h1>
+
+<p>
+Luxury Butter Perfume crafted for elegance,
+confidence and a long-lasting fragrance experience.
+</p>
+
+<div class="price">23 JOD</div>
+
+<a
+class="btn"
+href="https://wa.me/962787727783?text=Hello%20I%20would%20like%20to%20order%20LOR%20Luxury%20Butter%20Perfume"
+target="_blank">
+BUY NOW
+</a>
+
+</div>
+
 </section>
 
-<section class="section" id="products">
-  <h2 class="title">Featured Collection</h2>
-  <p class="subtitle">Premium perfumes inspired by luxury, crafted to last all day.</p>
+<section class="section" id="product">
 
-  <div class="grid">
+<h2 class="title">Luxury Butter Perfume</h2>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80">
-      <div class="card-body">
-        <h3>Royal Oud</h3>
-        <p>Deep oriental oud with luxury finish.</p>
-        <div class="price">25 JOD</div>
-      </div>
-    </div>
+<div class="product-box">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80">
-      <div class="card-body">
-        <h3>Golden Essence</h3>
-        <p>Floral amber blend with elegant touch.</p>
-        <div class="price">22 JOD</div>
-      </div>
-    </div>
+<img src="product.jpg" alt="LOR Perfume">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80">
-      <div class="card-body">
-        <h3>Midnight Touch</h3>
-        <p>Mysterious evening fragrance.</p>
-        <div class="price">28 JOD</div>
-      </div>
-    </div>
+<div class="product-info">
 
-  </div>
+<h2>LOR' Luxury Butter Perfume</h2>
+
+<p>
+A rich and concentrated luxury butter perfume
+designed for people who appreciate elegance,
+quality and long-lasting fragrance.
+</p>
+
+<ul class="features">
+<li>✓ Long Lasting Fragrance</li>
+<li>✓ Rich & Concentrated Formula</li>
+<li>✓ Premium Luxury Design</li>
+<li>✓ Perfect Daily Use</li>
+</ul>
+
+<div class="price">23 JOD</div>
+
+<a
+class="btn"
+href="https://wa.me/962787727783?text=Hello%20I%20would%20like%20to%20order%20LOR%20Luxury%20Butter%20Perfume"
+target="_blank">
+ORDER VIA WHATSAPP
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="section" id="about">
-  <h2 class="title">About Us</h2>
-  <p class="subtitle">
-    LOR' PERFUME represents elegance and identity. Every scent tells a story,
-    designed to leave a lasting impression wherever you go.
-  </p>
+<section class="section about" id="about">
 
-  <div class="features">
-    <div class="feature">
-      <h3>Premium Quality</h3>
-      <p>High-end fragrance ingredients.</p>
-    </div>
+<h2 class="title">About LOR'</h2>
 
-    <div class="feature">
-      <h3>Long Lasting</h3>
-      <p>Scent that stays all day.</p>
-    </div>
+<p class="about-text">
+LOR' represents elegance, luxury and confidence.
+Our Luxury Butter Perfume is carefully crafted to
+deliver a premium fragrance experience that lasts
+throughout the day while maintaining a refined and
+sophisticated character.
+</p>
 
-    <div class="feature">
-      <h3>Luxury Feel</h3>
-      <p>Elegant experience at affordable price.</p>
-    </div>
-  </div>
 </section>
 
 <section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <p>WhatsApp: +962 78 772 7783</p>
-  <a class="btn" href="https://wa.me/962787727783">Chat Now</a>
+
+<h2>Contact Us</h2>
+
+<p>WhatsApp: +962 78 772 7783</p>
+
+<a
+class="btn"
+href="https://wa.me/962787727783?text=Hello%20I%20would%20like%20to%20order%20LOR%20Luxury%20Butter%20Perfume"
+target="_blank">
+Chat on WhatsApp
+</a>
+
 </section>
 
 <footer>
-  © 2026 LOR' PERFUME — All Rights Reserved
+© 2026 LOR' Perfume. All Rights Reserved.
 </footer>
 
-<a class="whatsapp" href="https://wa.me/962787727783">WhatsApp</a>
+<a
+class="whatsapp"
+href="https://wa.me/962787727783?text=Hello%20I%20would%20like%20to%20order%20LOR%20Luxury%20Butter%20Perfume"
+target="_blank">
+WhatsApp
+</a>
 
 </body>
 </html>
