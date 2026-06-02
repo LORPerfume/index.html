@@ -7,38 +7,45 @@
 
 <style>
 
-/* ===== GLOBAL LUXURY ===== */
+/* ===== BODY ===== */
 body{
   margin:0;
   font-family:Arial;
-  background: radial-gradient(circle at top,#0f0f0f,#000);
+  background: radial-gradient(circle at top,#0e0e0e,#000);
   color:white;
+  overflow-x:hidden;
 }
 
-/* ===== LOADER ===== */
+/* ===== LOADER FIX (NO FLICKER) ===== */
 #loader{
   position:fixed;
   inset:0;
   background:black;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
   z-index:9999;
+  opacity:1;
+  transition:opacity 0.6s ease;
 }
 
-.loader-logo{
+#loader img{
   width:90px;
   animation:pulse 1.5s infinite;
 }
 
 @keyframes pulse{
-  0%{transform:scale(1); opacity:0.5;}
-  50%{transform:scale(1.2); opacity:1;}
-  100%{transform:scale(1); opacity:0.5;}
+  0%{transform:scale(1);opacity:0.5;}
+  50%{transform:scale(1.2);opacity:1;}
+  100%{transform:scale(1);opacity:0.5;}
 }
 
-/* ===== TOP BAR ===== */
+#loader.hide{
+  opacity:0;
+  pointer-events:none;
+}
+
+/* ===== TOPBAR ===== */
 .topbar{
   display:flex;
   justify-content:space-between;
@@ -51,11 +58,7 @@ body{
   z-index:1000;
 }
 
-.left{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.left{display:flex;align-items:center;gap:10px;}
 
 .logo{
   width:50px;
@@ -67,137 +70,94 @@ body{
   letter-spacing:2px;
 }
 
-.nav a{
-  color:white;
-  margin-left:15px;
-  text-decoration:none;
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:50px 20px;
 }
 
-/* ===== PRODUCT SECTION ===== */
-.container{
-  display:flex;
-  justify-content:center;
-  padding:40px 20px;
-}
-
-/* CARD */
-.card{
-  background:rgba(255,255,255,0.05);
-  width:340px;
-  border-radius:20px;
-  padding:18px;
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(15px);
-}
-
-/* ===== PRODUCT FLEX (NEW LUXURY LAYOUT) ===== */
-.product-box{
-  display:flex;
-  gap:15px;
-  align-items:center;
-}
-
-/* small image */
-.product-box img{
-  width:120px;
-  height:120px;
-  object-fit:cover;
-  border-radius:12px;
-  transition:0.4s;
-}
-
-.product-box img:hover{
-  transform:scale(1.05);
-}
-
-/* text next to image */
-.product-info h2{
+.hero h1{
   margin:0;
-  font-size:16px;
-  color:#fff;
+  font-size:26px;
+  letter-spacing:3px;
+}
+
+.hero p{color:#aaa;}
+
+.glow{
+  width:100px;
+  height:2px;
+  background:#d4af37;
+  margin:15px auto;
+}
+
+/* ===== SLIDER ===== */
+.slider{
+  width:90%;
+  max-width:420px;
+  margin:30px auto;
+  overflow:hidden;
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.slides{
+  display:flex;
+  transition:0.5s ease;
+}
+
+.slides img{
+  width:100%;
+}
+
+/* buttons */
+.btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  border:none;
+  color:white;
+  padding:8px;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
+
+/* ===== PRODUCT TEXT ===== */
+.product-text{
+  text-align:center;
+  padding:20px;
 }
 
 .badge{
-  display:inline-block;
-  margin-top:5px;
-  font-size:11px;
-  padding:4px 8px;
   background:#d4af37;
   color:black;
+  padding:5px 10px;
+  font-size:11px;
   border-radius:6px;
-  font-weight:bold;
 }
 
-/* luxury phrase */
-.lux-text{
-  margin-top:10px;
-  font-size:13px;
-  color:#ccc;
-  line-height:1.5;
-}
-
-/* PRICE */
 .price{
-  margin-top:15px;
+  margin-top:10px;
 }
 
-.old{
-  text-decoration:line-through;
-  color:gray;
-}
+.old{color:gray;text-decoration:line-through;}
+.new{color:#d4af37;font-weight:bold;font-size:18px;}
 
-.new{
-  color:#d4af37;
-  font-size:18px;
-  font-weight:bold;
-}
-
-/* BUTTONS */
-.btn{
-  display:block;
-  padding:10px;
-  margin-top:8px;
-  border-radius:10px;
-  text-align:center;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.cartbtn{background:#111;color:white;}
-.buybtn{background:#d4af37;color:black;}
-
-/* ===== ABOUT LUXURY CARDS ===== */
+/* ===== ABOUT ===== */
 .about{
-  max-width:900px;
-  margin:60px auto;
-  display:grid;
-  gap:15px;
+  max-width:800px;
+  margin:50px auto;
   padding:20px;
 }
 
 .about-card{
   background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
-  border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(10px);
-}
-
-.about-card h3{
-  color:#d4af37;
-  margin-top:0;
-}
-
-/* ===== CART ===== */
-.cart{
-  position:fixed;
-  right:15px;
-  bottom:15px;
-  width:240px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(15px);
   padding:15px;
-  border-radius:15px;
+  margin-bottom:10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.1);
 }
 
 /* ===== CONTACT ===== */
@@ -205,7 +165,6 @@ body{
   background:black;
   text-align:center;
   padding:40px;
-  margin-top:60px;
 }
 
 .contact a{
@@ -227,128 +186,94 @@ body{
 
 <!-- LOADER -->
 <div id="loader">
-  <img src="logo.png" class="loader-logo">
+  <img src="logo.png" alt="logo">
 </div>
 
 <!-- TOPBAR -->
 <div class="topbar">
-
   <div class="left">
     <img src="logo.png" class="logo">
-    <div class="brand">LOR PERFUME LUXURY</div>
+    <div class="brand">LOR PERFUME</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>THE ART OF SCENT</h1>
+  <div class="glow"></div>
+  <p>Luxury fragrance experience beyond spraying</p>
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides" id="slides">
+    <img src="product.jpg">
+    <img src="product.jpg">
+    <img src="product.jpg">
   </div>
 
-  <div class="nav">
-    <a href="#about">About</a>
-    <a href="#product">Product</a>
-    <a href="#contact">Contact</a>
-  </div>
-
+  <button class="btn prev" onclick="move(-1)">‹</button>
+  <button class="btn next" onclick="move(1)">›</button>
 </div>
 
 <!-- PRODUCT -->
-<div class="container" id="product">
-
-  <div class="card">
-
-    <!-- NEW LAYOUT -->
-    <div class="product-box">
-
-      <img src="product.jpg">
-
-      <div class="product-info">
-        <h2>Luxury Butter Perfume</h2>
-        <span class="badge">NOT JUST A SPRAY</span>
-
-        <div class="lux-text">
-          A luxury fragrance experience — not a simple spray like ordinary perfumes.
-          Designed to stay, evolve, and leave a signature trail.
-        </div>
-      </div>
-
-    </div>
-
-    <div class="price">
-      <span class="old">35 JD</span>
-      <span class="new">23 JD</span>
-    </div>
-
-    <button class="btn cartbtn" onclick="addToCart('Luxury Butter Perfume',23)">
-      Add to Cart
-    </button>
-
-    <a class="btn buybtn"
-       href="https://wa.me/962787727783?text=I%20want%20Luxury%20Butter%20Perfume%20for%2023%20JD">
-      Buy Now
-    </a>
-
-  </div>
-
+<div class="product-text">
+  <span class="badge">NOT JUST A SPRAY</span>
+  <h2>Luxury Butter Perfume</h2>
+  <p>35 JD → <b style="color:#d4af37;">23 JD</b></p>
 </div>
 
-<!-- ABOUT (PREMIUM CARDS) -->
-<div class="about" id="about">
-
-  <div class="about-card">
-    <h3>Concept</h3>
-    <p>A fragrance built for elegance and presence, not just scent.</p>
-  </div>
-
-  <div class="about-card">
-    <h3>Opening Notes</h3>
-    <p>Soft Vanilla Cream with a warm sweet introduction.</p>
-  </div>
-
-  <div class="about-card">
-    <h3>Heart Notes</h3>
-    <p>Butter Accord blended with smooth floral layers.</p>
-  </div>
-
-  <div class="about-card">
-    <h3>Dry Down</h3>
-    <p>Musk, Amber & soft woods creating long-lasting luxury trail.</p>
-  </div>
-
-</div>
-
-<!-- CART -->
-<div class="cart">
-  <h3>Cart 🛒</h3>
-  <div id="cartItems"></div>
+<!-- ABOUT -->
+<div class="about">
+  <div class="about-card">Vanilla Opening luxury scent</div>
+  <div class="about-card">Butter heart notes elegance</div>
+  <div class="about-card">Musk amber long lasting trail</div>
 </div>
 
 <!-- CONTACT -->
-<div class="contact" id="contact">
-  <h2>Contact Us</h2>
-
+<div class="contact">
   <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
   <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">Instagram</a>
 </div>
 
 <script>
 
-/* LOADER */
-window.onload=function(){
-  setTimeout(()=>{
-    document.getElementById("loader").style.display="none";
-  },1200);
+/* ===== LOADER FIX (NO FLICKER) ===== */
+document.addEventListener("DOMContentLoaded", function(){
+
+  const loader = document.getElementById("loader");
+
+  setTimeout(() => {
+    loader.classList.add("hide");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 600);
+
+  }, 1200);
+
+});
+
+/* ===== SLIDER SAFE ===== */
+let index = 0;
+
+function move(dir){
+  let slides = document.getElementById("slides");
+  if(!slides) return;
+
+  let total = 3;
+
+  index += dir;
+
+  if(index < 0) index = total - 1;
+  if(index >= total) index = 0;
+
+  slides.style.transform = "translateX(" + (-index * 100) + "%)";
 }
 
-/* CART */
-let cart=[];
-
-function addToCart(name,price){
-  cart.push({name,price});
-  updateCart();
-}
-
-function updateCart(){
-  let box=document.getElementById("cartItems");
-  box.innerHTML="";
-  cart.forEach(i=>{
-    box.innerHTML+=`<div>• ${i.name} - ${i.price} JD</div>`;
-  });
-}
+setInterval(function(){
+  move(1);
+}, 4000);
 
 </script>
 
