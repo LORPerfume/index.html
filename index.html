@@ -12,18 +12,46 @@
     background: #f4f4f4;
   }
 
-  header {
+  /* ===== TOP NAV ===== */
+  .topbar {
     background: black;
     color: white;
-    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .left {
     display: flex;
     align-items: center;
+    gap: 10px;
   }
 
   .logo {
-    width: 120px;
+    width: 60px;
   }
 
+  .brand {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .nav a:hover {
+    color: #25D366;
+  }
+
+  /* ===== PRODUCT ===== */
   .container {
     display: flex;
     justify-content: center;
@@ -32,7 +60,7 @@
 
   .card {
     background: white;
-    width: 300px;
+    width: 320px;
     border-radius: 15px;
     padding: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -49,51 +77,54 @@
     margin-top: 10px;
   }
 
-  .desc {
-    color: gray;
-    font-size: 14px;
-  }
-
-  /* السعر */
   .price {
     margin-top: 10px;
     font-size: 16px;
   }
 
-  .old-price {
+  .old {
     text-decoration: line-through;
     color: gray;
     margin-right: 8px;
   }
 
-  .new-price {
+  .new {
     color: #25D366;
     font-weight: bold;
     font-size: 18px;
   }
 
-  /* شرح المنتج */
-  .about {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #333;
-    line-height: 1.6;
-  }
-
   .btn {
     display: block;
-    text-align: center;
     padding: 10px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
     margin-top: 8px;
+    text-align: center;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
     font-weight: bold;
     cursor: pointer;
   }
 
+  .cartbtn { background: #111; }
   .whatsapp { background: #25D366; }
 
+  /* ===== ABOUT SECTION ===== */
+  .section {
+    padding: 50px 20px;
+    text-align: center;
+  }
+
+  .about-box {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  /* ===== CART ===== */
   .cart-box {
     position: fixed;
     right: 15px;
@@ -105,16 +136,45 @@
     width: 220px;
   }
 
-  .cart-item {
-    font-size: 14px;
+  /* ===== CHECKOUT ===== */
+  .checkout {
+    background: #111;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
   }
 
+  .checkout form {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    color: black;
+  }
+
+  .checkout input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+  }
+
+  .paybtn {
+    background: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  /* ===== CONTACT ===== */
   .contact {
     background: black;
     color: white;
     text-align: center;
     padding: 40px;
-    margin-top: 40px;
   }
 
   .contact a {
@@ -135,85 +195,120 @@
 
 <body>
 
-<header>
-  <img class="logo" src="logo.png" alt="Logo">
-</header>
+<!-- ===== NAVBAR ===== -->
+<div class="topbar">
 
-<div class="container">
+  <div class="left">
+    <img src="logo.png" class="logo">
+    <div class="brand">LOR PERFUME LUXURY STORE</div>
+  </div>
 
-  <div class="card">
-
-    <img src="product.jpg" alt="Product">
-
-    <div class="title">Luxury Butter Perfume</div>
-    <div class="desc">Eau de Parfum - 1.01 FL.OZ</div>
-
-    <!-- السعر -->
-    <div class="price">
-      <span class="old-price">35 JD</span>
-      <span class="new-price">23 JD</span>
-    </div>
-
-    <!-- شرح -->
-    <div class="about">
-      عطر فاخر بثبات عالي ورائحة ناعمة فاخرة تدوم طوال اليوم.
-      مناسب للاستخدام اليومي والهدايا المميزة.
-    </div>
-
-    <button class="btn whatsapp"
-      onclick="addToCart('Luxury Butter Perfume - 23 JD')">
-      Add to Cart
-    </button>
-
-    <a class="btn whatsapp"
-       href="https://wa.me/962787727783?text=I%20want%20to%20buy%20Luxury%20Butter%20Perfume%20for%2023%20JD"
-       target="_blank">
-      Buy on WhatsApp
-    </a>
-
+  <div class="nav">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#checkout">Buy</a>
   </div>
 
 </div>
 
-<!-- سلة -->
+<!-- ===== PRODUCT ===== -->
+<div class="container">
+
+  <div class="card">
+    <img src="product.jpg">
+
+    <div class="title">Luxury Butter Perfume</div>
+
+    <div class="price">
+      <span class="old">35 JD</span>
+      <span class="new">23 JD</span>
+    </div>
+
+    <button class="btn cartbtn" onclick="addToCart('Luxury Butter Perfume - 23 JD')">
+      Add to Cart
+    </button>
+
+    <a class="btn whatsapp"
+       href="https://wa.me/962787727783?text=I%20want%20Luxury%20Butter%20Perfume%20for%2023%20JD"
+       target="_blank">
+      Buy on WhatsApp
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== ABOUT PERFUME ===== -->
+<div class="section" id="about">
+  <div class="about-box">
+    <h2>About The Perfume</h2>
+    <p>
+      Luxury Butter Perfume is a premium fragrance crafted with elegant notes
+      that deliver a smooth, warm, and long-lasting scent. It combines soft
+      buttery accords with refined aromatic layers, making it perfect for
+      daily wear and special occasions. Designed for people who appreciate
+      luxury and sophistication in every detail.
+    </p>
+  </div>
+</div>
+
+<!-- ===== CHECKOUT (FAKE) ===== -->
+<div class="checkout" id="checkout">
+  <h2>Secure Checkout</h2>
+
+  <form onsubmit="fakePay(event)">
+    <input type="text" placeholder="Full Name" required>
+    <input type="text" placeholder="Address" required>
+    <input type="text" placeholder="Card Number (Fake)" required>
+    <input type="text" placeholder="Expiry Date" required>
+    <input type="text" placeholder="CVV" required>
+
+    <button class="paybtn">Pay Now</button>
+  </form>
+</div>
+
+<!-- ===== CART ===== -->
 <div class="cart-box">
   <h3>Cart 🛒</h3>
   <div id="cartItems"></div>
 </div>
 
-<!-- تواصل -->
-<div class="contact">
+<!-- ===== CONTACT ===== -->
+<div class="contact" id="contact">
   <h2>Contact Us</h2>
 
-  <a class="wa"
-     href="https://wa.me/962787727783"
-     target="_blank">
-     WhatsApp
+  <a class="wa" href="https://wa.me/962787727783" target="_blank">
+    WhatsApp
   </a>
 
   <a class="insta"
      href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw"
      target="_blank">
-     Instagram
+    Instagram
   </a>
 </div>
 
 <script>
+
 let cart = [];
 
-function addToCart(product) {
-  cart.push(product);
+function addToCart(item) {
+  cart.push(item);
   updateCart();
 }
 
 function updateCart() {
-  let cartDiv = document.getElementById("cartItems");
-  cartDiv.innerHTML = "";
-
-  cart.forEach(item => {
-    cartDiv.innerHTML += "<div class='cart-item'>• " + item + "</div>";
+  let box = document.getElementById("cartItems");
+  box.innerHTML = "";
+  cart.forEach(i => {
+    box.innerHTML += "<div>• " + i + "</div>";
   });
 }
+
+function fakePay(e) {
+  e.preventDefault();
+  alert("Payment Successful (Demo Mode) ✔");
+}
+
 </script>
 
 </body>
