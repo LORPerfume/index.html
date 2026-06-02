@@ -12,8 +12,8 @@ body{
   font-family:Arial;
   background: radial-gradient(circle at top,#0e0e0e,#000);
   color:white;
-  overflow-x:hidden;
   scroll-behavior:smooth;
+  overflow-x:hidden;
 }
 
 /* ===== LOADER ===== */
@@ -25,8 +25,6 @@ body{
   justify-content:center;
   align-items:center;
   z-index:9999;
-  opacity:1;
-  transition:opacity 0.6s ease;
 }
 
 #loader img{
@@ -43,25 +41,28 @@ body{
 #loader.hide{
   opacity:0;
   pointer-events:none;
+  transition:0.6s;
 }
 
-/* ===== TOPBAR ===== */
+/* ===== TOPBAR (RIGHT NAV FIXED) ===== */
 .topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:12px 20px;
   background:rgba(0,0,0,0.6);
   backdrop-filter:blur(15px);
-  position:sticky;
-  top:0;
   z-index:1000;
 }
 
-/* LEFT NAV */
+/* RIGHT NAV (NOW ON RIGHT SIDE) */
 .nav{
   display:flex;
-  gap:15px;
+  gap:12px;
   align-items:center;
 }
 
@@ -79,6 +80,20 @@ body{
   color:black;
 }
 
+/* BUY BUTTON */
+.buy{
+  background:#d4af37;
+  color:black !important;
+  font-weight:bold;
+}
+
+/* LOGO LEFT NOW */
+.right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
 .logo{
   width:45px;
   border-radius:10px;
@@ -92,12 +107,12 @@ body{
 /* ===== HERO ===== */
 .hero{
   text-align:center;
-  padding:50px 20px;
+  padding:120px 20px 50px;
 }
 
 .hero h1{
-  margin:0;
   font-size:26px;
+  margin:0;
   letter-spacing:3px;
 }
 
@@ -114,7 +129,7 @@ body{
 .slider{
   width:90%;
   max-width:420px;
-  margin:30px auto;
+  margin:40px auto;
   overflow:hidden;
   border-radius:15px;
   border:1px solid rgba(255,255,255,0.1);
@@ -122,14 +137,14 @@ body{
 
 .slides{
   display:flex;
-  transition:0.5s ease;
+  transition:0.5s;
 }
 
 .slides img{
   width:100%;
 }
 
-/* buttons */
+/* BUTTONS */
 .btn{
   position:absolute;
   top:50%;
@@ -138,12 +153,13 @@ body{
   border:none;
   color:white;
   padding:8px;
+  cursor:pointer;
 }
 
 .prev{left:10px;}
 .next{right:10px;}
 
-/* ===== PRODUCT ===== */
+/* PRODUCT */
 .product-text{
   text-align:center;
   padding:20px;
@@ -157,17 +173,10 @@ body{
   border-radius:6px;
 }
 
-.price{
-  margin-top:10px;
-}
-
-.old{color:gray;text-decoration:line-through;}
-.new{color:#d4af37;font-weight:bold;font-size:18px;}
-
-/* ===== ABOUT ===== */
+/* ABOUT */
 .about{
   max-width:800px;
-  margin:50px auto;
+  margin:60px auto;
   padding:20px;
 }
 
@@ -179,11 +188,11 @@ body{
   border:1px solid rgba(255,255,255,0.1);
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 .contact{
   background:black;
   text-align:center;
-  padding:40px;
+  padding:60px 20px;
 }
 
 .contact a{
@@ -197,7 +206,6 @@ body{
 
 .wa{background:#25D366;}
 .insta{background:#E1306C;}
-.buy{background:#d4af37;color:black;}
 
 </style>
 </head>
@@ -212,15 +220,17 @@ body{
 <!-- TOPBAR -->
 <div class="topbar">
 
+  <!-- LOGO LEFT -->
+  <div class="right">
+    <img src="logo.png" class="logo">
+    <div class="brand">LOR PERFUME</div>
+  </div>
+
+  <!-- NAV RIGHT -->
   <div class="nav">
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <a href="https://wa.me/962787727783" target="_blank" class="buy">Buy</a>
-  </div>
-
-  <div style="display:flex;align-items:center;gap:10px;">
-    <img src="logo.png" class="logo">
-    <div class="brand">LOR PERFUME</div>
+    <a class="buy" href="https://wa.me/962787727783" target="_blank">Buy</a>
   </div>
 
 </div>
@@ -270,18 +280,12 @@ body{
 
 /* loader fix */
 document.addEventListener("DOMContentLoaded", function(){
-
   const loader = document.getElementById("loader");
 
-  setTimeout(() => {
+  setTimeout(()=>{
     loader.classList.add("hide");
-
-    setTimeout(() => {
-      loader.style.display = "none";
-    }, 600);
-
-  }, 1200);
-
+    setTimeout(()=>loader.style.display="none",600);
+  },1200);
 });
 
 /* slider */
@@ -289,11 +293,9 @@ let index = 0;
 
 function move(dir){
   let slides = document.getElementById("slides");
-
   let total = 3;
 
   index += dir;
-
   if(index < 0) index = total - 1;
   if(index >= total) index = 0;
 
