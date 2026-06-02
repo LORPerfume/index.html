@@ -7,13 +7,12 @@
 
 <style>
 
-/* ===== BODY ===== */
+/* ===== GLOBAL LUXURY ===== */
 body{
   margin:0;
   font-family:Arial;
-  background: radial-gradient(circle at top,#0e0e0e,#000);
+  background: radial-gradient(circle at top,#0f0f0f,#000);
   color:white;
-  overflow-x:hidden;
 }
 
 /* ===== LOADER ===== */
@@ -34,12 +33,12 @@ body{
 }
 
 @keyframes pulse{
-  0%{transform:scale(1);opacity:0.5;}
-  50%{transform:scale(1.2);opacity:1;}
-  100%{transform:scale(1);opacity:0.5;}
+  0%{transform:scale(1); opacity:0.5;}
+  50%{transform:scale(1.2); opacity:1;}
+  100%{transform:scale(1); opacity:0.5;}
 }
 
-/* ===== TOPBAR ===== */
+/* ===== TOP BAR ===== */
 .topbar{
   display:flex;
   justify-content:space-between;
@@ -52,7 +51,11 @@ body{
   z-index:1000;
 }
 
-.left{display:flex;align-items:center;gap:10px;}
+.left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 
 .logo{
   width:50px;
@@ -68,97 +71,108 @@ body{
   color:white;
   margin-left:15px;
   text-decoration:none;
-  font-size:13px;
 }
 
-.nav a:hover{color:#d4af37;}
-
-/* ===== HERO ===== */
-.hero{
-  text-align:center;
-  padding:60px 20px;
-}
-
-.hero h1{
-  font-size:28px;
-  letter-spacing:3px;
-}
-
-.hero p{
-  color:#aaa;
-}
-
-.glow{
-  width:120px;
-  height:2px;
-  background:#d4af37;
-  margin:20px auto;
-  box-shadow:0 0 20px #d4af37;
-}
-
-/* ===== SLIDER ===== */
-.slider{
-  position:relative;
-  width:90%;
-  max-width:420px;
-  margin:40px auto;
-  overflow:hidden;
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,0.1);
-}
-
-.slides{
+/* ===== PRODUCT SECTION ===== */
+.container{
   display:flex;
-  transition:0.5s ease;
+  justify-content:center;
+  padding:40px 20px;
 }
 
-.slides img{
-  width:100%;
-  flex-shrink:0;
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.05);
+  width:340px;
+  border-radius:20px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(15px);
 }
 
-.btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.6);
-  border:none;
-  color:white;
-  padding:10px;
-  cursor:pointer;
+/* ===== PRODUCT FLEX (NEW LUXURY LAYOUT) ===== */
+.product-box{
+  display:flex;
+  gap:15px;
+  align-items:center;
 }
 
-.prev{left:10px;}
-.next{right:10px;}
+/* small image */
+.product-box img{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:0.4s;
+}
 
-/* ===== PRODUCT TEXT ===== */
-.product-text{
-  text-align:center;
-  padding:20px;
+.product-box img:hover{
+  transform:scale(1.05);
+}
+
+/* text next to image */
+.product-info h2{
+  margin:0;
+  font-size:16px;
+  color:#fff;
 }
 
 .badge{
+  display:inline-block;
+  margin-top:5px;
+  font-size:11px;
+  padding:4px 8px;
   background:#d4af37;
   color:black;
-  padding:5px 10px;
   border-radius:6px;
-  font-size:11px;
+  font-weight:bold;
 }
 
-.price{
+/* luxury phrase */
+.lux-text{
   margin-top:10px;
+  font-size:13px;
+  color:#ccc;
+  line-height:1.5;
 }
 
-.old{color:gray;text-decoration:line-through;}
-.new{color:#d4af37;font-weight:bold;font-size:18px;}
+/* PRICE */
+.price{
+  margin-top:15px;
+}
 
-/* ===== ABOUT ===== */
+.old{
+  text-decoration:line-through;
+  color:gray;
+}
+
+.new{
+  color:#d4af37;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* BUTTONS */
+.btn{
+  display:block;
+  padding:10px;
+  margin-top:8px;
+  border-radius:10px;
+  text-align:center;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.cartbtn{background:#111;color:white;}
+.buybtn{background:#d4af37;color:black;}
+
+/* ===== ABOUT LUXURY CARDS ===== */
 .about{
   max-width:900px;
   margin:60px auto;
-  padding:20px;
   display:grid;
   gap:15px;
+  padding:20px;
 }
 
 .about-card{
@@ -166,6 +180,24 @@ body{
   padding:20px;
   border-radius:15px;
   border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+}
+
+.about-card h3{
+  color:#d4af37;
+  margin-top:0;
+}
+
+/* ===== CART ===== */
+.cart{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  width:240px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  padding:15px;
+  border-radius:15px;
 }
 
 /* ===== CONTACT ===== */
@@ -173,6 +205,7 @@ body{
   background:black;
   text-align:center;
   padding:40px;
+  margin-top:60px;
 }
 
 .contact a{
@@ -180,8 +213,8 @@ body{
   margin:10px;
   padding:10px 15px;
   border-radius:8px;
-  color:white;
   text-decoration:none;
+  color:white;
 }
 
 .wa{background:#25D366;}
@@ -206,68 +239,82 @@ body{
   </div>
 
   <div class="nav">
-    <a href="#product">Product</a>
     <a href="#about">About</a>
+    <a href="#product">Product</a>
     <a href="#contact">Contact</a>
   </div>
 
 </div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>THE ART OF SCENT</h1>
-  <div class="glow"></div>
-  <p>Luxury fragrance experience beyond spraying</p>
-</div>
+<!-- PRODUCT -->
+<div class="container" id="product">
 
-<!-- SLIDER -->
-<div class="slider" id="product">
+  <div class="card">
 
-  <div class="slides" id="slides">
-    <img src="product.jpg">
-    <img src="product.jpg">
-    <img src="product.jpg">
+    <!-- NEW LAYOUT -->
+    <div class="product-box">
+
+      <img src="product.jpg">
+
+      <div class="product-info">
+        <h2>Luxury Butter Perfume</h2>
+        <span class="badge">NOT JUST A SPRAY</span>
+
+        <div class="lux-text">
+          A luxury fragrance experience — not a simple spray like ordinary perfumes.
+          Designed to stay, evolve, and leave a signature trail.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="price">
+      <span class="old">35 JD</span>
+      <span class="new">23 JD</span>
+    </div>
+
+    <button class="btn cartbtn" onclick="addToCart('Luxury Butter Perfume',23)">
+      Add to Cart
+    </button>
+
+    <a class="btn buybtn"
+       href="https://wa.me/962787727783?text=I%20want%20Luxury%20Butter%20Perfume%20for%2023%20JD">
+      Buy Now
+    </a>
+
   </div>
 
-  <button class="btn prev" onclick="move(-1)">‹</button>
-  <button class="btn next" onclick="move(1)">›</button>
-
 </div>
 
-<!-- PRODUCT TEXT -->
-<div class="product-text">
-  <span class="badge">NOT JUST A SPRAY</span>
-  <h2>Luxury Butter Perfume</h2>
-
-  <div class="price">
-    <span class="old">35 JD</span> →
-    <span class="new">23 JD</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
+<!-- ABOUT (PREMIUM CARDS) -->
 <div class="about" id="about">
 
   <div class="about-card">
     <h3>Concept</h3>
-    <p>A fragrance designed like a signature identity, not just a scent.</p>
+    <p>A fragrance built for elegance and presence, not just scent.</p>
   </div>
 
   <div class="about-card">
-    <h3>Vanilla Opening</h3>
-    <p>Soft vanilla cream gives warm luxury sweetness.</p>
+    <h3>Opening Notes</h3>
+    <p>Soft Vanilla Cream with a warm sweet introduction.</p>
   </div>
 
   <div class="about-card">
     <h3>Heart Notes</h3>
-    <p>Butter accords blended with elegant floral depth.</p>
+    <p>Butter Accord blended with smooth floral layers.</p>
   </div>
 
   <div class="about-card">
-    <h3>Final Trail</h3>
-    <p>Musk & amber create long-lasting luxury presence.</p>
+    <h3>Dry Down</h3>
+    <p>Musk, Amber & soft woods creating long-lasting luxury trail.</p>
   </div>
 
+</div>
+
+<!-- CART -->
+<div class="cart">
+  <h3>Cart 🛒</h3>
+  <div id="cartItems"></div>
 </div>
 
 <!-- CONTACT -->
@@ -275,10 +322,7 @@ body{
   <h2>Contact Us</h2>
 
   <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
-
-  <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">
-    Instagram
-  </a>
+  <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">Instagram</a>
 </div>
 
 <script>
@@ -290,22 +334,21 @@ window.onload=function(){
   },1200);
 }
 
-/* SLIDER */
-let index=0;
+/* CART */
+let cart=[];
 
-function move(dir){
-  let slides=document.getElementById("slides");
-  let total=3;
-
-  index+=dir;
-
-  if(index<0) index=total-1;
-  if(index>=total) index=0;
-
-  slides.style.transform=`translateX(${-index*100}%)`;
+function addToCart(name,price){
+  cart.push({name,price});
+  updateCart();
 }
 
-setInterval(()=>move(1),4000);
+function updateCart(){
+  let box=document.getElementById("cartItems");
+  box.innerHTML="";
+  cart.forEach(i=>{
+    box.innerHTML+=`<div>• ${i.name} - ${i.price} JD</div>`;
+  });
+}
 
 </script>
 
