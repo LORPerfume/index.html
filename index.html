@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      background: #f5f5f5;
       text-align: center;
     }
 
@@ -20,450 +20,63 @@
     }
 
     .logo {
-      width: 180px;
+      width: 160px;
       margin-top: 20px;
     }
 
     .container {
       padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
     }
 
-    .product {
+    .card {
       background: white;
-      padding: 20px;
-      margin: 20px auto;
-      width: 300px;
-      border-radius: 10px;
+      width: 280px;
+      border-radius: 12px;
+      padding: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    .product img {
+    .card img {
       width: 100%;
       border-radius: 10px;
     }
 
     .title {
       font-size: 18px;
-      margin: 10px 0;
+      margin-top: 10px;
       font-weight: bold;
     }
 
     .desc {
-      color: #666;
+      color: gray;
+      font-size: 14px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- اللوجو -->
   <header>
     <h1>LOR Perfume</h1>
   </header>
 
-  <!-- إذا عندك لوجو صورة بنفس index.html -->
-  <!-- غير اسم الصورة حسب اللي عندك -->
-  <img class="logo" src="logo.png" alt="Logo">
+  <!-- اللوجو -->
+  <img class="logo" src="logo.png.jpeg" alt="Logo">
 
   <div class="container">
 
-    <!-- منتج 1 -->
-    <div class="product">
-      <img src="product1.jpg" alt="Perfume 1">
+    <!-- منتج -->
+    <div class="card">
+      <img src="product.jpg.jpeg" alt="Product">
       <div class="title">Luxury Butter Perfume</div>
       <div class="desc">Eau de Parfum - 1.01 FL.OZ</div>
     </div>
 
-    <!-- منتج 2 -->
-    <div class="product">
-      <img src="product2.jpg" alt="Perfume 2">
-      <div class="title">Elegant Scent</div>
-      <div class="desc">Long lasting fragrance</div>
-    </div>
-
   </div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>LOR' Luxury Butter Perfume</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-  --gold:#d4af37;
-  --black:#0b0b0b;
-  --bg:#f8f8f8;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:#222;
-}
-
-/* NAVBAR */
-
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background:rgba(0,0,0,.92);
-  backdrop-filter:blur(10px);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 40px;
-  z-index:1000;
-}
-
-.logo-text{
-  color:var(--gold);
-  font-size:30px;
-  font-family:'Playfair Display',serif;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  transition:.3s;
-}
-
-nav a:hover{
-  color:var(--gold);
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-  background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-  url("product.jpg");
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:120px 20px 60px;
-}
-
-.hero-content{
-  max-width:800px;
-}
-
-.hero-logo{
-  width:140px;
-  margin-bottom:25px;
-}
-
-.hero h1{
-  color:white;
-  font-size:70px;
-  font-family:'Playfair Display',serif;
-}
-
-.hero p{
-  color:#ddd;
-  font-size:18px;
-  line-height:1.8;
-  margin-top:20px;
-}
-
-.price{
-  color:var(--gold);
-  font-size:48px;
-  font-weight:bold;
-  margin-top:25px;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:15px 35px;
-  background:var(--gold);
-  color:black;
-  text-decoration:none;
-  border-radius:40px;
-  font-weight:700;
-  transition:.3s;
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-}
-
-/* PRODUCT */
-
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:100px 20px;
-}
-
-.title{
-  text-align:center;
-  font-size:42px;
-  font-family:'Playfair Display',serif;
-}
-
-.product-box{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:center;
-  gap:60px;
-  margin-top:60px;
-}
-
-.product-box img{
-  width:380px;
-  max-width:100%;
-  border-radius:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,.15);
-}
-
-.product-info{
-  max-width:500px;
-}
-
-.product-info h2{
-  font-size:40px;
-  font-family:'Playfair Display',serif;
-  margin-bottom:20px;
-}
-
-.product-info p{
-  color:#666;
-  line-height:1.9;
-}
-
-.features{
-  margin-top:25px;
-}
-
-.features li{
-  margin-bottom:12px;
-}
-
-/* ABOUT */
-
-.about{
-  background:white;
-}
-
-.about-text{
-  text-align:center;
-  max-width:850px;
-  margin:auto;
-  margin-top:30px;
-  line-height:2;
-  color:#666;
-}
-
-/* CONTACT */
-
-.contact{
-  background:#111;
-  color:white;
-  text-align:center;
-  padding:80px 20px;
-}
-
-.contact h2{
-  font-family:'Playfair Display',serif;
-  font-size:40px;
-}
-
-.contact p{
-  margin-top:15px;
-  color:#ccc;
-}
-
-/* FOOTER */
-
-footer{
-  background:black;
-  color:#999;
-  text-align:center;
-  padding:20px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:#25D366;
-  color:white;
-  text-decoration:none;
-  padding:15px 22px;
-  border-radius:50px;
-  font-weight:bold;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-  font-size:48px;
-}
-
-.price{
-  font-size:38px;
-}
-
-nav{
-  padding:15px 20px;
-}
-
-.logo-text{
-  font-size:24px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<nav>
-  <div class="logo-text">LOR'</div>
-
-  <div>
-    <a href="#product">Product</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<img src="logo.png.jpeg" class="hero-logo" alt="LOR Logo">
-
-<h1>LOR'</h1>
-
-<p>
-Luxury Butter Perfume crafted for elegance,
-confidence and a long-lasting fragrance experience.
-</p>
-
-<div class="price">23 JOD</div>
-
-<a
-class="btn"
-href="https://wa.me/962787727783?text=Hello%20I%20would%20like%20to%20order%20LOR%20Luxury%20Butter%20Perfume"
-target="_blank">
-BUY NOW
-</a>
-
-</div>
-
-</section>
-
-<section class="section" id="product">
-
-<h2 class="title">Luxury Butter Perfume</h2>
-
-<div class="product-box">
-
-<img src="product.jpg.jpeg" alt="LOR Perfume">
-
-<div class="product-info">
-
-<h2>LOR' Luxury Butter Perfume</h2>
-
-<p>
-A rich and concentrated luxury butter perfume
-designed for people who appreciate elegance,
-quality and long-lasting fragrance.
-</p>
-
-<ul class="features">
-<li>✓ Long Lasting Fragrance</li>
-<li>✓ Rich & Concentrated Formula</li>
-<li>✓ Premium Luxury Design</li>
-<li>✓ Perfect Daily Use</li>
-</ul>
-
-<div class="price">23 JOD</div>
-
-<a
-class="btn"
-href="https://wa.me/962787727783?text=Hello%20I%20would%20like%20to%20order%20LOR%20Luxury%20Butter%20Perfume"
-target="_blank">
-ORDER VIA WHATSAPP
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section about" id="about">
-
-<h2 class="title">About LOR'</h2>
-
-<p class="about-text">
-LOR' represents elegance, luxury and confidence.
-Our Luxury Butter Perfume is carefully crafted to
-deliver a premium fragrance experience that lasts
-throughout the day while maintaining a refined and
-sophisticated character.
-</p>
-
-</section>
-
-<section class="contact" id="contact">
-
-<h2>Contact Us</h2>
-
-<p>WhatsApp: +962 78 772 7783</p>
-
-<a
-class="btn"
-href="https://wa.me/962787727783?text=Hello%20I%20would%20like%20to%20order%20LOR%20Luxury%20Butter%20Perfume"
-target="_blank">
-Chat on WhatsApp
-</a>
-
-</section>
-
-<footer>
-© 2026 LOR' Perfume. All Rights Reserved.
-</footer>
-
-<a
-class="whatsapp"
-href="https://wa.me/962787727783?text=Hello%20I%20would%20like%20to%20order%20LOR%20Luxury%20Butter%20Perfume"
-target="_blank">
-WhatsApp
-</a>
 
 </body>
 </html>
