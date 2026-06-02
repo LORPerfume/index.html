@@ -7,6 +7,323 @@
 
 <style>
 
+/* ===== GLOBAL ===== */
+body{
+  margin:0;
+  font-family:Arial;
+  background: radial-gradient(circle at top,#0e0e0e,#000);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ===== LOADER ===== */
+#loader{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.loader-logo{
+  width:90px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);opacity:0.5;}
+  50%{transform:scale(1.2);opacity:1;}
+  100%{transform:scale(1);opacity:0.5;}
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 20px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(15px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.left{display:flex;align-items:center;gap:10px;}
+
+.logo{
+  width:50px;
+  border-radius:10px;
+  animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-3px);}
+  100%{transform:translateY(0);}
+}
+
+.brand{
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+.nav a{
+  color:white;
+  margin-left:15px;
+  text-decoration:none;
+}
+
+.nav a:hover{color:#d4af37;}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.hero h1{
+  font-size:28px;
+  letter-spacing:3px;
+}
+
+.hero p{
+  color:#aaa;
+}
+
+/* glow line */
+.glow{
+  width:120px;
+  height:2px;
+  background:#d4af37;
+  margin:20px auto;
+  box-shadow:0 0 20px #d4af37;
+}
+
+/* ===== SLIDER ===== */
+.slider{
+  position:relative;
+  width:100%;
+  max-width:420px;
+  margin:40px auto;
+  overflow:hidden;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+.slides{
+  display:flex;
+  transition:0.5s ease;
+}
+
+.slides img{
+  width:100%;
+  flex-shrink:0;
+}
+
+/* buttons */
+.prev,.next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  border:none;
+  color:white;
+  padding:10px;
+  cursor:pointer;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
+
+/* ===== PRODUCT TEXT ===== */
+.product-text{
+  text-align:center;
+  padding:20px;
+}
+
+.product-text h2{
+  margin:10px 0;
+}
+
+.badge{
+  display:inline-block;
+  background:#d4af37;
+  color:black;
+  padding:5px 10px;
+  border-radius:6px;
+  font-size:11px;
+}
+
+/* ===== ABOUT ===== */
+.about{
+  max-width:900px;
+  margin:60px auto;
+  padding:20px;
+  display:grid;
+  gap:15px;
+}
+
+.about-card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+/* ===== CONTACT ===== */
+.contact{
+  background:black;
+  text-align:center;
+  padding:40px;
+}
+
+.contact a{
+  display:inline-block;
+  margin:10px;
+  padding:10px 15px;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+}
+
+.wa{background:#25D366;}
+.insta{background:#E1306C;}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="logo.png" class="loader-logo">
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+
+  <div class="left">
+    <img src="logo.png" class="logo">
+    <div class="brand">LOR PERFUME LUXURY</div>
+  </div>
+
+  <div class="nav">
+    <a href="#product">Product</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>THE ART OF SCENT</h1>
+  <div class="glow"></div>
+  <p>A luxury fragrance experience beyond spraying</p>
+</div>
+
+<!-- SLIDER -->
+<div class="slider" id="product">
+
+  <div class="slides" id="slides">
+    <img src="product.jpg">
+    <img src="product.jpg">
+    <img src="product.jpg">
+  </div>
+
+  <button class="prev" onclick="move(-1)">‹</button>
+  <button class="next" onclick="move(1)">›</button>
+
+</div>
+
+<!-- PRODUCT TEXT -->
+<div class="product-text">
+  <span class="badge">NOT JUST A SPRAY</span>
+  <h2>Luxury Butter Perfume</h2>
+  <p>35 JD → <b style="color:#d4af37;">23 JD</b></p>
+</div>
+
+<!-- ABOUT -->
+<div class="about" id="about">
+
+  <div class="about-card">
+    <h3>Luxury Concept</h3>
+    <p>A fragrance designed like a signature identity, not just a smell.</p>
+  </div>
+
+  <div class="about-card">
+    <h3>Vanilla Opening</h3>
+    <p>Soft vanilla cream opens the scent with warm luxury sweetness.</p>
+  </div>
+
+  <div class="about-card">
+    <h3>Evolution</h3>
+    <p>Butter accords blend into elegant floral depth.</p>
+  </div>
+
+  <div class="about-card">
+    <h3>Final Trail</h3>
+    <p>Musk & amber leave a long-lasting luxurious presence.</p>
+  </div>
+
+</div>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <h2>Contact Us</h2>
+
+  <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
+
+  <a class="insta"
+     href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">
+     Instagram
+  </a>
+</div>
+
+<script>
+
+/* LOADER */
+window.onload=function(){
+  setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+  },1200);
+}
+
+/* SLIDER */
+let index=0;
+
+function move(dir){
+  let slides=document.getElementById("slides");
+  let total=3;
+
+  index+=dir;
+
+  if(index<0) index=total-1;
+  if(index>=total) index=0;
+
+  slides.style.transform=`translateX(${-index*100}%)`;
+}
+
+/* auto slider */
+setInterval(()=>move(1),4000);
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOR Perfume Luxury</title>
+
+<style>
+
 /* ===== GLOBAL LUXURY ===== */
 body{
   margin:0;
