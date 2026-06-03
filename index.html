@@ -59,10 +59,12 @@ body{
   z-index:1000;
 }
 
+/* NAV RIGHT (FIXED BUG) */
 .nav{
   display:flex;
   gap:12px;
   align-items:center;
+  flex-wrap:nowrap;
 }
 
 .nav a{
@@ -72,6 +74,7 @@ body{
   padding:6px 10px;
   border-radius:6px;
   transition:0.3s;
+  white-space:nowrap;
 }
 
 .nav a:hover{
@@ -79,12 +82,18 @@ body{
   color:black;
 }
 
+/* BUY BUTTON FIX (VISIBLE ALWAYS) */
 .buy{
   background:#d4af37;
   color:black !important;
   font-weight:bold;
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:6px;
+  white-space:nowrap;
 }
 
+/* LOGO */
 .right{
   display:flex;
   align-items:center;
@@ -101,7 +110,7 @@ body{
   letter-spacing:2px;
 }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   text-align:center;
   padding:120px 20px 50px;
@@ -122,7 +131,7 @@ body{
   margin:15px auto;
 }
 
-/* ===== SLIDER ===== */
+/* SLIDER */
 .slider{
   width:90%;
   max-width:420px;
@@ -130,6 +139,7 @@ body{
   overflow:hidden;
   border-radius:15px;
   border:1px solid rgba(255,255,255,0.1);
+  position:relative;
 }
 
 .slides{
@@ -155,7 +165,7 @@ body{
 .prev{left:10px;}
 .next{right:10px;}
 
-/* ===== PRODUCT ===== */
+/* PRODUCT */
 .product-text{
   text-align:center;
   padding:20px;
@@ -169,7 +179,7 @@ body{
   border-radius:6px;
 }
 
-/* السعر الجديد + زر */
+/* PRICE BOX */
 .price-box{
   margin-top:10px;
 }
@@ -186,6 +196,14 @@ body{
   font-weight:bold;
 }
 
+/* COUNTDOWN */
+.countdown{
+  margin-top:8px;
+  font-size:14px;
+  color:#ffcc00;
+}
+
+/* BUY BUTTON */
 .buy-now{
   display:inline-block;
   margin-top:12px;
@@ -258,7 +276,7 @@ body{
   <div class="nav">
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
-    <a class="buy" href="https://wa.me/962787727783" target="_blank">Buy</a>
+    <a class="buy" href="https://wa.me/962787727783" target="_blank">BUY</a>
   </div>
 
 </div>
@@ -291,6 +309,11 @@ body{
 
     <div class="old-price">35 JD</div>
     <div class="new-price">23 JD</div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown" id="countdown">
+      Offer ends in: 00:00:00
+    </div>
 
     <a class="buy-now" href="https://wa.me/962787727783" target="_blank">
       BUY NOW
@@ -341,6 +364,26 @@ function move(dir){
 }
 
 setInterval(()=>move(1),4000);
+
+/* COUNTDOWN TIMER (24 HOURS RESET) */
+function startCountdown(){
+  let end = new Date().getTime() + 24*60*60*1000;
+
+  setInterval(()=>{
+    let now = new Date().getTime();
+    let diff = end - now;
+
+    let h = Math.floor(diff / (1000*60*60));
+    let m = Math.floor((diff % (1000*60*60)) / (1000*60));
+    let s = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+      "Offer ends in: " + h + "h " + m + "m " + s + "s";
+
+  },1000);
+}
+
+startCountdown();
 
 </script>
 
