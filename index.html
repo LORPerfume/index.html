@@ -112,6 +112,401 @@ body{
   border-radius:8px;
 }
 
+/* HERO */
+.hero{
+  text-align:center;
+  padding:130px 20px 50px;
+}
+
+.hero h1{
+  font-size:28px;
+  letter-spacing:4px;
+  margin:0;
+}
+
+.hero p{
+  color:#bbb;
+  margin-top:10px;
+}
+
+.glow{
+  width:120px;
+  height:2px;
+  background:#d4af37;
+  margin:15px auto;
+  border-radius:50px;
+}
+
+/* SLIDER */
+.slider{
+  width:92%;
+  max-width:430px;
+  margin:40px auto;
+  overflow:hidden;
+  border-radius:18px;
+  border:1px solid rgba(212,175,55,0.25);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+  position:relative;
+}
+
+.slides{
+  display:flex;
+  transition:0.6s ease;
+}
+
+.slides img{
+  width:100%;
+  border-radius:18px;
+}
+
+.btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.2);
+  color:white;
+  padding:8px 10px;
+  cursor:pointer;
+  border-radius:10px;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
+
+/* PRODUCT */
+.product-text{
+  text-align:center;
+  padding:25px;
+}
+
+.badge{
+  background:#d4af37;
+  color:black;
+  padding:6px 12px;
+  font-size:11px;
+  border-radius:20px;
+  letter-spacing:1px;
+}
+
+h2{
+  margin-top:12px;
+  font-size:22px;
+}
+
+/* PRICE */
+.old-price{
+  text-decoration:line-through;
+  color:#888;
+  font-size:15px;
+}
+
+.new-price{
+  color:#d4af37;
+  font-size:24px;
+  font-weight:bold;
+}
+
+/* COUNTDOWN */
+.countdown{
+  margin-top:8px;
+  font-size:13px;
+  color:#ffcc70;
+}
+
+/* BUY */
+.buy-now{
+  display:inline-block;
+  margin-top:14px;
+  padding:12px 32px;
+  background:#d4af37;
+  color:black;
+  font-weight:bold;
+  text-decoration:none;
+  border-radius:30px;
+  transition:0.3s;
+  box-shadow:0 8px 20px rgba(212,175,55,0.25);
+}
+
+.buy-now:hover{
+  transform:scale(1.05);
+}
+
+/* ABOUT */
+.about{
+  max-width:800px;
+  margin:60px auto;
+  padding:20px;
+}
+
+.about-card{
+  background:rgba(255,255,255,0.04);
+  padding:15px;
+  margin-bottom:12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(8px);
+}
+
+/* CONTACT */
+.contact{
+  background:black;
+  text-align:center;
+  padding:60px 20px;
+}
+
+.contact a{
+  display:inline-block;
+  margin:10px;
+  padding:10px 16px;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+}
+
+.wa{background:#25D366;}
+.insta{background:#E1306C;}
+.fb{background:#1877F2;}
+
+.contact a:hover{
+  transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="logo.png">
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+
+  <div class="right">
+    <img src="logo.png" class="logo">
+    <div class="brand">LOR PERFUME</div>
+  </div>
+
+  <div class="nav">
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a class="buy" href="https://wa.me/962787727783">BUY</a>
+  </div>
+
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>THE ART OF SCENT</h1>
+  <div class="glow"></div>
+  <p>Luxury fragrance experience beyond spraying</p>
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides" id="slides">
+    <img src="product.jpg">
+    <img src="product.jpg">
+    <img src="product.jpg">
+  </div>
+
+  <button class="btn prev" onclick="move(-1)">‹</button>
+  <button class="btn next" onclick="move(1)">›</button>
+</div>
+
+<!-- PRODUCT -->
+<div class="product-text">
+  <span class="badge">NOT JUST A SPRAY</span>
+  <h2>Luxury Butter Perfume</h2>
+
+  <div class="old-price">35 JD</div>
+  <div class="new-price">23 JD</div>
+
+  <div class="countdown" id="countdown"></div>
+
+  <a class="buy-now" href="https://wa.me/962787727783">BUY NOW</a>
+</div>
+
+<!-- ABOUT -->
+<div class="about" id="about">
+  <div class="about-card">Vanilla Opening luxury scent</div>
+  <div class="about-card">Butter heart notes elegance</div>
+  <div class="about-card">Musk amber long lasting trail</div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <h2>Contact Us</h2>
+
+  <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
+  <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">Instagram</a>
+
+  <!-- FACEBOOK ADDED -->
+  <a class="fb" href="https://www.facebook.com/people/LOR-Perfume-JO/61590472924155/" target="_blank">
+    Facebook
+  </a>
+
+</div>
+
+<script>
+
+/* loader */
+document.addEventListener("DOMContentLoaded",()=>{
+  const loader=document.getElementById("loader");
+  setTimeout(()=>{
+    loader.classList.add("hide");
+    setTimeout(()=>loader.style.display="none",600);
+  },1200);
+});
+
+/* slider */
+let index=0;
+function move(dir){
+  let slides=document.getElementById("slides");
+  let total=3;
+  index+=dir;
+  if(index<0) index=total-1;
+  if(index>=total) index=0;
+  slides.style.transform="translateX("+(-index*100)+"%)";
+}
+setInterval(()=>move(1),4000);
+
+/* countdown */
+function startCountdown(){
+  let end=new Date().getTime()+86400000;
+  setInterval(()=>{
+    let now=new Date().getTime();
+    let diff=end-now;
+    let h=Math.floor(diff/3600000);
+    let m=Math.floor((diff%3600000)/60000);
+    let s=Math.floor((diff%60000)/1000);
+    document.getElementById("countdown").innerText=
+    "Offer ends in: "+h+"h "+m+"m "+s+"s";
+  },1000);
+}
+startCountdown();
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOR Perfume Luxury</title>
+
+<style>
+
+/* ===== GLOBAL ===== */
+body{
+  margin:0;
+  font-family: "Arial", sans-serif;
+  background: radial-gradient(circle at top,#111,#000);
+  color:white;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+
+/* ===== LOADER ===== */
+#loader{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+#loader img{
+  width:90px;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);opacity:0.5;}
+  50%{transform:scale(1.25);opacity:1;}
+  100%{transform:scale(1);opacity:0.5;}
+}
+
+#loader.hide{
+  opacity:0;
+  pointer-events:none;
+  transition:0.6s;
+}
+
+/* ===== TOPBAR (LUXURY FIX) ===== */
+.topbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 18px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(212,175,55,0.2);
+  z-index:1000;
+  box-sizing:border-box;
+}
+
+.right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:45px;
+  border-radius:12px;
+}
+
+.brand{
+  font-size:13px;
+  letter-spacing:3px;
+  color:#fff;
+  opacity:0.9;
+}
+
+/* NAV */
+.nav{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+  font-size:13px;
+  padding:7px 12px;
+  border-radius:8px;
+  transition:0.3s;
+  white-space:nowrap;
+  border:1px solid transparent;
+}
+
+.nav a:hover{
+  border:1px solid #d4af37;
+  color:#d4af37;
+}
+
+.buy{
+  background:#d4af37;
+  color:black !important;
+  font-weight:bold;
+  padding:7px 14px;
+  border-radius:8px;
+}
+
 /* ===== HERO ===== */
 .hero{
   text-align:center;
