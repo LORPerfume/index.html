@@ -4,301 +4,94 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LOR Perfume Luxury</title>
-
 <style>
-
-/* ===== GLOBAL ===== */
-body{
-  margin:0;
-  font-family: "Arial", sans-serif;
-  background: radial-gradient(circle at top,#0a0a0a,#000);
-  color:white;
-  overflow-x:hidden;
-  scroll-behavior:smooth;
-  line-height:1.6;
-}
-
-/* ===== LOADER ===== */
-#loader{
-  position:fixed;
-  inset:0;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-#loader img{
-  width:90px;
-  animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-  0%{transform:scale(1);opacity:0.5;}
-  50%{transform:scale(1.25);opacity:1;}
-  100%{transform:scale(1);opacity:0.5;}
-}
-
-#loader.hide{
-  opacity:0;
-  pointer-events:none;
-}
-
-/* ===== TOPBAR ===== */
-.topbar{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 18px;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(18px);
-  z-index:1000;
-}
-
-.logo{width:45px;border-radius:12px;}
-
-.brand{
-  font-size:13px;
-  letter-spacing:3px;
-}
-
-.nav a{
-  color:white;
-  text-decoration:none;
-  margin:0 8px;
-  font-size:13px;
-}
-
-.buy{
-  background:#d4af37;
-  color:black !important;
-  padding:7px 14px;
-  border-radius:8px;
-  font-weight:bold;
-}
-
-/* ===== HERO (IMPROVED) ===== */
-.hero{
-  text-align:center;
-  padding:140px 20px 60px;
-}
-
-.hero h1{
-  font-size:32px;
-  letter-spacing:5px;
-}
-
-.hero p{
-  color:#ccc;
-  max-width:600px;
-  margin:10px auto;
-}
-
-.hero-tag{
-  color:#d4af37;
-  font-size:13px;
-  letter-spacing:2px;
-  margin-bottom:10px;
-}
-
-/* ===== STORY ===== */
-.story{
-  max-width:900px;
-  margin:60px auto;
-  padding:30px;
-  text-align:center;
-}
-
-.story h2{
-  color:#d4af37;
-  letter-spacing:3px;
-}
-
-.story-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:15px;
-  margin-top:20px;
-}
-
-.story-card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(212,175,55,0.2);
-  padding:15px;
-  border-radius:12px;
-}
-
-/* ===== SLIDER ===== */
-.slider{
-  width:92%;
-  max-width:430px;
-  margin:40px auto;
-  overflow:hidden;
-  border-radius:18px;
-  border:1px solid rgba(212,175,55,0.25);
-  position:relative;
-}
-
-.slides{
-  display:flex;
-  transition:0.6s ease;
-}
-
-.slides img{
-  width:100%;
-  border-radius:18px;
-}
-
-/* ===== PRODUCT ===== */
-.product{
-  text-align:center;
-  padding:30px;
-}
-
-.badge{
-  background:#d4af37;
-  color:black;
-  padding:6px 12px;
-  font-size:11px;
-  border-radius:20px;
-}
-
-.price-old{color:#888;text-decoration:line-through;}
-.price-new{color:#d4af37;font-size:26px;font-weight:bold;}
-
-.stock{
-  color:#ffcc70;
-  font-size:13px;
-  margin-top:5px;
-}
-
-/* ===== CTA ===== */
-.buy-now{
-  display:inline-block;
-  margin-top:15px;
-  padding:14px 35px;
-  background:#d4af37;
-  color:black;
-  font-weight:bold;
-  border-radius:30px;
-  text-decoration:none;
-  animation:pulseBtn 1.8s infinite;
-}
-
-@keyframes pulseBtn{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-  100%{transform:scale(1);}
-}
-
-/* ===== CONTACT ===== */
-.contact{
-  text-align:center;
-  padding:60px 20px;
-}
-
-.contact a{
-  margin:8px;
-  padding:10px 15px;
-  display:inline-block;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
-}
-
-.wa{background:#25D366;}
-.insta{background:#E1306C;}
-.fb{background:#1877F2;}
-
+body{margin:0;font-family:Arial,sans-serif;background:radial-gradient(circle at top,#111,#000);color:white;overflow-x:hidden;scroll-behavior:smooth;line-height:1.6;letter-spacing:0.3px}
+#loader{position:fixed;inset:0;background:black;display:flex;justify-content:center;align-items:center;z-index:9999}
+#loader img{width:90px;animation:pulse 1.5s infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.5}50%{transform:scale(1.25);opacity:1}100%{transform:scale(1);opacity:.5}}
+#loader.hide{opacity:0;pointer-events:none;transition:.6s}
+.topbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:rgba(0,0,0,.6);backdrop-filter:blur(18px);z-index:1000}
+.logo{width:45px;border-radius:12px}
+.brand{font-size:13px;letter-spacing:3px}
+.nav a{color:white;text-decoration:none;margin:0 8px;font-size:13px}
+.buy{background:#d4af37;color:black!important;padding:7px 14px;border-radius:8px;font-weight:bold}
+.hero{text-align:center;padding:130px 20px 50px}
+.hero h1{font-size:28px;letter-spacing:4px}
+.hero p{color:#bbb;margin-top:10px}
+.glow{width:120px;height:2px;background:#d4af37;margin:15px auto}
+.slider{width:92%;max-width:430px;margin:40px auto;overflow:hidden;border-radius:18px;border:1px solid rgba(212,175,55,.25);position:relative}
+.slides{display:flex;transition:.6s ease}
+.slides img{width:100%;border-radius:18px}
+.btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.2);color:white;padding:8px 10px;cursor:pointer;border-radius:10px}
+.prev{left:10px}.next{right:10px}
+.product-text{text-align:center;padding:25px}
+.badge{background:#d4af37;color:black;padding:6px 12px;font-size:11px;border-radius:20px}
+h2{font-size:22px}
+.old-price{text-decoration:line-through;color:#888}
+.new-price{color:#d4af37;font-size:24px;font-weight:bold}
+.countdown{margin-top:8px;font-size:13px;color:#ffcc70}
+.buy-now{display:inline-block;margin-top:14px;padding:12px 32px;background:#d4af37;color:black;font-weight:bold;text-decoration:none;border-radius:30px}
+.about{max-width:800px;margin:60px auto;padding:20px}
+.about-card{background:rgba(255,255,255,.04);padding:16px;margin-bottom:12px;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+.contact{text-align:center;background:black;padding:60px 20px}
+.contact a{display:inline-block;margin:10px;padding:10px 16px;border-radius:10px;text-decoration:none;color:white}
+.wa{background:#25D366}.insta{background:#E1306C}.fb{background:#1877F2}
 </style>
 </head>
-
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <img src="logo.png">
-</div>
+<div id="loader"><img src="logo.png"></div>
 
-<!-- TOPBAR -->
 <div class="topbar">
-  <div class="brand">LOR PERFUME</div>
+  <div class="right"><img src="logo.png" class="logo"><div class="brand">LOR PERFUME</div></div>
   <div class="nav">
-    <a href="#story">Story</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <a class="buy" href="https://wa.me/962787727783">BUY</a>
   </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">LUXURY FRAGRANCE HOUSE</div>
-  <h1>THE ART OF PRESENCE</h1>
-  <p>Not just a perfume — it is a signature of identity, crafted for those who leave a mark.</p>
+<h1>THE ART OF SCENT</h1>
+<div class="glow"></div>
+<p>Luxury fragrance experience beyond spraying</p>
 </div>
 
-<!-- STORY -->
-<div class="story" id="story">
-  <h2>THE STORY OF LOR</h2>
-
-  <div class="story-grid">
-    <div class="story-card">
-      <b>The Vision</b><br>
-      Redefining modern luxury fragrance with identity-driven scent.
-    </div>
-
-    <div class="story-card">
-      <b>The Craft</b><br>
-      Premium butter-based formula designed for long lasting elegance.
-    </div>
-
-    <div class="story-card">
-      <b>The Identity</b><br>
-      A fragrance that speaks before you do.
-    </div>
-  </div>
-</div>
-
-<!-- PRODUCT -->
 <div class="slider">
-  <div class="slides" id="slides">
-    <img src="product.jpg">
-    <img src="product.jpg">
-    <img src="product.jpg">
-  </div>
+<div class="slides"><img src="product.jpg"><img src="product.jpg"><img src="product.jpg"></div>
 </div>
 
-<div class="product">
-  <span class="badge">LIMITED EDITION</span>
-  <h2>Luxury Butter Perfume</h2>
-
-  <div class="price-old">35 JD</div>
-  <div class="price-new">23 JD</div>
-
-  <div class="stock">🔥 Only few bottles left</div>
-
-  <a class="buy-now" href="https://wa.me/962787727783">BUY NOW</a>
+<div class="product-text">
+<span class="badge">NOT JUST A SPRAY</span>
+<h2>Luxury Butter Perfume</h2>
+<div class="old-price">35 JD</div>
+<div class="new-price">23 JD</div>
+<div class="countdown"></div>
+<a class="buy-now" href="https://wa.me/962787727783">BUY NOW</a>
 </div>
 
-<!-- CONTACT -->
+<div class="about" id="about">
+<div class="about-card">Vanilla Opening luxury scent</div>
+<div class="about-card">Butter heart notes elegance</div>
+<div class="about-card">Musk amber long lasting trail</div>
+</div>
+
 <div class="contact" id="contact">
-  <h2>Contact Us</h2>
-
-  <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
-  <a class="insta" href="https://www.instagram.com/lorperfumejordan">Instagram</a>
-  <a class="fb" href="https://www.facebook.com/people/LOR-Perfume-JO/61590472924155/">Facebook</a>
+<h2>Contact Us</h2>
+<a class="wa">WhatsApp</a>
+<a class="insta">Instagram</a>
+<a class="fb">Facebook</a>
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded",()=>{
-  const loader=document.getElementById("loader");
-  setTimeout(()=>loader.classList.add("hide"),1200);
-});
+let i=0;
+function move(d){
+let s=document.querySelector(".slides");
+let t=3;
+i+=d;if(i<0)i=t-1;if(i>=t)i=0;
+s.style.transform="translateX("+(-i*100)+"%)";
+}
+setInterval(()=>move(1),4000);
 </script>
 
 </body>
