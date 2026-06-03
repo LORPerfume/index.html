@@ -7,13 +7,14 @@
 
 <style>
 
+/* ===== GLOBAL ===== */
 body{
   margin:0;
-  font-family:Arial;
-  background: radial-gradient(circle at top,#0e0e0e,#000);
+  font-family: "Arial", sans-serif;
+  background: radial-gradient(circle at top,#111,#000);
   color:white;
-  scroll-behavior:smooth;
   overflow-x:hidden;
+  scroll-behavior:smooth;
 }
 
 /* ===== LOADER ===== */
@@ -34,7 +35,7 @@ body{
 
 @keyframes pulse{
   0%{transform:scale(1);opacity:0.5;}
-  50%{transform:scale(1.2);opacity:1;}
+  50%{transform:scale(1.25);opacity:1;}
   100%{transform:scale(1);opacity:0.5;}
 }
 
@@ -44,7 +45,7 @@ body{
   transition:0.6s;
 }
 
-/* ===== TOPBAR FIXED ===== */
+/* ===== TOPBAR (LUXURY FIX) ===== */
 .topbar{
   position:fixed;
   top:0;
@@ -54,31 +55,30 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px 14px;
-  background:rgba(0,0,0,0.75);
-  backdrop-filter:blur(15px);
+  padding:14px 18px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(212,175,55,0.2);
   z-index:1000;
   box-sizing:border-box;
 }
 
-/* LOGO AREA */
 .right{
   display:flex;
   align-items:center;
   gap:10px;
-  min-width:0;
 }
 
 .logo{
   width:45px;
-  border-radius:10px;
-  flex-shrink:0;
+  border-radius:12px;
 }
 
 .brand{
   font-size:13px;
-  letter-spacing:2px;
-  white-space:nowrap;
+  letter-spacing:3px;
+  color:#fff;
+  opacity:0.9;
 }
 
 /* NAV */
@@ -86,151 +86,157 @@ body{
   display:flex;
   gap:10px;
   align-items:center;
-  flex-wrap:nowrap;
 }
 
-/* NAV LINKS */
 .nav a{
   color:white;
   text-decoration:none;
   font-size:13px;
-  padding:6px 10px;
-  border-radius:6px;
+  padding:7px 12px;
+  border-radius:8px;
   transition:0.3s;
   white-space:nowrap;
+  border:1px solid transparent;
 }
 
-/* HOVER */
 .nav a:hover{
-  background:#d4af37;
-  color:black;
+  border:1px solid #d4af37;
+  color:#d4af37;
 }
 
-/* BUY BUTTON FIX (IMPORTANT) */
 .buy{
   background:#d4af37;
   color:black !important;
   font-weight:bold;
-  padding:6px 12px;
-  border-radius:6px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  white-space:nowrap;
-  flex-shrink:0;
+  padding:7px 14px;
+  border-radius:8px;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
   text-align:center;
-  padding:120px 20px 50px;
+  padding:130px 20px 50px;
 }
 
 .hero h1{
-  font-size:26px;
+  font-size:28px;
+  letter-spacing:4px;
   margin:0;
-  letter-spacing:3px;
 }
 
-.hero p{color:#aaa;}
+.hero p{
+  color:#bbb;
+  margin-top:10px;
+}
 
 .glow{
-  width:100px;
+  width:120px;
   height:2px;
   background:#d4af37;
   margin:15px auto;
+  border-radius:50px;
 }
 
-/* SLIDER */
+/* ===== SLIDER ===== */
 .slider{
-  width:90%;
-  max-width:420px;
+  width:92%;
+  max-width:430px;
   margin:40px auto;
   overflow:hidden;
-  border-radius:15px;
-  border:1px solid rgba(255,255,255,0.1);
+  border-radius:18px;
+  border:1px solid rgba(212,175,55,0.25);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
   position:relative;
 }
 
 .slides{
   display:flex;
-  transition:0.5s;
+  transition:0.6s ease;
 }
 
 .slides img{
   width:100%;
+  border-radius:18px;
 }
 
 .btn{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  background:rgba(0,0,0,0.6);
-  border:none;
+  background:rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,0.2);
   color:white;
-  padding:8px;
+  padding:8px 10px;
   cursor:pointer;
+  border-radius:10px;
 }
 
 .prev{left:10px;}
 .next{right:10px;}
 
-/* PRODUCT */
+/* ===== PRODUCT ===== */
 .product-text{
   text-align:center;
-  padding:20px;
+  padding:25px;
 }
 
 .badge{
   background:#d4af37;
   color:black;
-  padding:5px 10px;
+  padding:6px 12px;
   font-size:11px;
-  border-radius:6px;
+  border-radius:20px;
+  letter-spacing:1px;
+}
+
+h2{
+  margin-top:12px;
+  font-size:22px;
 }
 
 /* PRICE */
 .price-box{
-  margin-top:10px;
+  margin-top:12px;
 }
 
 .old-price{
   text-decoration:line-through;
-  color:#777;
-  font-size:16px;
+  color:#888;
+  font-size:15px;
 }
 
 .new-price{
   color:#d4af37;
-  font-size:22px;
+  font-size:24px;
   font-weight:bold;
 }
 
 /* COUNTDOWN */
 .countdown{
   margin-top:8px;
-  font-size:14px;
-  color:#ffcc00;
+  font-size:13px;
+  color:#ffcc70;
 }
 
-/* BUY NOW */
+/* BUY */
 .buy-now{
   display:inline-block;
-  margin-top:12px;
-  padding:12px 30px;
+  margin-top:14px;
+  padding:12px 32px;
   background:#d4af37;
   color:black;
   font-weight:bold;
   text-decoration:none;
   border-radius:30px;
   transition:0.3s;
+  box-shadow:0 8px 20px rgba(212,175,55,0.25);
 }
 
 .buy-now:hover{
   transform:scale(1.05);
 }
 
-/* ABOUT */
+/* ===== ABOUT ===== */
 .about{
   max-width:800px;
   margin:60px auto;
@@ -238,14 +244,15 @@ body{
 }
 
 .about-card{
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.04);
   padding:15px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,0.1);
+  margin-bottom:12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(8px);
 }
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 .contact{
   background:black;
   text-align:center;
@@ -255,14 +262,19 @@ body{
 .contact a{
   display:inline-block;
   margin:10px;
-  padding:10px 15px;
-  border-radius:8px;
+  padding:10px 16px;
+  border-radius:10px;
   text-decoration:none;
   color:white;
+  transition:0.3s;
 }
 
 .wa{background:#25D366;}
 .insta{background:#E1306C;}
+
+.contact a:hover{
+  transform:scale(1.05);
+}
 
 </style>
 </head>
@@ -318,7 +330,7 @@ body{
     <div class="old-price">35 JD</div>
     <div class="new-price">23 JD</div>
     <div class="countdown" id="countdown">Offer ends in: 00:00:00</div>
-    <a class="buy-now" href="https://wa.me/962787727783" target="_blank">BUY NOW</a>
+    <a class="buy-now" href="https://wa.me/962787727783">BUY NOW</a>
   </div>
 </div>
 
@@ -340,9 +352,8 @@ body{
 <script>
 
 /* loader */
-document.addEventListener("DOMContentLoaded", function(){
-  const loader = document.getElementById("loader");
-
+document.addEventListener("DOMContentLoaded",()=>{
+  const loader=document.getElementById("loader");
   setTimeout(()=>{
     loader.classList.add("hide");
     setTimeout(()=>loader.style.display="none",600);
@@ -350,39 +361,30 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 /* slider */
-let index = 0;
-
+let index=0;
 function move(dir){
-  let slides = document.getElementById("slides");
-  let total = 3;
-
-  index += dir;
-  if(index < 0) index = total - 1;
-  if(index >= total) index = 0;
-
-  slides.style.transform = "translateX(" + (-index * 100) + "%)";
+  let slides=document.getElementById("slides");
+  let total=3;
+  index+=dir;
+  if(index<0) index=total-1;
+  if(index>=total) index=0;
+  slides.style.transform="translateX("+(-index*100)+"%)";
 }
-
 setInterval(()=>move(1),4000);
 
 /* countdown */
 function startCountdown(){
-  let end = new Date().getTime() + 24*60*60*1000;
-
+  let end=new Date().getTime()+86400000;
   setInterval(()=>{
-    let now = new Date().getTime();
-    let diff = end - now;
-
-    let h = Math.floor(diff / (1000*60*60));
-    let m = Math.floor((diff % (1000*60*60)) / (1000*60));
-    let s = Math.floor((diff % (1000*60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-      "Offer ends in: " + h + "h " + m + "m " + s + "s";
-
+    let now=new Date().getTime();
+    let diff=end-now;
+    let h=Math.floor(diff/3600000);
+    let m=Math.floor((diff%3600000)/60000);
+    let s=Math.floor((diff%60000)/1000);
+    document.getElementById("countdown").innerText=
+    "Offer ends in: "+h+"h "+m+"m "+s+"s";
   },1000);
 }
-
 startCountdown();
 
 </script>
