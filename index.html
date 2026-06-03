@@ -44,7 +44,7 @@ body{
   transition:0.6s;
 }
 
-/* ===== TOPBAR ===== */
+/* ===== TOPBAR FIX (BUY NOT CUT) ===== */
 .topbar{
   position:fixed;
   top:0;
@@ -53,18 +53,42 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:12px 20px;
-  background:rgba(0,0,0,0.6);
+  padding:12px 16px;
+  background:rgba(0,0,0,0.75);
   backdrop-filter:blur(15px);
   z-index:1000;
+  box-sizing:border-box;
 }
 
+/* LOGO */
+.right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+
+.logo{
+  width:45px;
+  border-radius:10px;
+  flex-shrink:0;
+}
+
+.brand{
+  font-size:13px;
+  letter-spacing:2px;
+  white-space:nowrap;
+}
+
+/* NAV */
 .nav{
   display:flex;
-  gap:12px;
+  gap:10px;
   align-items:center;
+  flex-wrap:nowrap;
 }
 
+/* LINKS */
 .nav a{
   color:white;
   text-decoration:none;
@@ -75,36 +99,24 @@ body{
   white-space:nowrap;
 }
 
+/* HOVER */
 .nav a:hover{
   background:#d4af37;
   color:black;
 }
 
+/* BUY BUTTON FIX */
 .buy{
   background:#d4af37;
   color:black !important;
   font-weight:bold;
-  display:inline-block;
   padding:6px 12px;
   border-radius:6px;
-  white-space:nowrap;
-}
-
-/* LOGO */
-.right{
-  display:flex;
+  display:inline-flex;
   align-items:center;
-  gap:10px;
-}
-
-.logo{
-  width:45px;
-  border-radius:10px;
-}
-
-.brand{
-  font-size:13px;
-  letter-spacing:2px;
+  justify-content:center;
+  white-space:nowrap;
+  flex-shrink:0;
 }
 
 /* HERO */
@@ -248,7 +260,7 @@ body{
   <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
   <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">Instagram</a>
 
-  <!-- FACEBOOK ADDED -->
+  <!-- FACEBOOK -->
   <a class="fb" href="https://www.facebook.com/people/LOR-Perfume-JO/61590472924155/" target="_blank">
     Facebook
   </a>
@@ -282,396 +294,6 @@ function move(dir){
 }
 
 setInterval(()=>move(1),4000);
-
-</script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOR Perfume Luxury</title>
-
-<style>
-
-body{
-  margin:0;
-  font-family:Arial;
-  background: radial-gradient(circle at top,#0e0e0e,#000);
-  color:white;
-  scroll-behavior:smooth;
-  overflow-x:hidden;
-}
-
-/* ===== LOADER ===== */
-#loader{
-  position:fixed;
-  inset:0;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-#loader img{
-  width:90px;
-  animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-  0%{transform:scale(1);opacity:0.5;}
-  50%{transform:scale(1.2);opacity:1;}
-  100%{transform:scale(1);opacity:0.5;}
-}
-
-#loader.hide{
-  opacity:0;
-  pointer-events:none;
-  transition:0.6s;
-}
-
-/* ===== TOPBAR ===== */
-.topbar{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 20px;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(15px);
-  z-index:1000;
-}
-
-/* NAV RIGHT (FIXED BUG) */
-.nav{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  flex-wrap:nowrap;
-}
-
-.nav a{
-  color:white;
-  text-decoration:none;
-  font-size:13px;
-  padding:6px 10px;
-  border-radius:6px;
-  transition:0.3s;
-  white-space:nowrap;
-}
-
-.nav a:hover{
-  background:#d4af37;
-  color:black;
-}
-
-/* BUY BUTTON FIX (VISIBLE ALWAYS) */
-.buy{
-  background:#d4af37;
-  color:black !important;
-  font-weight:bold;
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:6px;
-  white-space:nowrap;
-}
-
-/* LOGO */
-.right{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.logo{
-  width:45px;
-  border-radius:10px;
-}
-
-.brand{
-  font-size:13px;
-  letter-spacing:2px;
-}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding:120px 20px 50px;
-}
-
-.hero h1{
-  font-size:26px;
-  margin:0;
-  letter-spacing:3px;
-}
-
-.hero p{color:#aaa;}
-
-.glow{
-  width:100px;
-  height:2px;
-  background:#d4af37;
-  margin:15px auto;
-}
-
-/* SLIDER */
-.slider{
-  width:90%;
-  max-width:420px;
-  margin:40px auto;
-  overflow:hidden;
-  border-radius:15px;
-  border:1px solid rgba(255,255,255,0.1);
-  position:relative;
-}
-
-.slides{
-  display:flex;
-  transition:0.5s;
-}
-
-.slides img{
-  width:100%;
-}
-
-.btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.6);
-  border:none;
-  color:white;
-  padding:8px;
-  cursor:pointer;
-}
-
-.prev{left:10px;}
-.next{right:10px;}
-
-/* PRODUCT */
-.product-text{
-  text-align:center;
-  padding:20px;
-}
-
-.badge{
-  background:#d4af37;
-  color:black;
-  padding:5px 10px;
-  font-size:11px;
-  border-radius:6px;
-}
-
-/* PRICE BOX */
-.price-box{
-  margin-top:10px;
-}
-
-.old-price{
-  text-decoration:line-through;
-  color:#777;
-  font-size:16px;
-}
-
-.new-price{
-  color:#d4af37;
-  font-size:22px;
-  font-weight:bold;
-}
-
-/* COUNTDOWN */
-.countdown{
-  margin-top:8px;
-  font-size:14px;
-  color:#ffcc00;
-}
-
-/* BUY BUTTON */
-.buy-now{
-  display:inline-block;
-  margin-top:12px;
-  padding:12px 30px;
-  background:#d4af37;
-  color:black;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:30px;
-  transition:0.3s;
-  box-shadow:0 5px 15px rgba(212,175,55,0.3);
-}
-
-.buy-now:hover{
-  transform:scale(1.05);
-}
-
-/* ABOUT */
-.about{
-  max-width:800px;
-  margin:60px auto;
-  padding:20px;
-}
-
-.about-card{
-  background:rgba(255,255,255,0.05);
-  padding:15px;
-  margin-bottom:10px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,0.1);
-}
-
-/* CONTACT */
-.contact{
-  background:black;
-  text-align:center;
-  padding:60px 20px;
-}
-
-.contact a{
-  display:inline-block;
-  margin:10px;
-  padding:10px 15px;
-  border-radius:8px;
-  text-decoration:none;
-  color:white;
-}
-
-.wa{background:#25D366;}
-.insta{background:#E1306C;}
-
-</style>
-</head>
-
-<body>
-
-<!-- LOADER -->
-<div id="loader">
-  <img src="logo.png">
-</div>
-
-<!-- TOPBAR -->
-<div class="topbar">
-
-  <div class="right">
-    <img src="logo.png" class="logo">
-    <div class="brand">LOR PERFUME</div>
-  </div>
-
-  <div class="nav">
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a class="buy" href="https://wa.me/962787727783" target="_blank">BUY</a>
-  </div>
-
-</div>
-
-<!-- HERO -->
-<div class="hero">
-  <h1>THE ART OF SCENT</h1>
-  <div class="glow"></div>
-  <p>Luxury fragrance experience beyond spraying</p>
-</div>
-
-<!-- SLIDER -->
-<div class="slider">
-  <div class="slides" id="slides">
-    <img src="product.jpg">
-    <img src="product.jpg">
-    <img src="product.jpg">
-  </div>
-
-  <button class="btn prev" onclick="move(-1)">‹</button>
-  <button class="btn next" onclick="move(1)">›</button>
-</div>
-
-<!-- PRODUCT -->
-<div class="product-text">
-  <span class="badge">NOT JUST A SPRAY</span>
-  <h2>Luxury Butter Perfume</h2>
-
-  <div class="price-box">
-
-    <div class="old-price">35 JD</div>
-    <div class="new-price">23 JD</div>
-
-    <!-- COUNTDOWN -->
-    <div class="countdown" id="countdown">
-      Offer ends in: 00:00:00
-    </div>
-
-    <a class="buy-now" href="https://wa.me/962787727783" target="_blank">
-      BUY NOW
-    </a>
-
-  </div>
-</div>
-
-<!-- ABOUT -->
-<div class="about" id="about">
-  <div class="about-card">Vanilla Opening luxury scent</div>
-  <div class="about-card">Butter heart notes elegance</div>
-  <div class="about-card">Musk amber long lasting trail</div>
-</div>
-
-<!-- CONTACT -->
-<div class="contact" id="contact">
-  <h2>Contact Us</h2>
-
-  <a class="wa" href="https://wa.me/962787727783">WhatsApp</a>
-  <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw">Instagram</a>
-</div>
-
-<script>
-
-/* loader */
-document.addEventListener("DOMContentLoaded", function(){
-  const loader = document.getElementById("loader");
-
-  setTimeout(()=>{
-    loader.classList.add("hide");
-    setTimeout(()=>loader.style.display="none",600);
-  },1200);
-});
-
-/* slider */
-let index = 0;
-
-function move(dir){
-  let slides = document.getElementById("slides");
-  let total = 3;
-
-  index += dir;
-  if(index < 0) index = total - 1;
-  if(index >= total) index = 0;
-
-  slides.style.transform = "translateX(" + (-index * 100) + "%)";
-}
-
-setInterval(()=>move(1),4000);
-
-/* COUNTDOWN TIMER (24 HOURS RESET) */
-function startCountdown(){
-  let end = new Date().getTime() + 24*60*60*1000;
-
-  setInterval(()=>{
-    let now = new Date().getTime();
-    let diff = end - now;
-
-    let h = Math.floor(diff / (1000*60*60));
-    let m = Math.floor((diff % (1000*60*60)) / (1000*60));
-    let s = Math.floor((diff % (1000*60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-      "Offer ends in: " + h + "h " + m + "m " + s + "s";
-
-  },1000);
-}
-
-startCountdown();
 
 </script>
 
