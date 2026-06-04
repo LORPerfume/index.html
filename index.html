@@ -550,9 +550,10 @@ h2{
 
 .product-img{
   width:220px;
-  transition:transform 0.2s ease;
   transform-style:preserve-3d;
   filter:drop-shadow(0 15px 25px rgba(212,175,55,0.25));
+  animation: pulseProduct 2.5s infinite ease-in-out;
+  transition:transform 0.2s ease;
 }
   @media (max-width: 600px){
   .contact-buttons{
@@ -568,6 +569,21 @@ h2{
 }
   html {
   scroll-behavior: smooth;
+}
+  .product-img{
+  animation: pulseProduct 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseProduct{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.06);
+  }
+  100%{
+    transform: scale(1);
+  }
 }
 </style>
   </head>
