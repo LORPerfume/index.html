@@ -253,22 +253,25 @@ h2{
 }
 
 .contact-buttons a{
-  display:inline-block;
-  padding:12px 20px;
-  border-radius:14px;
-  text-decoration:none;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:10px 14px;
+  border-radius:12px;
+
   color:#d4af37;
+  text-decoration:none;
   font-weight:bold;
-  min-width:140px;
-  text-align:center;
+
+  font-size:13px;
+  min-width:100px;
 
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(212,175,55,0.25);
 
   transition:0.3s;
-  backdrop-filter: blur(8px);
 }
-
 /* hover فاخر */
 .contact-buttons a:hover{
   transform:translateY(-5px);
@@ -551,6 +554,18 @@ h2{
   transform-style:preserve-3d;
   filter:drop-shadow(0 15px 25px rgba(212,175,55,0.25));
 }
+  @media (max-width: 600px){
+  .contact-buttons{
+    gap:8px;
+  }
+
+  .contact-buttons a{
+    flex:1;
+    min-width:unset;
+    font-size:12px;
+    padding:10px 8px;
+  }
+}
 </style>
   </head>
 
@@ -713,8 +728,8 @@ h2{
 <!-- CONTACT -->
 <div class="contact" id="contact">
 
-  <h2 style="color:#d4af37; letter-spacing:3px;">GET IN TOUCH</h2>
-
+<h2 style="color:#d4af37; letter-spacing:3px;">كونتك اس</h2>
+  
   <p style="color:#bbb; font-size:14px; margin-bottom:25px;">
     We’re here to help you with orders, questions, and support.
   </p>
