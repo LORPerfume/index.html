@@ -252,18 +252,30 @@ h2{
   flex-wrap:wrap;
 }
 
-.contact a{
+.contact-buttons a{
   display:inline-block;
-  padding:12px 18px;
-  border-radius:12px;
+  padding:12px 20px;
+  border-radius:14px;
   text-decoration:none;
-  color:white;
+  color:#d4af37;
   font-weight:bold;
-  transition:0.3s;
-  min-width:130px;
+  min-width:140px;
   text-align:center;
+
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(212,175,55,0.25);
+
+  transition:0.3s;
+  backdrop-filter: blur(8px);
 }
 
+/* hover فاخر */
+.contact-buttons a:hover{
+  transform:translateY(-5px);
+  border-color:#d4af37;
+  box-shadow:0 10px 25px rgba(212,175,55,0.15);
+  background:rgba(212,175,55,0.05);
+}
 /* hover effect */
 .contact a:hover{
   transform:translateY(-5px);
