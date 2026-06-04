@@ -369,6 +369,57 @@ h2{
   color:#bbb;
   font-size:13px;
 }
+  .love-section{
+  max-width:1000px;
+  margin:70px auto;
+  padding:20px;
+}
+
+.love-title{
+  text-align:center;
+  color:#d4af37;
+  font-size:24px;
+  letter-spacing:3px;
+  margin-bottom:30px;
+}
+
+.love-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.love-item{
+  text-align:center;
+  padding:25px 15px;
+  border-radius:50%;
+  width:180px;
+  height:180px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:rgba(255,255,255,0.03);
+  border:2px solid rgba(212,175,55,0.2);
+  transition:.4s;
+}
+
+.love-item:hover{
+  transform:scale(1.08);
+  border-color:#d4af37;
+  box-shadow:0 0 25px rgba(212,175,55,.2);
+}
+
+.love-icon{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.love-text{
+  font-size:14px;
+  color:#ddd;
+  font-weight:bold;
+}
 </style>
 </head>
 
@@ -405,7 +456,7 @@ h2{
 <div class="stats-bar">
 
   <div>
-    <strong>500+</strong>
+    <strong>999+</strong>
     <span>Customers</span>
   </div>
 
@@ -531,6 +582,46 @@ h2{
     ✦ Designed for long-lasting signature scent experience<br>
     ✦ Inspired by luxury fashion houses & modern minimalism
   </div>
+</div>
+  <!-- WHY PEOPLE LOVE LOR -->
+<div class="love-section">
+
+  <div class="love-title">
+    WHY PEOPLE LOVE LOR
+  </div>
+
+  <div class="love-grid">
+
+    <div class="love-item">
+      <div class="love-icon">💎</div>
+      <div class="love-text">
+        Luxury Formula
+      </div>
+    </div>
+
+    <div class="love-item">
+      <div class="love-icon">⏳</div>
+      <div class="love-text">
+        Long Lasting
+      </div>
+    </div>
+
+    <div class="love-item">
+      <div class="love-icon">🎁</div>
+      <div class="love-text">
+        Elegant Packaging
+      </div>
+    </div>
+
+    <div class="love-item">
+      <div class="love-icon">✨</div>
+      <div class="love-text">
+        Unique Signature Scent
+      </div>
+    </div>
+
+  </div>
+
 </div>
 <!-- CONTACT -->
 <div class="contact" id="contact">
