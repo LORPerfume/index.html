@@ -296,6 +296,60 @@ h2{
   border-color:#d4af37;
   box-shadow:0 10px 25px rgba(212,175,55,0.15);
 }
+  .inside-box{
+  max-width:900px;
+  margin:60px auto;
+  padding:30px;
+}
+
+.inside-title{
+  text-align:center;
+  color:#d4af37;
+  font-size:22px;
+  letter-spacing:3px;
+  margin-bottom:25px;
+}
+
+.inside-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+.inside-item{
+  background:linear-gradient(
+    135deg,
+    rgba(212,175,55,0.12),
+    rgba(255,255,255,0.03)
+  );
+  border:1px solid rgba(212,175,55,0.15);
+  border-radius:16px;
+  padding:25px 15px;
+  text-align:center;
+  transition:.4s;
+}
+
+.inside-item:hover{
+  transform:translateY(-8px);
+  border-color:#d4af37;
+}
+
+.inside-icon{
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.inside-name{
+  font-size:15px;
+  font-weight:bold;
+  color:#fff;
+}
+
+.inside-desc{
+  margin-top:8px;
+  color:#bbb;
+  font-size:13px;
+}
 </style>
 </head>
 
@@ -353,6 +407,50 @@ h2{
   <div class="countdown" id="countdown"></div>
 
   <a class="buy-now" href="https://wa.me/962787727783">BUY NOW</a>
+</div>
+  <!-- WHAT'S INSIDE -->
+<div class="inside-box">
+
+  <div class="inside-title">
+    WHAT'S INSIDE
+  </div>
+
+  <div class="inside-container">
+
+    <div class="inside-item">
+      <div class="inside-icon">💎</div>
+      <div class="inside-name">Luxury Perfume</div>
+      <div class="inside-desc">
+        Premium butter-based fragrance formula.
+      </div>
+    </div>
+
+    <div class="inside-item">
+      <div class="inside-icon">✨</div>
+      <div class="inside-name">Long Lasting</div>
+      <div class="inside-desc">
+        Designed to stay noticeable for hours.
+      </div>
+    </div>
+
+    <div class="inside-item">
+      <div class="inside-icon">🎁</div>
+      <div class="inside-name">Elegant Packaging</div>
+      <div class="inside-desc">
+        Luxury presentation ready for gifting.
+      </div>
+    </div>
+
+    <div class="inside-item">
+      <div class="inside-icon">👑</div>
+      <div class="inside-name">Signature Experience</div>
+      <div class="inside-desc">
+        Crafted to leave a memorable impression.
+      </div>
+    </div>
+
+  </div>
+
 </div>
 
 <!-- ABOUT -->
