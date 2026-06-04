@@ -369,8 +369,28 @@ h2{
   color:#bbb;
   font-size:13px;
 }
+  .mood-section{
+  text-align:center;
+  margin:60px 0;
+}
+
+.mood-buttons button{
+  margin:8px;
+  padding:10px 15px;
+  border-radius:20px;
+  border:1px solid #d4af37;
+  background:transparent;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.mood-buttons button:hover{
+  background:#d4af37;
+  color:black;
+}
 </style>
-</head>
+  </head>
 
 <body>
 
@@ -419,6 +439,16 @@ h2{
     <span>Luxury Quality</span>
   </div>
 
+</div>
+  <div class="mood-section">
+  <h2>WHAT’S YOUR SCENT MOOD?</h2>
+
+  <div class="mood-buttons">
+    <button onclick="setMood('elegant')">✨ Elegant</button>
+    <button onclick="setMood('bold')">🔥 Bold</button>
+    <button onclick="setMood('soft')">🌙 Soft</button>
+    <button onclick="setMood('luxury')">👑 Signature</button>
+  </div>
 </div>
 <!-- SLIDER -->
 <div class="slider">
@@ -579,7 +609,25 @@ function startCountdown(){
   },1000);
 }
 startCountdown();
+function setMood(type){
 
+  if(type === "elegant"){
+    document.body.style.background = "radial-gradient(circle at top,#111,#000)";
+  }
+
+  if(type === "bold"){
+    document.body.style.background = "radial-gradient(circle at top,#2a0000,#000)";
+  }
+
+  if(type === "soft"){
+    document.body.style.background = "radial-gradient(circle at top,#001a2a,#000)";
+  }
+
+  if(type === "luxury"){
+    document.body.style.background = "radial-gradient(circle at top,#1a1400,#000)";
+  }
+
+}
 </script>
 
 </body>
