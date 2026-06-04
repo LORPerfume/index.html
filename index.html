@@ -822,6 +822,23 @@ startCountdown();
 window.addEventListener('load', function () {
   window.scrollTo(0, 0);
 });
+  <script>
+/* منع الرجوع لنفس مكان السكرول بعد الريفريش */
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+/* إجبار البداية من أعلى الصفحة */
+window.addEventListener('pageshow', function () {
+  window.scrollTo(0, 0);
+});
+
+window.addEventListener('load', function () {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 0);
+});
+</script>
 </script>
 
 </body>
