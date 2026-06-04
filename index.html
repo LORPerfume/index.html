@@ -430,6 +430,55 @@ h2{
   color:white;
   margin-left:10px;
 }
+  .aura-bar{
+  margin-top:80px;
+  text-align:center;
+  padding:10px 15px;
+  max-width:420px;
+  margin-left:auto;
+  margin-right:auto;
+
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(212,175,55,0.25);
+  border-radius:14px;
+
+  backdrop-filter: blur(10px);
+  box-shadow:0 0 25px rgba(212,175,55,0.08);
+  position:relative;
+  overflow:hidden;
+}
+
+/* خط ذهبي متحرك */
+.aura-bar::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(212,175,55,0.3),transparent);
+  animation:shine 3s infinite;
+}
+
+@keyframes shine{
+  0%{left:-100%;}
+  100%{left:100%;}
+}
+
+.aura-bar span{
+  display:block;
+  color:#d4af37;
+  font-weight:bold;
+  letter-spacing:3px;
+  font-size:12px;
+}
+
+.aura-bar small{
+  display:block;
+  color:#bbb;
+  font-size:11px;
+  margin-top:3px;
+}
 </style>
   </head>
 
@@ -442,6 +491,10 @@ h2{
   <span>⏳ Offer ends in 24H</span>
 </div>
   <img src="logo.png">
+</div>
+  <div class="aura-bar">
+  <span>✦ LOR PREMIUM EXPERIENCE</span>
+  <small>Where scent becomes identity</small>
 </div>
 
 <!-- TOPBAR -->
