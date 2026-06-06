@@ -684,6 +684,40 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   box-shadow:none;
   transform:none;
 }
+  .whatsapp-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+
+  width:55px;
+  height:55px;
+
+  background:#25D366;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  border-radius:50%;
+
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+
+  z-index:9999;
+
+  transition:0.3s;
+}
+
+/* حجم شعار واتساب */
+.whatsapp-float img{
+  width:28px;
+  height:28px;
+}
+
+/* hover بسيط */
+.whatsapp-float:hover{
+  transform:scale(1.1);
+  box-shadow:0 15px 30px rgba(37,211,102,0.5);
+}
 </style>
   </head>
 
@@ -1084,5 +1118,8 @@ window.addEventListener("load", () => {
 </script>
 });
 </script>
+<a href="https://wa.me/962787727783" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 </body>
 </html>
