@@ -1016,21 +1016,19 @@ if (expTitle) {
     ? "⭐⭐⭐ تجربة العملاء ⭐⭐⭐"
     : "CUSTOMER EXPERIENCE";
 }
-let highlight = document.querySelectorAll(".story-highlight");
+let highlight = document.querySelector(".story-highlight");
 
-if (highlight.length > 0) {
+if (highlight) {
   if (isArabic) {
-    highlight[0].innerHTML = `
-    ✦ مصنوع بزيوت عطرية فاخرة من الزبدة<br>
-    ✦ مصمم لثبات يدوم مع تجربة عطر مميزة<br>
-    ✦ مستوحى من دور الأزياء العالمية والبساطة العصرية
-    `;
+    highlight.innerHTML =
+      "✦ مصنوع بزيوت عطرية فاخرة من الزبدة<br>" +
+      "✦ مصمم لثبات يدوم مع تجربة عطر مميزة<br>" +
+      "✦ مستوحى من دور الأزياء العالمية والبساطة العصرية";
   } else {
-    highlight[0].innerHTML = `
-    ✦ Crafted with premium butter-based fragrance oils<br>
-    ✦ Designed for long-lasting signature scent experience<br>
-    ✦ Inspired by luxury fashion houses & modern minimalism
-    `;
+    highlight.innerHTML =
+      "✦ Crafted with premium butter-based fragrance oils<br>" +
+      "✦ Designed for long-lasting signature scent experience<br>" +
+      "✦ Inspired by luxury fashion houses & modern minimalism";
   }
 }}
   
