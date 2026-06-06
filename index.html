@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" dir="ltr">
+  <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LOR Perfume Luxury</title>
@@ -669,6 +669,10 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   background:#d4af37;
   color:black;
 }
+  body.rtl{
+  direction: rtl;
+  text-align: right;
+}
 </style>
   </head>
 
@@ -948,36 +952,56 @@ startCountdown();
 <script>
 let isArabic = false;
 
-const translations = {
-  en: {
-    about: "About",
-    contact: "Contact",
-    buy: "BUY",
-    title: "THE ART OF SCENT",
-    subtitle: "Luxury fragrance experience beyond spraying",
-    product: "Luxury Butter Perfume",
-    buyNow: "BUY NOW",
-    storyTitle: "THE STORY OF LOR PERFUME",
-    storyText: "LOR Perfume was born from a vision of redefining modern luxury fragrance.",
-    contactTitle: "Contact us",
-    contactDesc: "We’re here to help you with orders, questions, and support."
-  },
+/* حفظ اللغة */
+function setLanguage(lang){
+  isArabic = (lang === "ar");
 
-  ar: {
-    about: "حول",
-    contact: "تواصل",
-    buy: "شراء",
-    title: "فن العطر",
-    subtitle: "تجربة عطر فاخرة تتجاوز الرش",
-    product: "عطر لوكس بتر",
-    buyNow: "اشتري الآن",
-    storyTitle: "قصة عطر LOR",
-    storyText: "وُلدت LOR Perfume من رؤية لإعادة تعريف الفخامة العطرية الحديثة.",
-    contactTitle: "تواصل معنا",
-    contactDesc: "نحن هنا لمساعدتك في الطلبات والاستفسارات والدعم."
-  }
-};
-const langBtn = document.getElementById("langBtn");
+  // حفظ
+  localStorage.setItem("lang", lang);
+
+  // اتجاه الصفحة
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isArabic ? "rtl" : "ltr";
+  document.body.classList.toggle("rtl", isArabic);
+
+  // النصوص
+  document.querySelector("a[href='#story']").innerText = isArabic ? "حول" : "About";
+  document.querySelector("a[href='#contact']").innerText = isArabic ? "تواصل" : "Contact";
+
+  document.querySelector(".hero h1").innerText = isArabic ? "فن العطر" : "THE ART OF SCENT";
+  document.querySelector(".hero p").innerText = isArabic ? "تجربة عطر فاخرة تتجاوز الرش" : "Luxury fragrance experience beyond spraying";
+
+  document.querySelector(".product-text h2").innerText = isArabic ? "عطر لوكس بتر" : "Luxury Butter Perfume";
+  document.querySelector(".buy-now").innerText = isArabic ? "اشتري الآن" : "BUY NOW";
+
+  document.querySelector(".story-title").innerText = isArabic ? "قصة عطر LOR" : "THE STORY OF LOR PERFUME";
+
+  document.querySelector(".story-text").innerText = isArabic
+    ? "وُلدت LOR Perfume من رؤية لإعادة تعريف الفخامة العطرية الحديثة."
+    : "LOR Perfume was born from a vision of redefining modern luxury fragrance.";
+
+  document.querySelector("#contact h2").innerText = isArabic ? "تواصل معنا" : "Contact us";
+
+  document.querySelector("#contact p").innerText = isArabic
+    ? "نحن هنا لمساعدتك في الطلبات والاستفسارات والدعم."
+    : "We’re here to help you with orders, questions, and support.";
+
+  // زر اللغة
+  document.getElementById("langBtn").innerText = isArabic ? "EN" : "AR";
+}
+
+/* زر التبديل */
+document.getElementById("langBtn").addEventListener("click", () => {
+  setLanguage(isArabic ? "en" : "ar");
+});
+
+/* تشغيل اللغة المحفوظة */
+window.addEventListener("load", () => {
+  const saved = localStorage.getItem("lang") || "en";
+  setLanguage(saved);
+});
+</script>
+  const langBtn = document.getElementById("langBtn");
 
 langBtn.addEventListener("click", () => {
   isArabic = !isArabic;
