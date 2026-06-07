@@ -768,6 +768,45 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   #story {
   scroll-margin-top: 120px;
 }
+  html, body {
+  scroll-behavior: smooth;
+}
+
+/* كل مشهد */
+.scene {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+/* لما يظهر المشهد */
+.scene.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* تأثير ضباب سينمائي */
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(212,175,55,0.08), transparent 60%);
+  pointer-events: none;
+}
+  .hero h1 {
+  animation: fadeInHero 2s ease;
+}
+
+@keyframes fadeInHero {
+  from {opacity: 0; transform: scale(1.1);}
+  to {opacity: 1; transform: scale(1);}
+}
 </style>
   </head>
 
@@ -805,7 +844,7 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 </div>
 
 <!-- HERO -->
-<div class="hero">
+<section class="scene hero">
   <h1 class="lux-title">THE ART OF SCENT</h1>
 
 <div class="hero-images">
@@ -814,7 +853,7 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 </div>
   <div class="glow"></div>
   <p>Luxury fragrance experience beyond spraying</p>
-</div>
+  </section>
   <!-- STORY / BRANDING -->
 <div class="stats-bar">
 
@@ -830,13 +869,12 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 
 </div>
 <!-- SLIDER -->
-<div class="hero-product">
+<section class="scene hero-product">
   <div class="product-card">
     <div class="product-glow"></div>
     <img src="product.png" class="product-img">
   </div>
-</div>
-
+</section>
 <!-- PRODUCT -->
 <div class="product-text">
   <h2>Luxury Butter Perfume</h2>
@@ -921,7 +959,7 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
     Highly recommended."
   </div>
 </div>
-<div class="story-section" id="story">
+<section class="scene story-section" id="story">
   <div class="story-title">THE STORY OF LOR PERFUME</div>
 
   <div class="story-text">
@@ -936,7 +974,7 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
     ✦ Inspired by luxury fashion houses & modern minimalism
   </div>
 </div>
-<div class="order-form" id="orderForm">
+<section class="scene order-form" id="orderForm">
   <h2>Place Your Order</h2>
 
   <input type="text" id="customerName" placeholder="Full Name">
@@ -947,10 +985,10 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 
   <button onclick="sendOrder()">PLACE ORDER</button>
 
-</div>
-<!-- CONTACT -->
-<div class="contact" id="contact">
-
+</section>
+  <!-- CONTACT -->
+<section class="scene contact" id="contact">
+  
 <h2 style="color:#d4af37; letter-spacing:3px;">Contact us</h2>
   
   <p style="color:#bbb; font-size:14px; margin-bottom:25px;">
@@ -974,8 +1012,7 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   </div>
 
 </div>
-</div>
-
+</section>
 <script>
 const container = document.querySelector(".hero-product");
 const product = document.querySelector(".product-img");
@@ -1223,6 +1260,21 @@ ${address}
   window.open(whatsapp, "_blank");
 }
 </script>
+const scenes = document.querySelectorAll(".scene");
 
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+scenes.forEach(scene => {
+  observer.observe(scene);
+});
+  </script>
 </body>
 </html>
