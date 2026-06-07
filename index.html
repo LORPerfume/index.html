@@ -938,7 +938,11 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 </div>
 <div class="order-form" id="orderForm">
   <h2>Place Your Order</h2>
-
+<select id="quantity" style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;background:#111;color:white;border:none;">
+  <option value="1">1 Bottle - 23 JD</option>
+  <option value="2">2 Bottles - 40 JD</option>
+  <option value="3">3 Bottles - 55 JD</option>
+</select>
   <input type="text" id="customerName" placeholder="Full Name">
 
   <input type="tel" id="customerPhone" placeholder="Phone Number">
@@ -1195,16 +1199,23 @@ function sendOrder() {
   let name = document.getElementById("customerName").value;
   let phone = document.getElementById("customerPhone").value;
   let address = document.getElementById("customerAddress").value;
+  let quantity = document.getElementById("quantity").value;
 
   if (!name || !phone || !address) {
     alert("Please fill all fields");
     return;
   }
 
-  // رقم الطلب التسلسلي
+  // الأسعار حسب الكمية
+  let price = 0;
+
+  if (quantity == 1) price = 23;
+  if (quantity == 2) price = 40;
+  if (quantity == 3) price = 55;
+
+  // رقم الطلب
   let lastOrder = localStorage.getItem("orderID");
   let newOrderID = lastOrder ? parseInt(lastOrder) + 1 : 1000;
-
   localStorage.setItem("orderID", newOrderID);
 
   let message = 
@@ -1212,11 +1223,13 @@ function sendOrder() {
 
 👤 Name: ${name}
 📞 Phone: ${phone}
+📦 Quantity: ${quantity} Bottle(s)
+💰 Price: ${price} JD
+
 📍 Address:
 ${address}
 
-💎 Product: LOR Luxury Butter Perfume
-💰 Price: 23 JD`;
+💎 Product: LOR Luxury Butter Perfume`;
 
   let whatsapp = "https://wa.me/962790276691?text=" + encodeURIComponent(message);
 
