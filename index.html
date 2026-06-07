@@ -1012,6 +1012,9 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   placeholder="Quantity"
   style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;background:#111;color:white;border:none;"
 >
+  <div id="totalPrice" style="color:#d4af37;font-weight:bold;margin-bottom:12px;">
+Total Price: 23 JD
+</div>
   <input type="text" id="customerName" placeholder="Full Name">
 
   <input type="tel" id="customerPhone" placeholder="Phone Number">
@@ -1349,5 +1352,23 @@ function closePopup(){
   });
 }
   </script>
+  <script>
+const quantityInput = document.getElementById("quantity");
+const totalPrice = document.getElementById("totalPrice");
+
+function updatePrice() {
+  let qty = parseInt(quantityInput.value) || 1;
+
+  if(qty < 1) qty = 1;
+
+  let price = 23 + ((qty - 1) * 20);
+
+  totalPrice.innerHTML = "Total Price: " + price + " JD";
+}
+
+quantityInput.addEventListener("input", updatePrice);
+
+updatePrice();
+</script>
 </body>
 </html>
