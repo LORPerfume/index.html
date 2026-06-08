@@ -1314,9 +1314,10 @@ ${address}
 
 💎 Product: LOR Luxury Butter Perfume`;
 
-  let whatsapp = "https://wa.me/962790276691?text=" + encodeURIComponent(message);
+document.getElementById("orderIDText").innerText =
+"Your Order ID: #" + newOrderID;
 
-  window.open(whatsapp, "_blank");
+document.getElementById("successBox").style.display = "flex";
 }
 </script>
 <div id="exitPopup" class="exit-popup">
@@ -1377,6 +1378,46 @@ function updatePrice() {
 quantityInput.addEventListener("input", updatePrice);
 
 updatePrice();
+</script>
+  <div id="successBox" style="
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.85);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:99999;
+">
+  <div style="
+  background:#111;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  border:1px solid #d4af37;
+  max-width:300px;
+  color:white;
+  ">
+    <h2 style="color:#d4af37;">ORDER CONFIRMED ✨</h2>
+    <p>Thank you for your order</p>
+    <p id="orderIDText"></p>
+
+    <button onclick="closeSuccess()" style="
+      margin-top:15px;
+      padding:10px 20px;
+      background:#d4af37;
+      border:none;
+      border-radius:20px;
+      cursor:pointer;
+    ">
+      OK
+    </button>
+  </div>
+</div>
+  <script>
+function closeSuccess(){
+  document.getElementById("successBox").style.display = "none";
+}
 </script>
 </body>
 </html>
