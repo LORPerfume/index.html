@@ -913,7 +913,7 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 
   <div class="countdown" id="countdown"></div>
 </div>
-<a class="buy-now" href="#orderForm">
+<a class="buy-now" href="javascript:void(0)" onclick="goToCart()">
   BUY NOW
 </a>
 </div>
@@ -1377,6 +1377,11 @@ function updatePrice() {
 quantityInput.addEventListener("input", updatePrice);
 
 updatePrice();
+</script>
+  <script>
+function goToCart(){
+  window.location.href = "cart.html";
+}
 </script>
 </body>
 </html>
