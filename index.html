@@ -909,7 +909,7 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 
   <div class="price-row">
   <div class="old-price">35 JD</div>
-  <div class="new-price">23 JD</div>
+  <div class="new-price">26 JD</div>
 
   <div class="countdown" id="countdown"></div>
 </div>
@@ -1013,7 +1013,7 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;background:#111;color:white;border:none;"
 >
   <div id="totalPrice" style="color:#d4af37;font-weight:bold;margin-bottom:12px;">
-Total Price: 23 JD
+Total Price: 26 JD
 </div>
   <select id="genderType"
 style="width:100%;padding:12px;margin-bottom:12px;border-radius:10px;background:#111;color:white;border:none;">
@@ -1285,7 +1285,7 @@ if (!name || !phone || !address || !gender) {
   return;
 }
   
-// أول قطعة 23 JD وكل قطعة إضافية 19 JD
+// أول قطعة 26 JD وكل قطعة إضافية 19 JD
 let quantityNum = parseInt(quantity);
 
 if(quantityNum < 1){
@@ -1293,7 +1293,7 @@ if(quantityNum < 1){
   return;
 }
 
-let price = 23 + ((quantityNum - 1) * 19);
+let price = 26 + ((quantityNum - 1) * 19);
   
   // رقم الطلب
   let lastOrder = localStorage.getItem("orderID");
@@ -1369,7 +1369,7 @@ function updatePrice() {
 
   if(qty < 1) qty = 1;
 
-  let price = 23 + ((qty - 1) * 20);
+  let price = 26 + ((qty - 1) * 20);
 
   totalPrice.innerHTML = "Total Price: " + price + " JD";
 }
