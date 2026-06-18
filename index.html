@@ -354,11 +354,16 @@ h2{
 
 .inside-container{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(4,1fr);
   gap:15px;
 }
 
-.inside-item{
+@media (max-width:768px){
+  .inside-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+      .inside-item{
   background:linear-gradient(
     135deg,
     rgba(212,175,55,0.12),
