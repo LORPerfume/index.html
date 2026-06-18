@@ -10,7 +10,10 @@
 body{
   margin:0;
   font-family: "Arial", sans-serif;
-  background: radial-gradient(circle at top,#111,#000);
+background:
+radial-gradient(circle at 20% 20%, rgba(212,175,55,.12), transparent 35%),
+radial-gradient(circle at 80% 70%, rgba(212,175,55,.08), transparent 40%),
+#000;
   color:white;
   overflow-x:hidden;
   scroll-behavior:smooth;
@@ -877,6 +880,34 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   color:#ccc;
   font-size:14px;
   line-height:1.8;
+}
+      body::after{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:600px;
+  height:600px;
+
+  background:
+  radial-gradient(circle,
+  rgba(212,175,55,.10),
+  transparent 70%);
+
+  z-index:-1;
+
+  animation:goldAura 10s infinite alternate ease-in-out;
+}
+
+@keyframes goldAura{
+  from{
+    transform:translate(-100px,-50px);
+  }
+
+  to{
+    transform:translate(100px,50px);
+  }
 }
 </style>
   </head>
