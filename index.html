@@ -940,59 +940,6 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
     opacity:0;
   }
 }
-      .success-screen{
-  position:fixed;
-  inset:0;
-
-  background:rgba(0,0,0,.95);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  z-index:999999;
-
-  opacity:0;
-  pointer-events:none;
-
-  transition:.5s;
-}
-
-.success-screen.show{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.success-box{
-  text-align:center;
-  color:white;
-}
-
-.success-icon{
-  font-size:60px;
-  color:#d4af37;
-  margin-bottom:15px;
-  animation:pulseGold 2s infinite;
-}
-
-.success-box h2{
-  color:#d4af37;
-  letter-spacing:4px;
-}
-
-.success-box p{
-  color:#ddd;
-}
-
-.success-box small{
-  color:#999;
-}
-
-@keyframes pulseGold{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.2);}
-  100%{transform:scale(1);}
-}
 </style>
   </head>
 
@@ -1498,13 +1445,7 @@ ${address}
 
   let whatsapp = "https://wa.me/962790276691?text=" + encodeURIComponent(message);
 
-document
-.getElementById("successScreen")
-.classList.add("show");
-
-setTimeout(()=>{
-  window.open(whatsapp,"_blank");
-},2500);
+  window.open(whatsapp, "_blank");
 }
 </script>
 <div id="exitPopup" class="exit-popup">
@@ -1581,25 +1522,6 @@ updatePrice();
   <span></span>
   <span></span>
   <span></span>
-</div>
-  <div id="successScreen" class="success-screen">
-
-  <div class="success-box">
-
-    <div class="success-icon">✦</div>
-
-    <h2>WELCOME TO LOR</h2>
-
-    <p>
-      Your luxury experience starts now.
-    </p>
-
-    <small>
-      Preparing your order...
-    </small>
-
-  </div>
-
 </div>
 </body>
 </html>
