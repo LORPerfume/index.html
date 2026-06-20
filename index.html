@@ -1000,6 +1000,22 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
     text-align:center;
   }
 }
+      .order-banner{
+  width:100%;
+  border-radius:18px;
+  margin-bottom:20px;
+
+  border:1px solid rgba(212,175,55,0.2);
+
+  box-shadow:
+  0 15px 40px rgba(212,175,55,0.15);
+
+  transition:.4s;
+}
+
+.order-banner:hover{
+  transform:scale(1.02);
+}
 </style>
   </head>
 
@@ -1219,8 +1235,11 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 
 </div>
 <div class="order-form" id="orderForm">
+
+  <img src="order-banner.png" class="order-banner">
+
   <h2>Place Your Order</h2>
-<input
+  <input
   type="number"
   id="quantity"
   min="1"
