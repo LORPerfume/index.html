@@ -1269,87 +1269,6 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   border:1px solid rgba(212,175,55,0.2);
   box-shadow:0 10px 25px rgba(212,175,55,0.15);
 }
-      .ai-chat-btn{
-  position:fixed;
-  left:20px;
-  bottom:20px;
-
-  width:55px;
-  height:55px;
-
-  border-radius:50%;
-
-  background:#d4af37;
-
-  color:black;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:24px;
-
-  cursor:pointer;
-
-  z-index:9999;
-}
-
-.ai-chat-box{
-  position:fixed;
-
-  left:20px;
-  bottom:90px;
-
-  width:320px;
-
-  background:#111;
-
-  border:1px solid rgba(212,175,55,.3);
-
-  border-radius:15px;
-
-  overflow:hidden;
-
-  display:none;
-
-  z-index:9999;
-}
-
-.chat-header{
-  background:#d4af37;
-  color:black;
-  padding:12px;
-  font-weight:bold;
-}
-
-.chat-body{
-  padding:15px;
-  min-height:120px;
-  max-height:250px;
-  overflow:auto;
-}
-
-.bot-msg{
-  background:#222;
-  padding:10px;
-  border-radius:10px;
-  margin-bottom:10px;
-}
-
-.chat-options{
-  padding:10px;
-  display:grid;
-  gap:8px;
-}
-
-.chat-options button{
-  background:#222;
-  color:white;
-  border:none;
-  padding:10px;
-  border-radius:8px;
-  cursor:pointer;
-}
 </style>
   </head>
 
@@ -1795,48 +1714,6 @@ startCountdown();
     forceTop();
   });
 })();
-</script>
-  <script>
-
-function toggleChat(){
-
-  let box = document.getElementById("aiChat");
-
-  if(box.style.display === "block"){
-    box.style.display = "none";
-  }else{
-    box.style.display = "block";
-  }
-
-}
-
-function askBot(type){
-
-  let body = document.getElementById("chatBody");
-
-  let answer = "";
-
-  if(type === "price"){
-    answer = "سعر أول عبوة 26 دينار، وكل عبوة إضافية 23 دينار.";
-  }
-
-  if(type === "usage"){
-    answer = "اضغطي المضخة بلطف ثم ضعي كمية صغيرة على نقاط النبض مثل الرقبة أو المعصم.";
-  }
-
-  if(type === "delivery"){
-    answer = "نوفر خدمة التوصيل داخل الأردن.";
-  }
-
-  if(type === "payment"){
-    answer = "الدفع عند الاستلام متوفر.";
-  }
-
-  body.innerHTML +=
-  '<div class="bot-msg">' + answer + '</div>';
-
-}
-
 </script>
 <script>
 let isArabic = false;
@@ -2329,46 +2206,6 @@ updatePrice();
   <span></span>
   <span></span>
   <span></span>
-</div>
-  <div class="ai-chat-btn" onclick="toggleChat()">
-🤖
-</div>
-
-<div class="ai-chat-box" id="aiChat">
-
-  <div class="chat-header">
-    مساعد LOR
-  </div>
-
-  <div class="chat-body" id="chatBody">
-
-    <div class="bot-msg">
-      أهلاً بك 👋
-      كيف أستطيع مساعدتك؟
-    </div>
-
-  </div>
-
-  <div class="chat-options">
-
-    <button onclick="askBot('price')">
-      السعر
-    </button>
-
-    <button onclick="askBot('usage')">
-      طريقة الاستخدام
-    </button>
-
-    <button onclick="askBot('delivery')">
-      التوصيل
-    </button>
-
-    <button onclick="askBot('payment')">
-      الدفع
-    </button>
-
-  </div>
-
 </div>
 </body>
 </html>
