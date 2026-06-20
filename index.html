@@ -1757,7 +1757,14 @@ function setLanguage(lang){
 
 document.querySelector(".product-text h2").innerText =
   isArabic ? "LOR' Perfume" : "LOR' Perfume";
-  
+  // HOW TO USE
+document.querySelector(".how-use h2").innerText =
+  isArabic ? "طريقة الاستخدام" : "HOW TO USE";
+
+document.querySelector(".how-subtitle").innerText =
+  isArabic
+  ? "لمسة صغيرة فقط هي كل ما تحتاجه"
+  : "A small touch is all you need.";
   document.querySelector(".buy-now").innerText =
     isArabic ? "اشتري الآن" : "BUY NOW";
 document.querySelector(".buy").innerText =
@@ -1781,7 +1788,36 @@ document.querySelector(".about h2").innerText =
       ? "نحن هنا لمساعدتك في الطلبات والاستفسارات والدعم."
       : "We’re here to help you with orders, questions, and support.";
   let trustItems = document.querySelectorAll(".trust-bar span");
+// HOW TO USE STEPS
+let howTitles = document.querySelectorAll(".how-step h3");
+let howText = document.querySelectorAll(".how-step p");
 
+if(howTitles.length >= 3){
+
+  howTitles[0].innerText =
+    isArabic ? "اضغطي" : "Press";
+
+  howTitles[1].innerText =
+    isArabic ? "ضعيه" : "Apply";
+
+  howTitles[2].innerText =
+    isArabic ? "استمتعي" : "Enjoy";
+
+  howText[0].innerText =
+    isArabic
+    ? "اضغطي المضخة بلطف للحصول على كمية صغيرة."
+    : "Press the pump gently to release a small amount.";
+
+  howText[1].innerText =
+    isArabic
+    ? "ضعيه على نقاط النبض مثل الرقبة أو المعصم أو خلف الأذن."
+    : "Apply on pulse points like the neck, wrist or behind the ears.";
+
+  howText[2].innerText =
+    isArabic
+    ? "دعي العطر ينساب على بشرتك ويكشف عن رائحته المميزة."
+    : "Let the butter perfume melt into your skin and reveal its scent.";
+}
 if(trustItems.length >= 3){
 
   trustItems[0].innerText =
