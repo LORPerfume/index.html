@@ -1499,7 +1499,8 @@ document.querySelector(".product-text h2").innerText =
   
   document.querySelector(".buy-now").innerText =
     isArabic ? "اشتري الآن" : "BUY NOW";
-
+document.querySelector(".buy").innerText =
+  isArabic ? "اطلبي الآن" : "BUY";
   document.querySelector(".story-title").innerText =
     isArabic ? "قصة عطر LOR" : "THE STORY OF LOR PERFUME";
 
@@ -1518,6 +1519,20 @@ document.querySelector(".about h2").innerText =
     isArabic
       ? "نحن هنا لمساعدتك في الطلبات والاستفسارات والدعم."
       : "We’re here to help you with orders, questions, and support.";
+  let trustItems = document.querySelectorAll(".trust-bar span");
+
+if(trustItems.length >= 3){
+
+  trustItems[0].innerText =
+    isArabic ? "🚚 توصيل سريع" : "🚚 Fast Delivery";
+
+  trustItems[1].innerText =
+    isArabic ? "💵 الدفع عند الاستلام" : "💵 Cash On Delivery";
+
+  trustItems[2].innerText =
+    isArabic ? "✨ تركيبة فاخرة" : "✨ Premium Formula";
+
+}
 let stats = document.querySelectorAll(".stats-bar span");
 document.querySelector(".footer h3").innerText =
   isArabic ? "خدمة العملاء" : "Customer Service";
@@ -1647,6 +1662,33 @@ if(features.length >= 3){
     : "✦ Inspired by luxury fashion houses & modern minimalism";
 
 }
+  document.querySelector(".popup-box h2").innerText =
+  isArabic ? "انتظري ✦" : "WAIT ✦";
+
+document.querySelector(".popup-box p").innerText =
+  isArabic
+  ? "قبل أن تغادري… لا يزال لديك عرض خاص"
+  : "Before you go… you still have a special offer";
+
+document.querySelector(".offer").innerText =
+  isArabic
+  ? "🔥 خصم 10% لفترة محدودة فقط"
+  : "🔥 10% OFF for limited time only";
+
+document.querySelector(".popup-btn").innerText =
+  isArabic ? "احصلي على العرض" : "CLAIM OFFER";
+
+document.querySelector(".close-btn").innerText =
+  isArabic ? "لا، شكراً" : "No thanks";
+  document.querySelector(".lux-bar").childNodes[0].textContent =
+  isArabic
+  ? "🔥 إصدار فاخر محدود — متبقي 49 قطعة فقط "
+  : "🔥 Limited Luxury Drop — Only 49 Pieces Available ";
+
+document.querySelector(".lux-bar span").innerText =
+  isArabic
+  ? "⏳ ينتهي العرض خلال 24 ساعة"
+  : "⏳ Offer ends in 24H";
   // highlight
   updateHighlight();
 }
@@ -1678,7 +1720,11 @@ function sendOrder() {
   let quantity = document.getElementById("quantity").value;
 
 if (!name || !phone || !address) {
-  alert("Please fill all fields");
+alert(
+  isArabic
+  ? "يرجى تعبئة جميع الحقول"
+  : "Please fill all fields"
+);
   return;
 }
   
@@ -1686,7 +1732,11 @@ if (!name || !phone || !address) {
 let quantityNum = parseInt(quantity);
 
 if(quantityNum < 1){
-  alert("Enter valid quantity");
+alert(
+  isArabic
+  ? "يرجى إدخال كمية صحيحة"
+  : "Enter valid quantity"
+);
   return;
 }
 
@@ -1697,8 +1747,19 @@ let price = 26 + ((quantityNum - 1) * 19);
   let newOrderID = lastOrder ? parseInt(lastOrder) + 1 : 1000;
   localStorage.setItem("orderID", newOrderID);
 
-  let message = 
-`🛍️ NEW ORDER #${newOrderID}
+let message = isArabic
+? `🛍️ طلب جديد رقم #${newOrderID}
+
+👤 الاسم: ${name}
+📞 الهاتف: ${phone}
+📦 الكمية: ${quantity} عبوة
+💰 السعر: ${price} دينار
+
+📍 العنوان:
+${address}
+
+💎 المنتج: LOR' Perfume`
+: `🛍️ NEW ORDER #${newOrderID}
 
 👤 Name: ${name}
 📞 Phone: ${phone}
@@ -1708,8 +1769,8 @@ let price = 26 + ((quantityNum - 1) * 19);
 📍 Address:
 ${address}
 
-💎 Product: LOR Luxury Butter Perfume`;
-
+💎 Product: LOR' Perfume`;
+  
   let whatsapp = "https://wa.me/962790276691?text=" + encodeURIComponent(message);
 
   window.open(whatsapp, "_blank");
@@ -1767,7 +1828,9 @@ function updatePrice() {
 
   let price = 26 + ((qty - 1) * 20);
 
-  totalPrice.innerHTML = "Total Price: " + price + " JD";
+totalPrice.innerHTML = isArabic
+  ? "السعر الإجمالي: " + price + " دينار"
+  : "Total Price: " + price + " JD";
 }
 
 quantityInput.addEventListener("input", updatePrice);
