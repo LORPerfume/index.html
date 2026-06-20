@@ -1759,6 +1759,60 @@ features[5].innerText =
   ? "✦ مناسبة للاستخدام اليومي والمناسبات الخاصة"
   : "✦ Suitable for daily wear and special occasions";
 }
+  let reviews = document.querySelectorAll(".about-card");
+
+if(reviews.length >= 3){
+
+  if(isArabic){
+
+    reviews[0].querySelector("strong").innerText = "سارة ***";
+    reviews[0].querySelector("span").innerText = "عمّان";
+
+    reviews[1].querySelector("strong").innerText = "لين ***";
+    reviews[1].querySelector("span").innerText = "إربد";
+
+    reviews[2].querySelector("strong").innerText = "ميرا ***";
+    reviews[2].querySelector("span").innerText = "الزرقاء";
+
+  } else {
+
+    reviews[0].querySelector("strong").innerText = "Sarah ***";
+    reviews[0].querySelector("span").innerText = "Amman";
+
+    reviews[1].querySelector("strong").innerText = "Lynn ***";
+    reviews[1].querySelector("span").innerText = "Irbid";
+
+    reviews[2].querySelector("strong").innerText = "Mira ***";
+    reviews[2].querySelector("span").innerText = "Zarqa";
+
+  }
+}
+  if(reviews.length >= 3){
+
+  if(isArabic){
+
+    reviews[0].childNodes[reviews[0].childNodes.length - 1].textContent =
+      '"أكتر اشي عجبني انه مش عطر رش عادي وقوامه مختلف وفخم كتير والريحة بتضل فواحة لفترة طويلة وكل اللي حولي سألوني عنه."';
+
+    reviews[1].childNodes[reviews[1].childNodes.length - 1].textContent =
+      '"بصراحة ما كنت متوقعة الثبات هيك بحط منه كمية قليله وبتضل الريحة معي لساعات وكمان سهل كتير بالاستخدام"';
+
+    reviews[2].childNodes[reviews[2].childNodes.length - 1].textContent =
+      '"وصلني اسرع من المتوقع والتغليف مرتب كتير والريحة فخمة بتعطي احساس عطر غالي"';
+
+  } else {
+
+    reviews[0].childNodes[reviews[0].childNodes.length - 1].textContent =
+      '"What I loved most is that it is not a regular spray perfume. The texture feels luxurious, and the scent stays noticeable for a long time. Everyone around me kept asking about it."';
+
+    reviews[1].childNodes[reviews[1].childNodes.length - 1].textContent =
+      '"Honestly, I did not expect this level of longevity. A small amount is enough, and the scent stays with me for hours. It is also very easy to use."';
+
+    reviews[2].childNodes[reviews[2].childNodes.length - 1].textContent =
+      '"It arrived faster than expected, the packaging was very neat, and the scent feels luxurious like an expensive perfume."';
+
+  }
+}
   document.querySelector(".popup-box h2").innerText =
   isArabic ? "انتظري ✦" : "WAIT ✦";
 
