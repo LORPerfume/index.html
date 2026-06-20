@@ -1207,10 +1207,32 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
 
 @media(max-width:768px){
 
+@media(max-width:768px){
+
   .how-steps{
-    grid-template-columns:1fr;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
   }
 
+  .step-image{
+    height:90px;
+  }
+
+  .how-step{
+    padding:10px;
+  }
+
+  .how-step h3{
+    font-size:12px;
+    margin-top:5px;
+  }
+
+  .how-step p{
+    display:none;
+  }
+
+}
 }
       .step-image{
   width:100%;
