@@ -1824,6 +1824,14 @@ document.querySelector(".how-subtitle").innerText =
   : "A small touch is all you need.";
   document.querySelector(".buy-now").innerText =
     isArabic ? "اشتري الآن" : "BUY NOW";
+  const reviewsBtn = document.querySelector(".reviews-page-btn");
+
+if(reviewsBtn){
+  reviewsBtn.innerText =
+    isArabic
+    ? "⭐ عرض جميع التقييمات"
+    : "⭐ View All Customer Reviews";
+}
 document.querySelector(".buy").innerText =
   isArabic ? "اطلبي الآن" : "BUY";
   document.querySelector(".story-title").innerText =
