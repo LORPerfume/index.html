@@ -1,733 +1,1035 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LOR Perfume Luxury | Official</title>
-    <style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
 
 /* ===== GLOBAL ===== */
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: "Arial", sans-serif;
-background:
-radial-gradient(circle at 20% 20%, rgba(212,175,55,.12), transparent 35%),
-radial-gradient(circle at 80% 70%, rgba(212,175,55,.08), transparent 40%),
-#000;
-  color:white;
-  overflow-x:hidden;
-  scroll-behavior:smooth;
-  line-height:1.6;
-  letter-spacing:0.3px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(212,175,55,.12), transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(212,175,55,.08), transparent 40%),
+    #000;
+  color: white;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
 }
 
 /* ===== LOADER ===== */
-#loader{
-  position:fixed;
-  inset:0;
-  background:black;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
+#loader {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-#loader img{
-  width:90px;
-  animation:pulse 1.5s infinite;
+#loader img {
+  width: 90px;
+  animation: pulse 1.5s infinite;
 }
 
-@keyframes pulse{
-  0%{transform:scale(1);opacity:0.5;}
-  50%{transform:scale(1.25);opacity:1;}
-  100%{transform:scale(1);opacity:0.5;}
+@keyframes pulse {
+  0%   { transform: scale(1);    opacity: 0.5; }
+  50%  { transform: scale(1.25); opacity: 1;   }
+  100% { transform: scale(1);    opacity: 0.5; }
 }
 
-#loader.hide{
-  opacity:0;
-  pointer-events:none;
-  transition:0.6s;
+#loader.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.6s;
+}
+
+/* ===== LUX BAR ===== */
+.lux-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #000, #1a1400, #000);
+  color: #d4af37;
+  text-align: center;
+  font-size: 13px;
+  padding: 8px;
+  letter-spacing: 1px;
+  z-index: 99999;
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.lux-bar span {
+  color: white;
+  margin-left: 10px;
 }
 
 /* ===== TOPBAR ===== */
-.topbar{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 18px;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(212,175,55,0.2);
-  z-index:1000;
-  box-sizing:border-box;
+.topbar {
+  position: fixed;
+  top: 36px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
-.right{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.logo{
-  width:45px;
-  border-radius:12px;
+.logo {
+  width: 45px;
+  border-radius: 12px;
 }
 
-.brand{
-  font-size:13px;
-  letter-spacing:3px;
-  color:#fff;
+.brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #fff;
 }
 
 /* NAV */
-.nav{
-  display:flex;
-  gap:10px;
-  align-items:center;
+.nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.nav a{
-  color:white;
-  text-decoration:none;
-  font-size:13px;
-  padding:7px 12px;
-  border-radius:8px;
-  transition:0.3s;
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
-.nav a:hover{
-  color:#d4af37;
-  border:1px solid #d4af37;
+.nav a:hover {
+  color: #d4af37;
+  border: 1px solid #d4af37;
 }
 
-.buy{
-  background:#d4af37;
-  color:black !important;
-  font-weight:bold;
-
-  font-size:12px;
-
-  padding:5px 10px;
-
-  border-radius:8px;
+.nav .buy {
+  background: #d4af37;
+  color: black !important;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 8px;
 }
+
+/* ===== AURA BAR ===== */
+.aura-bar {
+  margin-top: 120px;
+  text-align: center;
+  padding: 10px 15px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(212,175,55,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.aura-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(212,175,55,0.3), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0%   { left: -100%; }
+  100% { left: 100%;  }
+}
+
+.aura-bar span {
+  display: block;
+  color: #d4af37;
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+.aura-bar small {
+  display: block;
+  color: #bbb;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
 /* ===== HERO ===== */
-.hero{
-  text-align:center;
-  padding:60px 20px 50px;
-}
-.hero h1{
-  font-size:28px;
-  letter-spacing:4px;
+.hero {
+  text-align: center;
+  padding: 60px 20px 50px;
 }
 
-.hero p{
-  color:#bbb;
-  margin-top:10px;
+.hero h1 {
+  font-size: 28px;
+  letter-spacing: 4px;
 }
 
-.glow{
-  width:120px;
-  height:2px;
-  background:#d4af37;
-  margin:15px auto;
-}
-/* ===== SLIDER ===== */
-.slider{
-  width:92%;
-  max-width:430px;
-  margin:40px auto;
-  overflow:hidden;
-  border-radius:18px;
-  border:1px solid rgba(212,175,55,0.25);
-  position:relative;
+.hero p {
+  color: #bbb;
+  margin-top: 10px;
 }
 
-.slides{
-  display:flex;
-  transition:0.6s ease;
+.glow {
+  width: 120px;
+  height: 2px;
+  background: #d4af37;
+  margin: 15px auto;
 }
 
-.slides img{
-  width:100%;
-  border-radius:18px;
+/* ===== STATS BAR ===== */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 40px 0;
+  text-align: center;
+  flex-wrap: wrap;
 }
 
-.btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(0,0,0,0.5);
-  border:1px solid rgba(255,255,255,0.2);
-  color:white;
-  padding:8px 10px;
-  cursor:pointer;
-  border-radius:10px;
+.stats-bar strong {
+  display: block;
+  color: #d4af37;
+  font-size: 28px;
 }
 
-.prev{left:10px;}
-.next{right:10px;}
-
-/* ===== PRODUCT ===== */
-.product-text{
-  text-align:center;
-  padding:25px;
+.stats-bar span {
+  color: #bbb;
+  font-size: 13px;
 }
 
-.badge{
-  background:#d4af37;
-  color:black;
-  padding:6px 12px;
-  font-size:11px;
-  border-radius:20px;
+/* ===== HERO IMAGES ===== */
+.hero-images {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
-h2{
-  font-size:22px;
+.hero-image {
+  width: 160px;
+  margin: 15px auto;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(212,175,55,0.25);
+  animation: fadeIn 1s ease;
 }
 
-/* PRICE */
-.old-price{
-  color:#777;
-  font-size:18px;
-  text-decoration:line-through;
-  opacity:.8;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }
 
-.new-price{
-  font-size:42px;
-  font-weight:700;
-  .old-price{
-  order:1;
+/* ===== PRODUCT CARD ===== */
+.hero-product {
+  display: flex;
+  justify-content: center;
+  margin: 70px 0;
 }
 
-.new-price{
-  order:2;
+.product-card {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
 }
 
-.countdown{
-  order:3;
+.product-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(212,175,55,0.35), transparent 70%);
+  filter: blur(25px);
+  animation: floatGlow 4s infinite ease-in-out;
 }
 
-  background:linear-gradient(
-    90deg,
-    #b8860b,
-    #ffd700,
-    #fff3b0,
-    #d4af37
-  );
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
-  text-shadow:
-    0 0 15px rgba(212,175,55,.4);
-
-  letter-spacing:1px;
-}
-      /* COUNTDOWN */
-.countdown{
-  margin-top:8px;
-  font-size:13px;
-  color:#ffcc70;
+@keyframes floatGlow {
+  0%   { transform: scale(1);   }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1);   }
 }
 
-/* BUY */
-.buy-now{
-  display:inline-block;
-  margin-top:14px;
-  padding:12px 32px;
-  background:#d4af37;
-  color:black;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:30px;
+.product-img {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 25px 30px rgba(0,0,0,0.6));
+  animation: floatProduct 3s ease-in-out infinite;
+  transform-origin: center;
 }
 
-/* ===== ABOUT ===== */
-.about{
-  max-width:800px;
-  margin:60px auto;
-  padding:20px;
+@keyframes floatProduct {
+  0%,100% { transform: translateY(0);    }
+  50%     { transform: translateY(-10px); }
 }
 
-.about-card{
-  background:rgba(255,255,255,0.04);
-  padding:16px;
-  margin-bottom:12px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,0.08);
+/* ===== PRODUCT TEXT ===== */
+.product-text {
+  text-align: center;
+  padding: 25px;
 }
 
-
-/* ===== CONTACT ===== */
-.contact{
-  background:black;
-  text-align:center;
-  padding:60px 20px;
+.product-text h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, #b8860b, #ffd700, #fff3b0, #d4af37, #b8860b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(212,175,55,.3);
 }
 
-.contact-buttons{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+.badge {
+  background: #d4af37;
+  color: black;
+  padding: 6px 12px;
+  font-size: 11px;
+  border-radius: 20px;
 }
 
-.contact-buttons a{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-
-  padding:10px 14px;
-  border-radius:12px;
-
-  color:#d4af37;
-  text-decoration:none;
-  font-weight:bold;
-
-  font-size:13px;
-  min-width:100px;
-
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(212,175,55,0.25);
-
-  transition:0.3s;
-}
-/* hover فاخر */
-.contact-buttons a:hover{
-  transform:translateY(-5px);
-  border-color:#d4af37;
-  box-shadow:0 10px 25px rgba(212,175,55,0.15);
-  background:rgba(212,175,55,0.05);
-}
-/* hover effect */
-.contact a:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 20px rgba(212,175,55,0.2);
-}
-.contact a{
-  display:inline-block;
-  margin:10px;
-  padding:10px 16px;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
+/* PRICE ROW */
+.price-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
 }
 
-.wa{background:#25D366;}
-.insta{background:#E1306C;}
-.fb{background:#1877F2;}
-.story-section{
-  max-width:900px;
-  margin:60px auto;
-  padding:30px 20px;
-  text-align:center;
+.old-price {
+  color: #777;
+  font-size: 18px;
+  text-decoration: line-through;
+  opacity: .8;
+}
 
+.new-price {
+  font-size: 42px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #b8860b, #ffd700, #fff3b0, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(212,175,55,.4);
+  letter-spacing: 1px;
+}
+
+.countdown {
+  background: rgba(255,204,112,0.12);
+  border: 1px solid rgba(255,204,112,0.3);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #ffcc70;
+}
+
+/* TRUST BAR */
+.trust-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.trust-bar span {
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 20px;
+  color: #d4af37;
+  font-size: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* BUY NOW */
+.buy-now {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 32px;
+  background: #d4af37;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  animation: buyGlow 2s infinite;
+}
+
+@keyframes buyGlow {
+  0%,100% { box-shadow: 0 0 0 rgba(212,175,55,0);   }
+  50%     { box-shadow: 0 0 35px rgba(212,175,55,.7); }
+}
+
+/* ===== HOW TO USE ===== */
+.how-use {
+  max-width: 1000px;
+  margin: 70px auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.how-use h2 {
+  color: #d4af37;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+}
+
+.how-subtitle {
+  color: #bbb;
+  margin-bottom: 30px;
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.how-step {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 16px;
+  padding: 25px;
+  transition: .3s;
+}
+
+.how-step:hover {
+  transform: translateY(-8px);
+  border-color: #d4af37;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background: #d4af37;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.step-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(212,175,55,0.2);
+  box-shadow: 0 10px 25px rgba(212,175,55,0.15);
+}
+
+.how-step h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.how-step p {
+  color: #bbb;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .how-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .step-image {
+    height: 90px;
+  }
+  .how-step {
+    padding: 10px;
+  }
+  .how-step h3 {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .how-step p {
+    font-size: 10px;
+    line-height: 1.4;
+    color: #bbb;
+  }
+}
+
+/* ===== WHAT'S INSIDE ===== */
+.inside-box {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.inside-title {
+  text-align: center;
+  color: #d4af37;
+  font-size: 22px;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+}
+
+.inside-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .inside-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.inside-item {
+  background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(255,255,255,0.03));
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 16px;
+  padding: 25px 15px;
+  text-align: center;
+  transition: .4s;
+}
+
+.inside-item:hover {
+  transform: translateY(-8px);
+  border-color: #d4af37;
+}
+
+.inside-icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.inside-name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.inside-desc {
+  margin-top: 8px;
+  color: #bbb;
+  font-size: 13px;
+}
+
+/* ===== ABOUT / REVIEWS ===== */
+.about {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.about-card {
+  background: rgba(255,255,255,0.04);
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.4s;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+  box-shadow: 0 10px 25px rgba(212,175,55,0.15);
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #d4af37, #fff3b0, #8a6d1d);
+  padding: 2px;
+  box-shadow: 0 0 18px rgba(212,175,55,.35);
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.review-user strong {
+  display: block;
+  color: #d4af37;
+  font-size: 14px;
+}
+
+.review-user span {
+  display: block;
+  color: #aaa;
+  font-size: 12px;
+}
+
+/* ===== STORY ===== */
+.story-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px 20px;
   background: rgba(255,255,255,0.02);
   border-radius: 15px;
   border: 1px solid rgba(212,175,55,0.15);
   backdrop-filter: blur(10px);
 }
 
-.story-title{
-  font-size:22px;
-  color:#d4af37;
-  letter-spacing:3px;
-  margin-bottom:15px;
+.story-title {
+  font-size: 22px;
+  color: #d4af37;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
 }
 
-.story-text{
-  color:#ccc;
-  font-size:14px;
-  line-height:1.9;
-  max-width:800px;
-  margin:0 auto;
+.story-text {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.9;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.story-highlight{
-  margin-top:20px;
-  padding:15px;
-  border:1px solid rgba(212,175,55,0.25);
-  border-radius:12px;
-  background:rgba(255,255,255,0.03);
-  color:#ddd;
-  font-size:14px;
-}
-  .about-card{
-  transition:0.4s;
+.story-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.about-card:hover{
-  transform:translateY(-5px);
-  border-color:#d4af37;
-  box-shadow:0 10px 25px rgba(212,175,55,0.15);
-}
-  .inside-box{
-  max-width:900px;
-  margin:60px auto;
-  padding:30px;
+.story-image {
+  flex: 1;
+  min-width: 280px;
 }
 
-.inside-title{
-  text-align:center;
-  color:#d4af37;
-  font-size:22px;
-  letter-spacing:3px;
-  margin-bottom:25px;
+.story-image img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(212,175,55,0.15);
+  border: 1px solid rgba(212,175,55,0.2);
 }
 
-.inside-container{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
+.story-content {
+  flex: 1;
+  min-width: 280px;
+  text-align: left;
 }
 
-@media (max-width:768px){
-  .inside-container{
-    grid-template-columns:repeat(2,1fr);
+.story-features {
+  margin-top: 25px;
+}
+
+.feature-item {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.15);
+  color: #ddd;
+  transition: .3s;
+}
+
+.feature-item:hover {
+  transform: translateX(5px);
+  border-color: #d4af37;
+}
+
+@media (max-width: 768px) {
+  .story-container {
+    flex-direction: column;
+  }
+  .story-content {
+    text-align: center;
   }
 }
-      .inside-item{
-  background:linear-gradient(
-    135deg,
-    rgba(212,175,55,0.12),
-    rgba(255,255,255,0.03)
-  );
-  border:1px solid rgba(212,175,55,0.15);
-  border-radius:16px;
-  padding:25px 15px;
-  text-align:center;
-  transition:.4s;
+
+/* ===== POLICY ===== */
+.policy-section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 12px;
 }
 
-.inside-item:hover{
-  transform:translateY(-8px);
-  border-color:#d4af37;
+.policy-section h2 {
+  color: #d4af37;
+  margin-bottom: 10px;
 }
 
-.inside-icon{
-  font-size:30px;
-  margin-bottom:12px;
+.policy-section p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.8;
 }
 
-.inside-name{
-  font-size:15px;
-  font-weight:bold;
-  color:#fff;
+/* ===== ORDER FORM ===== */
+.order-form {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 25px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 15px;
+  text-align: center;
 }
 
-.inside-desc{
-  margin-top:8px;
-  color:#bbb;
-  font-size:13px;
-}
-  .stats-bar{
-  display:flex;
-  justify-content:center;
-  gap:50px;
-  margin:40px 0;
-  text-align:center;
-  flex-wrap:wrap;
+.order-form h2 {
+  color: #d4af37;
+  margin-bottom: 20px;
 }
 
-.stats-bar strong{
-  display:block;
-  color:#d4af37;
-  font-size:28px;
+.order-layout {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
-.stats-bar span{
-  color:#bbb;
-  font-size:13px;
-}
-  .mood-section{
-  text-align:center;
-  margin:60px 0;
+.order-image-side {
+  flex: 1;
 }
 
-.mood-buttons button{
-  margin:8px;
-  padding:10px 15px;
-  border-radius:20px;
-  border:1px solid #d4af37;
-  background:transparent;
-  color:white;
-  cursor:pointer;
-  transition:0.3s;
+.order-image-side img {
+  max-width: 280px;
+  width: 100%;
+  display: block;
+  margin: auto;
 }
 
-.mood-buttons button:hover{
-  background:#d4af37;
-  color:black;
+.order-banner2 {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(212,175,55,0.2);
+  box-shadow: 0 15px 40px rgba(212,175,55,0.15);
+  transition: .4s;
 }
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap');
 
-.lux-title{
+.order-banner2:hover {
+  transform: scale(1.02);
+}
+
+.order-info-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-form input,
+.order-form textarea {
+  width: 100%;
+  max-width: 360px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  padding: 12px;
+  font-size: 16px;
+  text-align: right;
+  border: none;
+  border-radius: 10px;
+  background: #111;
+  color: white;
+}
+
+.order-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.secure-note {
+  margin: 5px 0 12px;
+  color: #bbb;
+  font-size: 12px;
+  text-align: center;
+}
+
+.order-form button {
+  display: block;
+  margin: 0 auto;
+  background: #d4af37;
+  color: black;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .order-layout {
+    flex-direction: column;
+  }
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  background: black;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.contact-buttons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  min-width: 100px;
+  transition: 0.3s;
+}
+
+.contact-buttons a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(212,175,55,0.15);
+}
+
+.wa    { background: #25D366; color: white; }
+.insta { background: #E1306C; color: white; }
+.fb    { background: #1877F2; color: white; }
+
+@media (max-width: 600px) {
+  .contact-buttons {
+    gap: 8px;
+  }
+  .contact-buttons a {
+    flex: 1;
+    min-width: unset;
+    font-size: 12px;
+    padding: 10px 8px;
+  }
+}
+
+/* ===== REVIEWS PAGE BTN ===== */
+.reviews-page-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #d4af37;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: .3s;
+}
+
+.reviews-page-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(212,175,55,.25);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #000;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(212,175,55,0.2);
+}
+
+.footer h3 {
+  color: #d4af37;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.footer a {
+  display: block;
+  color: #bbb;
+  text-decoration: none;
+  margin: 8px 0;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer a:hover {
+  color: #d4af37;
+}
+
+/* ===== EXIT POPUP ===== */
+.exit-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.exit-popup.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-box {
+  width: 300px;
+  background: linear-gradient(135deg, #111, #000);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 40px rgba(212,175,55,0.2);
+}
+
+.popup-box h2 {
+  color: #d4af37;
+  letter-spacing: 3px;
+}
+
+.offer {
+  margin: 15px 0;
+  color: #ffcc70;
+  font-weight: bold;
+}
+
+.popup-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #d4af37;
+  color: black;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.close-btn {
+  margin-top: 10px;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 55px;
+  height: 55px;
+  background: #25D366;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: 0.3s;
+}
+
+.whatsapp-float img {
+  width: 28px;
+  height: 28px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px rgba(37,211,102,0.5);
+}
+
+/* ===== LUX TITLE ===== */
+.lux-title {
   font-family: 'Cinzel', serif;
   font-size: 46px;
   letter-spacing: 6px;
   text-transform: uppercase;
-
-  background: linear-gradient(
-    90deg,
-    #b8860b,
-    #ffd700,
-    #fff3b0,
-    #d4af37,
-    #b8860b
-  );
+  background: linear-gradient(90deg, #b8860b, #ffd700, #fff3b0, #d4af37, #b8860b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
   text-shadow: 0 0 25px rgba(212,175,55,0.25);
 }
-  .lux-bar{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background:linear-gradient(90deg,#000,#1a1400,#000);
-  color:#d4af37;
-  text-align:center;
-  font-size:13px;
-  padding:8px;
-  letter-spacing:1px;
-  z-index:99999;
-  border-bottom:1px solid rgba(212,175,55,0.3);
-}
-.product-text h2{
-  font-family:'Cinzel', serif;
-  font-size:32px;
-  letter-spacing:4px;
 
-  background:linear-gradient(
-    90deg,
-    #b8860b,
-    #ffd700,
-    #fff3b0,
-    #d4af37,
-    #b8860b
-  );
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
-  text-shadow:0 0 20px rgba(212,175,55,.3);
-}
-.lux-bar span{
-  color:white;
-  margin-left:10px;
-}
-  .aura-bar{
-  margin-top:120px;
-  text-align:center;
-  padding:10px 15px;
-  max-width:420px;
-  margin-left:auto;
-  margin-right:auto;
-
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(212,175,55,0.25);
-  border-radius:14px;
-
-  backdrop-filter: blur(10px);
-  box-shadow:0 0 25px rgba(212,175,55,0.08);
-  position:relative;
-  overflow:hidden;
+/* ===== MOOD SECTION ===== */
+.mood-section {
+  text-align: center;
+  margin: 60px 0;
 }
 
-/* خط ذهبي متحرك */
-.aura-bar::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(120deg,transparent,rgba(212,175,55,0.3),transparent);
-  animation:shine 3s infinite;
-}
-
-@keyframes shine{
-  0%{left:-100%;}
-  100%{left:100%;}
-}
-
-.aura-bar span{
-  display:block;
-  color:#d4af37;
-  font-weight:bold;
-  letter-spacing:3px;
-  font-size:12px;
-}
-
-.aura-bar small{
-  display:block;
-  color:#bbb;
-  font-size:11px;
-  margin-top:3px;
-}
-.price-row{
-  display:flex;
-  flex-direction:column;
-
-  justify-content:center;
-  align-items:center;
-
-  gap:8px;
-
-  margin-top:15px;
-}
-.price-row .countdown{
-  background:rgba(255,204,112,0.12);
-  border:1px solid rgba(255,204,112,0.3);
-  padding:6px 10px;
-  border-radius:10px;
-  font-size:12px;
-  color:#ffcc70;
-}
- 
-
-  @media (max-width: 600px){
-  .contact-buttons{
-    gap:8px;
-  }
-
-  .contact-buttons a{
-    flex:1;
-    min-width:unset;
-    font-size:12px;
-    padding:10px 8px;
-  }
-}
-  html {
-  scroll-behavior: smooth;
-}
-
-@keyframes pulseProduct{
-  0%{
-    transform: scale(1);
-  }
-  50%{
-    transform: scale(1.06);
-  }
-  100%{
-    transform: scale(1);
-  }
-}
- 
-
-@keyframes aura{
-from{transform:scale(1);}
-to{transform:scale(1.2);}
-}
-  .buy-now{
-animation:buyGlow 2s infinite;
-}
-
-@keyframes buyGlow{
-0%,100%{
-box-shadow:0 0 0 rgba(212,175,55,0);
-}
-50%{
-box-shadow:0 0 35px rgba(212,175,55,.7);
-}
-}
-  .hero-images{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-  .hero-image{
-  width:160px;
-  margin:15px auto;
-  display:block;
-  border-radius:16px;
-  box-shadow:0 10px 25px rgba(212,175,55,0.25);
-  animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1; transform:translateY(0);}
-}
- 
-  .hero-product{
+.mood-buttons button {
+  margin: 8px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid #d4af37;
   background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.hero-product{
-  display:flex;
-  justify-content:center;
-  margin:70px 0;
+.mood-buttons button:hover {
+  background: #d4af37;
+  color: black;
 }
 
-.product-card{
-  position:relative;
-  width:280px;
-  height:320px;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  background:transparent;
-  border:none;
-  box-shadow:none;
-  backdrop-filter:none;
-  overflow:visible;
-}
-
-.product-glow{
-  position:absolute;
-  width:220px;
-  height:220px;
-  background:radial-gradient(circle, rgba(212,175,55,0.35), transparent 70%);
-  filter:blur(25px);
-  animation:floatGlow 4s infinite ease-in-out;
-}
-
-@keyframes floatGlow{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.2);}
-  100%{transform:scale(1);}
-}
-
-.product-img{
-  width: 200px;
-  height: auto;
-  .product-img{
-  mix-blend-mode: screen;
-}
-
-  display: block;
-  margin: 0 auto;
-
-  /* يخلي الصورة نظيفة ومش مشوهة */
-  object-fit: contain;
-
-  /* ظل ناعم يعطي عمق فقط */
-  filter: drop-shadow(0 25px 30px rgba(0,0,0,0.6));
-
-  /* حركة خفيفة فخمة */
-  animation: floatProduct 3s ease-in-out infinite;
-
-  /* يمنع أي تشوه بالحركة */
-  transform-origin: center;
-}
-
-@keyframes floatProduct{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-  .lang-switch{
+/* ===== LANG SWITCH ===== */
+.lang-switch {
   background: transparent;
   border: 1px solid #d4af37;
   color: #d4af37;
@@ -737,1542 +1039,649 @@ box-shadow:0 0 35px rgba(212,175,55,.7);
   transition: 0.3s;
 }
 
-.lang-switch:hover{
-  background:#d4af37;
-  color:black;
-}
-  body.rtl{
-  direction: rtl;
-  text-align: right;
-}
-.product-card:hover{
-  box-shadow:none;
-  transform:none;
-}
-  .whatsapp-float{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-
-  width:55px;
-  height:55px;
-
-  background:#25D366;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  border-radius:50%;
-
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
-
-  z-index:9999;
-
-  transition:0.3s;
-}
-
-/* حجم شعار واتساب */
-.whatsapp-float img{
-  width:28px;
-  height:28px;
-}
-
-/* hover بسيط */
-.whatsapp-float:hover{
-  transform:scale(1.1);
-  box-shadow:0 15px 30px rgba(37,211,102,0.5);
-}
-.order-form{
-  max-width:1100px;
-  margin:60px auto;
-  padding:25px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(212,175,55,0.2);
-  border-radius:15px;
-  text-align:center;
-}
-
-.order-form h2{
-  color:#d4af37;
-  margin-bottom:20px;
-}
-
-.order-form input,
-.order-form textarea{
-  width:100%;
-  box-sizing:border-box;
-  margin-bottom:12px;
-  padding:12px;
-  font-size:16px;
-  text-align:right;
-  border:none;
-  border-radius:10px;
-  background:#111;
-  color:white;
-}
-
-.order-form textarea{
-  height:100px;
-  resize:none;
-}
-
-.order-form button{
-  background:#d4af37;
-  color:black;
-  border:none;
-  padding:12px 30px;
-  border-radius:30px;
-  font-weight:bold;
-  cursor:pointer;
-}
-  #story {
-  scroll-margin-top: 120px;
-}
-  #orderForm {
-  scroll-margin-top: 60px;
-}
-  .exit-popup{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.85);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:99999;
-
-  opacity:0;
-  pointer-events:none;
-  transition:0.4s;
-}
-
-.exit-popup.active{
-  opacity:1;
-  pointer-events:auto;
-}
-
-.popup-box{
-  width:300px;
-  background:linear-gradient(135deg,#111,#000);
-  border:1px solid rgba(212,175,55,0.3);
-  padding:25px;
-  border-radius:15px;
-  text-align:center;
-  color:white;
-  box-shadow:0 0 40px rgba(212,175,55,0.2);
-}
-
-.popup-box h2{
-  color:#d4af37;
-  letter-spacing:3px;
-}
-
-.offer{
-  margin:15px 0;
-  color:#ffcc70;
-  font-weight:bold;
-}
-
-.popup-btn{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 20px;
-  background:#d4af37;
-  color:black;
-  text-decoration:none;
-  border-radius:20px;
-  font-weight:bold;
-}
-
-.close-btn{
-  margin-top:10px;
-  background:transparent;
-  border:none;
-  color:#aaa;
-  cursor:pointer;
-  font-size:12px;
-}
-  .footer{
-  background:#000;
-  text-align:center;
-  padding:40px 20px;
-  border-top:1px solid rgba(212,175,55,0.2);
-}
-
-.footer h3{
-  color:#d4af37;
-  margin-bottom:15px;
-  letter-spacing:2px;
-}
-
-.footer a{
-  display:block;
-  color:#bbb;
-  text-decoration:none;
-  margin:8px 0;
-  font-size:14px;
-  transition:0.3s;
-}
-
-.footer a:hover{
-  color:#d4af37;
-}
-  .policy-section{
-  max-width:800px;
-  margin:60px auto;
-  padding:20px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(212,175,55,0.15);
-  border-radius:12px;
-}
-
-.policy-section h2{
-  color:#d4af37;
-  margin-bottom:10px;
-}
-
-.policy-section p{
-  color:#ccc;
-  font-size:14px;
-  line-height:1.8;
-}
-      body::after{
-  content:"";
-  position:fixed;
-  top:0;
-  left:0;
-
-  width:600px;
-  height:600px;
-
-  background:
-  radial-gradient(circle,
-  rgba(212,175,55,.10),
-  transparent 70%);
-
-  z-index:-1;
-
-  animation:goldAura 10s infinite alternate ease-in-out;
-}
-
-@keyframes goldAura{
-  from{
-    transform:translate(-100px,-50px);
-  }
-
-  to{
-    transform:translate(100px,50px);
-  }
-}
-      .gold-particles span{
-  position:fixed;
-  width:6px;
-  height:6px;
-  background:#d4af37;
-  border-radius:50%;
-  opacity:.35;
-  box-shadow:0 0 15px rgba(212,175,55,.8);
-  animation:particleMove 12s infinite linear;
-  z-index:-1;
-}
-
-.gold-particles span:nth-child(1){left:10%; top:80%; animation-delay:0s;}
-.gold-particles span:nth-child(2){left:30%; top:90%; animation-delay:2s;}
-.gold-particles span:nth-child(3){left:55%; top:85%; animation-delay:4s;}
-.gold-particles span:nth-child(4){left:75%; top:95%; animation-delay:6s;}
-.gold-particles span:nth-child(5){left:90%; top:88%; animation-delay:8s;}
-
-@keyframes particleMove{
-  0%{
-    transform:translateY(0) scale(1);
-    opacity:.15;
-  }
-  50%{
-    opacity:.45;
-  }
-  100%{
-    transform:translateY(-900px) scale(1.4);
-    opacity:0;
-  }
-}
-      .story-container{
-  display:flex;
-  align-items:center;
-  gap:40px;
-  flex-wrap:wrap;
-}
-
-.story-image{
-  flex:1;
-  min-width:280px;
-}
-
-.story-image img{
-  width:100%;
-  border-radius:18px;
-  box-shadow:0 15px 40px rgba(212,175,55,0.15);
-  border:1px solid rgba(212,175,55,0.2);
-}
-
-.story-content{
-  flex:1;
-  min-width:280px;
-  text-align:left;
-}
-
-.story-features{
-  margin-top:25px;
-}
-
-.feature-item{
-  padding:12px 15px;
-  margin-bottom:10px;
-  border-radius:12px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(212,175,55,0.15);
-  color:#ddd;
-  transition:.3s;
-}
-
-.feature-item:hover{
-  transform:translateX(5px);
-  border-color:#d4af37;
-}
-
-@media(max-width:768px){
-  .story-container{
-    flex-direction:column;
-  }
-
-  .story-content{
-    text-align:center;
-  }
-}
-      .order-banner2{
-  width:100%;
-  border-radius:18px;
-  margin-bottom:20px;
-
-  border:1px solid rgba(212,175,55,0.2);
-
-  box-shadow:
-  0 15px 40px rgba(212,175,55,0.15);
-
-  transition:.4s;
-}
-
-.order-banner2:hover{
-  transform:scale(1.02);
-}
-.trust-bar{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-
-  margin-top:15px;
-}
-
-.trust-bar span{
-  padding:8px 12px;
-
-  background:rgba(255,255,255,0.03);
-
-  border:1px solid rgba(212,175,55,0.2);
-
-  border-radius:20px;
-
-  color:#d4af37;
-
-  font-size:12px;
-
-  backdrop-filter:blur(10px);
-}
-      .order-layout{
-  display:flex;
-  align-items:center;
-  gap:40px;
-}
-
-.order-image-side{
-  flex:1;
-}
-.order-image-side img{
-  max-width:280px;
-  width:100%;
-  display:block;
-  margin:auto;
-}
-.order-info-side{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.order-info-side input,
-.order-info-side textarea{
-  max-width:360px;
-}
-
-.secure-note{
-  margin:5px 0 12px;
-  color:#bbb;
-  font-size:12px;
-  text-align:center;
-}
-      .order-form button{
-  display:block;
-  margin:0 auto;
-}
-@media(max-width:768px){
-  .order-layout{
-    flex-direction:column;
-  }
-}
-      .review-user{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:15px;
-  text-align:right;
-}
-
-.avatar{
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  overflow:hidden;
-  background:linear-gradient(135deg,#d4af37,#fff3b0,#8a6d1d);
-  padding:2px;
-  box-shadow:0 0 18px rgba(212,175,55,.35);
-}
-      .avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:50%;
-  display:block;
-}
-.review-user strong{
-  display:block;
-  color:#d4af37;
-  font-size:14px;
-}
-
-.review-user span{
-  display:block;
-  color:#aaa;
-  font-size:12px;
-}
-      .how-use{
-  max-width:1000px;
-  margin:70px auto;
-  padding:30px 20px;
-  text-align:center;
-}
-
-.how-use h2{
-  color:#d4af37;
-  margin-bottom:10px;
-  letter-spacing:3px;
-}
-
-.how-subtitle{
-  color:#bbb;
-  margin-bottom:30px;
-}
-
-.how-steps{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.how-step{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(212,175,55,0.15);
-  border-radius:16px;
-  padding:25px;
-  transition:.3s;
-}
-
-.how-step:hover{
-  transform:translateY(-8px);
-  border-color:#d4af37;
-}
-
-.step-number{
-  width:50px;
-  height:50px;
-  margin:auto;
-  margin-bottom:15px;
-  border-radius:50%;
-  background:#d4af37;
-  color:black;
-  font-weight:bold;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:20px;
-}
-
-.how-step h3{
-  color:#fff;
-  margin-bottom:10px;
-}
-
-.how-step p{
-  color:#bbb;
-  font-size:14px;
-}
-
-@media(max-width:768px){
-
-@media(max-width:768px){
-
-  .how-steps{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-  }
-
-  .step-image{
-    height:90px;
-  }
-
-  .how-step{
-    padding:10px;
-  }
-
-  .how-step h3{
-    font-size:12px;
-    margin-top:5px;
-  }
-
-@media(max-width:768px){
-
-  .how-steps{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-  }
-
-  .step-image{
-    height:90px;
-  }
-
-  .how-step{
-    padding:10px;
-  }
-
-  .how-step h3{
-    font-size:12px;
-    margin-top:5px;
-  }
-
-  .how-step p{
-    display:block;
-    font-size:10px;
-    line-height:1.4;
-    color:#bbb;
-  }
-
-}
-}
-}
-      .step-image{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:14px;
-  margin-bottom:15px;
-  border:1px solid rgba(212,175,55,0.2);
-  box-shadow:0 10px 25px rgba(212,175,55,0.15);
-}
-      .secure-note{
-  margin-bottom:12px;
-  color:#bbb;
-  font-size:12px;
-  text-align:center;
-}
-      .reviews-page-btn{
-  display:inline-block;
-  padding:12px 28px;
-  background:#d4af37;
-  color:#000;
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:30px;
-  transition:.3s;
-}
-
-.reviews-page-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(212,175,55,.25);
-}
+.lang-switch:hover {
+  background: #d4af37;
+  color: black;
+}
+
+/* ===== GOLD PARTICLES ===== */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212,175,55,.10), transparent 70%);
+  z-index: -1;
+  animation: goldAura 10s infinite alternate ease-in-out;
+}
+
+@keyframes goldAura {
+  from { transform: translate(-100px, -50px); }
+  to   { transform: translate(100px,  50px);  }
+}
+
+.gold-particles span {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #d4af37;
+  border-radius: 50%;
+  opacity: .35;
+  box-shadow: 0 0 15px rgba(212,175,55,.8);
+  animation: particleMove 12s infinite linear;
+  z-index: -1;
+}
+
+.gold-particles span:nth-child(1) { left: 10%; top: 80%; animation-delay: 0s;  }
+.gold-particles span:nth-child(2) { left: 30%; top: 90%; animation-delay: 2s;  }
+.gold-particles span:nth-child(3) { left: 55%; top: 85%; animation-delay: 4s;  }
+.gold-particles span:nth-child(4) { left: 75%; top: 95%; animation-delay: 6s;  }
+.gold-particles span:nth-child(5) { left: 90%; top: 88%; animation-delay: 8s;  }
+
+@keyframes particleMove {
+  0%   { transform: translateY(0)      scale(1);   opacity: .15; }
+  50%  {                                            opacity: .45; }
+  100% { transform: translateY(-900px) scale(1.4); opacity: 0;   }
+}
+
+/* scroll margin */
+#story    { scroll-margin-top: 120px; }
+#orderForm { scroll-margin-top: 60px; }
 </style>
-  </head>
-
+</head>
 <body>
 
 <!-- LOADER -->
 <div id="loader">
-  <div class="lux-bar">
+  <img src="logo.png" alt="LOR Logo">
+</div>
+
+<!-- LUX BAR -->
+<div class="lux-bar">
   🔥 Limited Luxury Drop — Only 49 Pieces Available
   <span>⏳ Offer ends in 24H</span>
 </div>
-  <img src="logo.png">
-</div>
-  <div class="aura-bar">
-  <span>✦ LOR PREMIUM EXPERIENCE</span>
-  <small>Where scent becomes identity</small>
-</div>
+
 <!-- TOPBAR -->
 <div class="topbar">
-
   <div class="right">
-    <img src="logo.png" class="logo">
+    <img src="logo.png" class="logo" alt="LOR Logo">
     <div class="brand">LOR' BUTTER PERFUME</div>
   </div>
-
   <div class="nav">
-<a href="#story">OUR STORY</a>
+    <a href="#story">OUR STORY</a>
     <a href="#contact">Contact</a>
-<a class="buy" href="#orderForm">
-  BUY
-</a>
+    <a class="buy" href="#orderForm">BUY</a>
     <button id="langBtn" class="lang-switch">AR</button>
   </div>
+</div>
 
+<!-- AURA BAR -->
+<div class="aura-bar">
+  <span>✦ LOR PREMIUM EXPERIENCE</span>
+  <small>Where scent becomes identity</small>
 </div>
 
 <!-- HERO -->
 <div class="hero">
   <h1 class="lux-title">THE ART OF SCENT</h1>
-
-<div class="hero-images">
-  <img src="customer1.png" class="hero-image">
-  <img src="customer3.png" class="hero-image">
-</div>
+  <div class="hero-images">
+    <img src="customer1.png" class="hero-image" alt="Customer">
+    <img src="customer3.png" class="hero-image" alt="Customer">
+  </div>
   <div class="glow"></div>
   <p>Luxury fragrance experience beyond spraying</p>
 </div>
-  <!-- STORY / BRANDING -->
-<div class="stats-bar">
 
+<!-- STATS -->
+<div class="stats-bar">
   <div>
     <strong>999+</strong>
     <span>Customers</span>
   </div>
-
   <div>
     <strong>100%</strong>
     <span>Luxury Quality</span>
   </div>
-
 </div>
-<!-- SLIDER -->
+
+<!-- PRODUCT CARD -->
 <div class="hero-product">
   <div class="product-card">
     <div class="product-glow"></div>
-    <img src="product.png" class="product-img">
+    <img src="product.png" class="product-img" alt="LOR Butter Perfume">
   </div>
 </div>
 
-<!-- PRODUCT -->
+<!-- PRODUCT TEXT -->
 <div class="product-text">
   <h2>Luxury Butter Perfume</h2>
-
   <div class="price-row">
-  <div class="old-price">40 JD</div>
-  <div class="new-price">26 JD</div>
-
-  <div class="countdown" id="countdown"></div>
-</div>
+    <div class="old-price">40 JD</div>
+    <div class="new-price">26 JD</div>
+    <div class="countdown" id="countdown"></div>
+  </div>
   <div class="trust-bar">
-
-  <span>🚚 Fast Delivery</span>
-
-  <span>💵 Cash On Delivery</span>
-
-  <span>✨ Premium Formula</span>
-
+    <span>🚚 Fast Delivery</span>
+    <span>💵 Cash On Delivery</span>
+    <span>✨ Premium Formula</span>
+  </div>
+  <a class="buy-now" href="#orderForm">BUY NOW</a>
 </div>
-<a class="buy-now" href="#orderForm">
-  BUY NOW
-</a>
-</div>
-  <!-- HOW TO USE -->
+
+<!-- HOW TO USE -->
 <div class="how-use">
-
   <h2>HOW TO USE</h2>
-
-  <p class="how-subtitle">
-    A small touch is all you need.
-  </p>
-
+  <p class="how-subtitle">A small touch is all you need.</p>
   <div class="how-steps">
-
     <div class="how-step">
-<img src="press2.png" class="step-image">
+      <img src="press2.png" class="step-image" alt="Press">
       <h3>Press</h3>
       <p>Press the pump gently to release a small amount.</p>
     </div>
-
     <div class="how-step">
-<img src="apply.png" class="step-image">
+      <img src="apply.png" class="step-image" alt="Apply">
       <h3>Apply</h3>
       <p>Apply on pulse points like the neck, wrist or behind the ears.</p>
     </div>
-
     <div class="how-step">
-<img src="enjoy.png" class="step-image">
+      <img src="enjoy.png" class="step-image" alt="Enjoy">
       <h3>Enjoy</h3>
       <p>Let the butter perfume melt into your skin and reveal its scent.</p>
     </div>
-
   </div>
-
 </div>
-  <!-- WHAT'S INSIDE -->
+
+<!-- WHAT'S INSIDE -->
 <div class="inside-box">
-
-  <div class="inside-title">
-    WHAT'S INSIDE
-  </div>
-
+  <div class="inside-title">WHAT'S INSIDE</div>
   <div class="inside-container">
-
     <div class="inside-item">
       <div class="inside-icon">💎</div>
       <div class="inside-name">Luxury Perfume</div>
-      <div class="inside-desc">
-        Premium butter-based fragrance formula.
-      </div>
+      <div class="inside-desc">Premium butter-based fragrance formula.</div>
     </div>
-
     <div class="inside-item">
       <div class="inside-icon">✨</div>
       <div class="inside-name">Long Lasting</div>
-      <div class="inside-desc">
-        Designed to stay noticeable for hours.
-      </div>
+      <div class="inside-desc">Designed to stay noticeable for hours.</div>
     </div>
-
     <div class="inside-item">
       <div class="inside-icon">🎁</div>
       <div class="inside-name">Elegant Packaging</div>
-      <div class="inside-desc">
-        Luxury presentation ready for gifting.
-      </div>
+      <div class="inside-desc">Luxury presentation ready for gifting.</div>
     </div>
-
     <div class="inside-item">
       <div class="inside-icon">👑</div>
       <div class="inside-name">Signature Experience</div>
-      <div class="inside-desc">
-        Crafted to leave a memorable impression.
-      </div>
+      <div class="inside-desc">Crafted to leave a memorable impression.</div>
     </div>
-
   </div>
-
 </div>
 
-<!-- ABOUT -->
-<div class="about" id="about">
-</div>
-  <!-- CUSTOMER EXPERIENCE -->
+<!-- CUSTOMER REVIEWS -->
 <div class="about">
   <h2 style="text-align:center;color:#d4af37;">CUSTOMER EXPERIENCE</h2>
 
-<div class="about-card">
-  <div class="review-user">
-<div class="avatar">
-  <img src="customer.jpg" alt="Customer">
-</div>
-    <div>
-      <strong>سارة ***</strong>
-      <span>عمّان</span>
+  <div class="about-card">
+    <div class="review-user">
+      <div class="avatar"><img src="customer.jpg" alt="Customer"></div>
+      <div>
+        <strong>سارة ***</strong>
+        <span>عمّان</span>
+      </div>
     </div>
+    ⭐⭐⭐⭐⭐<br><br>
+    "أكتر اشي عجبني انه مش عطر رش عادي وقوامه مختلف وفخم كتير والريحة بتضل فواحة لفترة طويلة وكل اللي حولي سألوني عنه."
   </div>
 
-  ⭐⭐⭐⭐⭐<br><br>
-"أكتر اشي عجبني انه مش عطر رش عادي وقوامه مختلف وفخم كتير والريحة بتضل فواحة لفترة طويلة وكل اللي حولي سألوني عنه."
-</div>
-
-<div class="about-card">
-  <div class="review-user">
-<div class="avatar">
-  <img src="customer.jpg" alt="Customer">
-</div>
-    <div>
-      <strong>لين ***</strong>
-      <span>إربد</span>
+  <div class="about-card">
+    <div class="review-user">
+      <div class="avatar"><img src="customer.jpg" alt="Customer"></div>
+      <div>
+        <strong>لين ***</strong>
+        <span>إربد</span>
+      </div>
     </div>
+    ⭐⭐⭐⭐⭐<br><br>
+    "بصراحة ما كنت متوقعة الثبات هيك بحط منه كمية قليله وبتضل الريحة معي لساعات وكمان سهل كتير بالاستخدام"
   </div>
 
-  ⭐⭐⭐⭐⭐<br><br>
-"بصراحة ما كنت متوقعة الثبات هيك بحط منه كمية قليله وبتضل الريحة معي لساعات وكمان سهل كتير بالاستخدام"
-</div>
-
-<div class="about-card">
-  <div class="review-user">
-<div class="avatar">
-  <img src="customer.jpg" alt="Customer">
-</div>
-    <div>
-      <strong>ميرا ***</strong>
-      <span>الزرقاء</span>
+  <div class="about-card">
+    <div class="review-user">
+      <div class="avatar"><img src="customer.jpg" alt="Customer"></div>
+      <div>
+        <strong>ميرا ***</strong>
+        <span>الزرقاء</span>
+      </div>
     </div>
+    ⭐⭐⭐⭐⭐<br><br>
+    "وصلني اسرع من المتوقع والتغليف مرتب كتير والريحة فخمة بتعطي احساس عطر غالي"
   </div>
-
-  ⭐⭐⭐⭐⭐<br><br>
-"وصلني اسرع من المتوقع والتغليف مرتب كتير والريحة فخمة بتعطي احساس عطر غالي "
 </div>
-</div>
-  <div style="text-align:center; margin-top:25px;">
 
-  <a href="reviews.html" class="reviews-page-btn">
-    ⭐ View All Customer Reviews
-  </a>
-
+<div style="text-align:center; margin-top:25px;">
+  <a href="reviews.html" class="reviews-page-btn">⭐ View All Customer Reviews</a>
 </div>
+
+<!-- STORY -->
 <div class="story-section" id="story">
-
   <div class="story-container">
-
     <div class="story-image">
       <img src="story-lor.png" alt="LOR Perfume Experience">
     </div>
-
     <div class="story-content">
-
-      <div class="story-title">
-        THE STORY OF LOR PERFUME
-      </div>
-
+      <div class="story-title">THE STORY OF LOR PERFUME</div>
       <div class="story-text">
         LOR Perfume was born from a vision of redefining modern luxury fragrance.
         More than a perfume, it is a statement of elegance, confidence, and identity.
         Every detail is carefully crafted to deliver a luxurious experience that leaves a lasting impression.
       </div>
-
       <div class="story-features">
-
-        <div class="feature-item">
-          ✦ Crafted with premium butter-based fragrance oils
-        </div>
-
-        <div class="feature-item">
-          ✦ Designed for a long-lasting signature scent experience
-        </div>
-
-        <div class="feature-item">
-          ✦ Inspired by luxury fashion houses & modern minimalism
-        </div>
-<div class="feature-item">
-  ✦ Luxurious texture that melts smoothly on the skin
-</div>
-
-<div class="feature-item">
-  ✦ Creates a unique personal scent identity
-</div>
-
-<div class="feature-item">
-  ✦ Suitable for daily wear and special occasions
-</div>
+        <div class="feature-item">✦ Crafted with premium butter-based fragrance oils</div>
+        <div class="feature-item">✦ Designed for a long-lasting signature scent experience</div>
+        <div class="feature-item">✦ Inspired by luxury fashion houses & modern minimalism</div>
+        <div class="feature-item">✦ Luxurious texture that melts smoothly on the skin</div>
+        <div class="feature-item">✦ Creates a unique personal scent identity</div>
+        <div class="feature-item">✦ Suitable for daily wear and special occasions</div>
       </div>
-
     </div>
-
   </div>
+</div>
 
-</div>
-</div>
-  <!-- FRAGRANCE STORY BREAKDOWN -->
+<!-- POLICY -->
 <div class="policy-section">
-
   <h2>FRAGRANCE STORY BREAKDOWN</h2>
-
-  <p>
-    LOR Perfume was created to redefine what a modern luxury fragrance means.
-    It is not just a scent — it is a personal identity that stays with you.
-  </p>
-
-  <p>
-    The idea behind this fragrance is to combine elegance, confidence, and long-lasting presence
-    in one signature experience.
-  </p>
-
+  <p>LOR Perfume was created to redefine what a modern luxury fragrance means. It is not just a scent — it is a personal identity that stays with you.</p>
+  <p>The idea behind this fragrance is to combine elegance, confidence, and long-lasting presence in one signature experience.</p>
   <h2>THE EXPERIENCE</h2>
-
-  <p>
-    This perfume evolves on your skin:
-    fresh at first, warm in the middle, and deep at the end.
-  </p>
-
+  <p>This perfume evolves on your skin: fresh at first, warm in the middle, and deep at the end.</p>
 </div>
+
+<!-- ORDER FORM -->
 <div class="order-form" id="orderForm">
-
   <div class="order-layout">
-
     <div class="order-image-side">
-      <img src="order-banner2.png" class="order-banner2">
+      <img src="order-banner2.png" class="order-banner2" alt="Order Banner">
     </div>
-
     <div class="order-info-side">
-
       <h2>Place Your Order</h2>
-      <input
-  type="number"
-  id="quantity"
-  min="1"
-  value="1"
-  placeholder="Quantity"
-style="width:100%;padding:12px;font-size:16px;margin-bottom:12px;border-radius:10px;background:#111;color:white;border:none;"
-        >
-  <div id="totalPrice" style="color:#d4af37;font-weight:bold;margin-bottom:12px;">
-Total Price: 26 JD
-</div>
-  <input type="text" id="customerName" placeholder="Full Name">
-
-<input type="tel" id="customerPhone" placeholder="Phone Number" dir="rtl">
-      
-  <textarea id="customerAddress" placeholder="Delivery Address"></textarea>
-
-
-<div class="secure-note">
-  🔒 Your information is used only for delivery purposes.
-</div>
-
-<button onclick="sendOrder()">PLACE ORDER</button>
-
-</div>
+      <input type="number" id="quantity" min="1" value="1" placeholder="Quantity">
+      <div id="totalPrice" style="color:#d4af37;font-weight:bold;margin-bottom:12px;">Total Price: 26 JD</div>
+      <input type="text" id="customerName" placeholder="Full Name">
+      <input type="tel" id="customerPhone" placeholder="Phone Number" dir="rtl">
+      <textarea id="customerAddress" placeholder="Delivery Address"></textarea>
+      <div class="secure-note">🔒 Your information is used only for delivery purposes.</div>
+      <button onclick="sendOrder()">PLACE ORDER</button>
     </div>
-
   </div>
-
 </div>
-<!-- CONTACT -->
+
 <!-- CONTACT -->
 <div class="contact" id="contact">
-
-<h2 style="color:#d4af37; letter-spacing:3px;">Contact us</h2>
-  
-  <p style="color:#bbb; font-size:14px; margin-bottom:25px;">
-    We’re here to help you with orders, questions, and support.
-  </p>
-
+  <h2 style="color:#d4af37; letter-spacing:3px;">Contact us</h2>
+  <p style="color:#bbb; font-size:14px; margin-bottom:25px;">We're here to help you with orders, questions, and support.</p>
   <div class="contact-buttons">
-
-    <a class="wa" href="https://wa.me/962790276691" target="_blank">
-      💬 WhatsApp
-    </a>
-
-    <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw" target="_blank">
-      📸 Instagram
-    </a>
-
-    <a class="fb" href="https://www.facebook.com/people/LOR-Perfume-JO/61590472924155/" target="_blank">
-      📘 Facebook
-    </a>
-
-  </div>
-
-</div>
-</div>
-
-<script>
-const container = document.querySelector(".hero-product");
-const product = document.querySelector(".product-img");
-
-container.addEventListener("mousemove", (e) => {
-  let x = (container.offsetWidth / 2 - e.offsetX) / 15;
-  let y = (container.offsetHeight / 2 - e.offsetY) / 15;
-
-  product.style.transform = `rotateY(${x}deg) rotateX(${y}deg) scale(1.05)`;
-});
-
-container.addEventListener("mouseleave", () => {
-  product.style.transform = "rotateY(0deg) rotateX(0deg) scale(1)";
-});
-/* loader */
-document.addEventListener("DOMContentLoaded",()=>{
-  const loader=document.getElementById("loader");
-  setTimeout(()=>{
-    loader.classList.add("hide");
-    setTimeout(()=>loader.style.display="none",600);
-  },1200);
-});
-
-/* slider */
-let index=0;
-function move(dir){
-  let slides=document.getElementById("slides");
-  let total=3;
-  index+=dir;
-  if(index<0) index=total-1;
-  if(index>=total) index=0;
-  slides.style.transform="translateX("+(-index*100)+"%)";
-}
-setInterval(()=>move(1),4000);
-
-/* countdown */
-function startCountdown(){
-let end = new Date().getTime() + 3600000;
-  
-  function update(){
-    let now = new Date().getTime();
-    let diff = end - now;
-
-    let h = Math.floor(diff / 3600000);
-    let m = Math.floor((diff % 3600000) / 60000);
-    let s = Math.floor((diff % 60000) / 1000);
-
-    let el = document.getElementById("countdown");
-
-    if(el){
-      el.innerText = `⏳ Offer ends in: ${h}h ${m}m ${s}s`;
-    }
-  }
-
-  update();
-  setInterval(update, 1000);
-}
-
-startCountdown();
-(function () {
-
-  function forceTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-    window.scrollTo(0, 0);
-  }
-
-  // يمنع حفظ آخر مكان
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-
-  // تشغيل قوي جداً لكل الحالات
-  window.addEventListener('load', function () {
-    forceTop();
-    setTimeout(forceTop, 50);
-    setTimeout(forceTop, 200);
-  });
-
-  window.addEventListener('pageshow', function () {
-    forceTop();
-  });
-})();
-</script>
-<script>
-let isArabic = false;
-
-/* ===== تحديث Highlight ===== */
-function updateHighlight() {
-  const highlight = document.querySelector(".story-highlight");
-  if (!highlight) return;
-
-  highlight.innerHTML = isArabic
-    ? "✦ مصنوع بزيوت عطرية فاخرة من الزبدة<br>✦ مصمم لثبات يدوم مع تجربة عطر مميزة<br>✦ مستوحى من دور الأزياء العالمية والبساطة العصرية"
-    : "✦ Crafted with premium butter-based fragrance oils<br>✦ Designed for long-lasting signature scent experience<br>✦ Inspired by luxury fashion houses & modern minimalism";
-}
-
-/* ===== تغيير اللغة ===== */
-function setLanguage(lang){
-  isArabic = (lang === "ar");
-
-  // حفظ
-  localStorage.setItem("lang", lang);
-
-  // اتجاه الصفحة
-  document.documentElement.lang = lang;
-  document.documentElement.dir = isArabic ? "rtl" : "ltr";
-  document.body.classList.toggle("rtl", isArabic);
-
-  // النصوص
-  document.querySelector(".inside-title").innerText =
-    isArabic ? "ماذا يوجد داخل المنتج" : "WHAT'S INSIDE";
-
-  document.querySelector("a[href='#story']").innerText =
-    isArabic ? "حول" : "About";
-
-  document.querySelector("a[href='#contact']").innerText =
-    isArabic ? "تواصل" : "Contact";
-
-  document.querySelector(".hero h1").innerText =
-    isArabic ? "فن العطر" : "THE ART OF SCENT";
-
-  document.querySelector(".hero p").innerText =
-    isArabic ? "تجربة عطر فاخرة تتجاوز الرش" : "Luxury fragrance experience beyond spraying";
-
-document.querySelector(".product-text h2").innerText =
-  isArabic ? "LOR' Perfume" : "LOR' Perfume";
-  // HOW TO USE
-document.querySelector(".how-use h2").innerText =
-  isArabic ? "طريقة الاستخدام" : "HOW TO USE";
-
-document.querySelector(".how-subtitle").innerText =
-  isArabic
-  ? "لمسة صغيرة فقط هي كل ما تحتاجه"
-  : "A small touch is all you need.";
-  document.querySelector(".buy-now").innerText =
-    isArabic ? "اشتري الآن" : "BUY NOW";
-  const reviewsBtn = document.querySelector(".reviews-page-btn");
-
-if(reviewsBtn){
-  reviewsBtn.innerText =
-    isArabic
-    ? "⭐ عرض جميع التقييمات"
-    : "⭐ View All Customer Reviews";
-}
-document.querySelector(".buy").innerText =
-  isArabic ? "اطلبي الآن" : "BUY";
-  document.querySelector(".story-title").innerText =
-    isArabic ? "قصة عطر LOR" : "THE STORY OF LOR PERFUME";
-
-  document.querySelector(".story-text").innerText =
-    isArabic
-      ? "وُلدت LOR Perfume من رؤية لإعادة تعريف الفخامة العطرية الحديثة."
-      : "LOR Perfume was born from a vision of redefining modern luxury fragrance.";
-document.querySelector(".about h2").innerText =
-  isArabic ? "آراء العملاء" : "CUSTOMER EXPERIENCE";
-  document.querySelector(".order-form h2").innerText =
-  isArabic ? "اطلبي الآن" : "Place Your Order";
-  document.querySelector("#contact h2").innerText =
-    isArabic ? "تواصل معنا" : "Contact us";
-
-  document.querySelector("#contact p").innerText =
-    isArabic
-      ? "نحن هنا لمساعدتك في الطلبات والاستفسارات والدعم."
-      : "We’re here to help you with orders, questions, and support.";
-  let trustItems = document.querySelectorAll(".trust-bar span");
-// HOW TO USE STEPS
-let howTitles = document.querySelectorAll(".how-step h3");
-let howText = document.querySelectorAll(".how-step p");
-
-if(howTitles.length >= 3){
-
-  howTitles[0].innerText =
-    isArabic ? "اضغطي" : "Press";
-
-  howTitles[1].innerText =
-    isArabic ? "ضعيه" : "Apply";
-
-  howTitles[2].innerText =
-    isArabic ? "استمتعي" : "Enjoy";
-
-  howText[0].innerText =
-    isArabic
-    ? "اضغطي المضخة بلطف للحصول على كمية صغيرة."
-    : "Press the pump gently to release a small amount.";
-
-  howText[1].innerText =
-    isArabic
-    ? "ضعيه على نقاط النبض مثل الرقبة أو المعصم أو خلف الأذن."
-    : "Apply on pulse points like the neck, wrist or behind the ears.";
-
-  howText[2].innerText =
-    isArabic
-    ? "دعي العطر ينساب على بشرتك ويكشف عن رائحته المميزة."
-    : "Let the butter perfume melt into your skin and reveal its scent.";
-}
-if(trustItems.length >= 3){
-
-  trustItems[0].innerText =
-    isArabic ? "🚚 توصيل سريع" : "🚚 Fast Delivery";
-
-  trustItems[1].innerText =
-    isArabic ? "💵 الدفع عند الاستلام" : "💵 Cash On Delivery";
-
-  trustItems[2].innerText =
-    isArabic ? "✨ تركيبة فاخرة" : "✨ Premium Formula";
-
-}
-let stats = document.querySelectorAll(".stats-bar span");
-document.querySelector(".footer h3").innerText =
-  isArabic ? "خدمة العملاء" : "Customer Service";
-  document.querySelector(".footer h3").innerText =
-  isArabic ? "خدمة العملاء" : "Customer Service";
-
-let footerLinks = document.querySelectorAll(".footer a");
-
-if(footerLinks.length >= 4){
-
-  footerLinks[0].innerText =
-    isArabic ? "سياسة الخصوصية" : "Privacy Policy";
-
-  footerLinks[1].innerText =
-    isArabic ? "الشروط والأحكام" : "Terms and Conditions";
-
-  footerLinks[2].innerText =
-    isArabic ? "سياسة الإلغاء" : "Cancellation Policy";
-
-  footerLinks[3].innerText =
-    isArabic ? "سياسة الاسترجاع والاستبدال" : "Refund & Returns Policy";
-
-}
-if(stats.length >= 2){
-  stats[0].innerText = isArabic ? "عميل" : "Customers";
-  stats[1].innerText = isArabic ? "جودة فاخرة" : "Luxury Quality";
-}
-  // inside box
-  let names = document.querySelectorAll(".inside-name");
-  let desc = document.querySelectorAll(".inside-desc");
-
-  if (names.length >= 4) {
-    if (isArabic) {
-      names[0].innerText = "عطر فاخر";
-      names[1].innerText = "ثبات طويل";
-      names[2].innerText = "تغليف أنيق";
-      names[3].innerText = "تجربة مميزة";
-
-      desc[0].innerText = "تركيبة عطر فاخرة بزبدة عطرية";
-      desc[1].innerText = "يدوم لساعات طويلة";
-      desc[2].innerText = "تغليف فاخر مناسب للهدايا";
-      desc[3].innerText = "رائحة تترك أثر قوي";
-    } else {
-      names[0].innerText = "Luxury Perfume";
-      names[1].innerText = "Long Lasting";
-      names[2].innerText = "Elegant Packaging";
-      names[3].innerText = "Signature Experience";
-
-      desc[0].innerText = "Premium butter-based fragrance formula.";
-      desc[1].innerText = "Designed to stay noticeable for hours.";
-      desc[2].innerText = "Luxury presentation ready for gifting.";
-      desc[3].innerText = "Crafted to leave a memorable impression.";
-    }
-  document.getElementById("langBtn").innerText = isArabic ? "EN" : "AR";
-  }
-
-  // reviews
-
-let policyTitles = document.querySelectorAll(".policy-section h2");
-let policyText = document.querySelectorAll(".policy-section p");
-
-if(policyText.length >= 3){
-
-  policyText[0].innerText = isArabic
-  ? "تم ابتكار عطر LOR لإعادة تعريف مفهوم العطر الفاخر العصري، فهو ليس مجرد رائحة بل هو جزء من هويتك."
-  : "LOR Perfume was created to redefine what a modern luxury fragrance means. It is not just a scent — it is a personal identity that stays with you.";
-
-  policyText[1].innerText = isArabic
-  ? "الفكرة وراء هذا العطر هي الجمع بين الأناقة والثقة والحضور طويل الأمد في تجربة واحدة مميزة."
-  : "The idea behind this fragrance is to combine elegance, confidence, and long-lasting presence in one signature experience.";
-
-  policyText[2].innerText = isArabic
-  ? "يتطور العطر على بشرتك ليمنحك تجربة متكاملة تبدأ بنفحات منعشة وتنتهي بلمسات دافئة وعميقة."
-  : "This perfume evolves on your skin: fresh at first, warm in the middle, and deep at the end.";
-}
-if(policyTitles.length >= 2){
-
-  policyTitles[0].innerText =
-    isArabic ? "قصة العطر" : "FRAGRANCE STORY BREAKDOWN";
-
-  policyTitles[1].innerText =
-    isArabic ? "التجربة" : "THE EXPERIENCE";
-
-}
-  document.getElementById("quantity").placeholder =
-  isArabic ? "الكمية" : "Quantity";
-
-document.getElementById("customerName").placeholder =
-  isArabic ? "الاسم الكامل" : "Full Name";
-
-document.getElementById("customerPhone").placeholder =
-  isArabic ? "رقم الهاتف" : "Phone Number";
-
-document.getElementById("customerAddress").placeholder =
-  isArabic ? "عنوان التوصيل" : "Delivery Address";
-  document.querySelector(".order-form button").innerText =
-  isArabic ? "إرسال الطلب" : "PLACE ORDER";
-  let features = document.querySelectorAll(".feature-item");
-document.querySelector(".secure-note").innerText =
-  isArabic
-  ? "🔒 معلوماتك تستخدم فقط لأغراض التوصيل"
-  : "🔒 Your information is used only for delivery purposes.";
-if(features.length >= 6){
-  
-  features[0].innerText =
-    isArabic
-    ? "✦ مصنوع من زيوت عطرية فاخرة قائمة على الزبدة"
-    : "✦ Crafted with premium butter-based fragrance oils";
-
-  features[1].innerText =
-    isArabic
-    ? "✦ مصمم ليمنحك رائحة مميزة تدوم طويلاً"
-    : "✦ Designed for a long-lasting signature scent experience";
-
-  features[2].innerText =
-    isArabic
-    ? "✦ مستوحى من دور الأزياء الفاخرة والبساطة العصرية"
-    : "✦ Inspired by luxury fashion houses & modern minimalism";
-features[3].innerText =
-  isArabic
-  ? "✦ تركيبة فاخرة تنساب بسلاسة على البشرة"
-  : "✦ Luxurious texture that melts smoothly on the skin";
-
-features[4].innerText =
-  isArabic
-  ? "✦ تمنحك هوية عطرية فريدة تعكس شخصيتك"
-  : "✦ Creates a unique personal scent identity";
-
-features[5].innerText =
-  isArabic
-  ? "✦ مناسبة للاستخدام اليومي والمناسبات الخاصة"
-  : "✦ Suitable for daily wear and special occasions";
-}
-  let reviews = document.querySelectorAll(".about-card");
-
-if(reviews.length >= 3){
-
-  if(isArabic){
-
-    reviews[0].querySelector("strong").innerText = "سارة ***";
-    reviews[0].querySelector("span").innerText = "عمّان";
-
-    reviews[1].querySelector("strong").innerText = "لين ***";
-    reviews[1].querySelector("span").innerText = "إربد";
-
-    reviews[2].querySelector("strong").innerText = "ميرا ***";
-    reviews[2].querySelector("span").innerText = "الزرقاء";
-
-  } else {
-
-    reviews[0].querySelector("strong").innerText = "Sarah ***";
-    reviews[0].querySelector("span").innerText = "Amman";
-
-    reviews[1].querySelector("strong").innerText = "Lynn ***";
-    reviews[1].querySelector("span").innerText = "Irbid";
-
-    reviews[2].querySelector("strong").innerText = "Mira ***";
-    reviews[2].querySelector("span").innerText = "Zarqa";
-
-  }
-}
-  if(reviews.length >= 3){
-
-  if(isArabic){
-
-    reviews[0].childNodes[reviews[0].childNodes.length - 1].textContent =
-      '"أكتر اشي عجبني انه مش عطر رش عادي وقوامه مختلف وفخم كتير والريحة بتضل فواحة لفترة طويلة وكل اللي حولي سألوني عنه."';
-
-    reviews[1].childNodes[reviews[1].childNodes.length - 1].textContent =
-      '"بصراحة ما كنت متوقعة الثبات هيك بحط منه كمية قليله وبتضل الريحة معي لساعات وكمان سهل كتير بالاستخدام"';
-
-    reviews[2].childNodes[reviews[2].childNodes.length - 1].textContent =
-      '"وصلني اسرع من المتوقع والتغليف مرتب كتير والريحة فخمة بتعطي احساس عطر غالي"';
-
-  } else {
-
-    reviews[0].childNodes[reviews[0].childNodes.length - 1].textContent =
-      '"What I loved most is that it is not a regular spray perfume. The texture feels luxurious, and the scent stays noticeable for a long time. Everyone around me kept asking about it."';
-
-    reviews[1].childNodes[reviews[1].childNodes.length - 1].textContent =
-      '"Honestly, I did not expect this level of longevity. A small amount is enough, and the scent stays with me for hours. It is also very easy to use."';
-
-    reviews[2].childNodes[reviews[2].childNodes.length - 1].textContent =
-      '"It arrived faster than expected, the packaging was very neat, and the scent feels luxurious like an expensive perfume."';
-
-  }
-}
-  document.querySelector(".popup-box h2").innerText =
-  isArabic ? "انتظري ✦" : "WAIT ✦";
-
-document.querySelector(".popup-box p").innerText =
-  isArabic
-  ? "قبل أن تغادري… لا يزال لديك عرض خاص"
-  : "Before you go… you still have a special offer";
-
-document.querySelector(".offer").innerText =
-  isArabic
-  ? "🔥 خصم 10% لفترة محدودة فقط"
-  : "🔥 10% OFF for limited time only";
-
-document.querySelector(".popup-btn").innerText =
-  isArabic ? "احصلي على العرض" : "CLAIM OFFER";
-
-document.querySelector(".close-btn").innerText =
-  isArabic ? "لا، شكراً" : "No thanks";
-  document.querySelector(".lux-bar").childNodes[0].textContent =
-  isArabic
-  ? "🔥 إصدار فاخر محدود — متبقي 49 قطعة فقط "
-  : "🔥 Limited Luxury Drop — Only 49 Pieces Available ";
-
-document.querySelector(".lux-bar span").innerText =
-  isArabic
-  ? "⏳ ينتهي العرض خلال 24 ساعة"
-  : "⏳ Offer ends in 24H";
-  // highlight
-updateHighlight();
-updatePrice();
-}
-
-/* ===== زر اللغة ===== */
-document.getElementById("langBtn").addEventListener("click", () => {
-  const newLang = isArabic ? "en" : "ar";
-  localStorage.setItem("lang", newLang);
-  location.reload();
-});
-
-/* ===== تشغيل اللغة عند فتح الصفحة ===== */
-window.addEventListener("load", () => {
-const saved = localStorage.getItem("lang") || "ar";
-  setLanguage(saved);
-});
-</script>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/962790276691" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
-
-<script>
-function sendOrder() {
-  let name = document.getElementById("customerName").value;
-  let phone = document.getElementById("customerPhone").value;
-  let address = document.getElementById("customerAddress").value;
-  let quantity = document.getElementById("quantity").value;
-
-if (!name || !phone || !address) {
-alert(
-  isArabic
-  ? "يرجى تعبئة جميع الحقول"
-  : "Please fill all fields"
-);
-  return;
-}
-  
-// أول قطعة 26 JD وكل قطعة إضافية 19 JD
-let quantityNum = parseInt(quantity);
-
-if(quantityNum < 1){
-alert(
-  isArabic
-  ? "يرجى إدخال كمية صحيحة"
-  : "Enter valid quantity"
-);
-  return;
-}
-
-let price = 26 + ((quantityNum - 1) * 23);
-  
-  // رقم الطلب
-  let lastOrder = localStorage.getItem("orderID");
-  let newOrderID = lastOrder ? parseInt(lastOrder) + 1 : 1000;
-  localStorage.setItem("orderID", newOrderID);
-
-let message = isArabic
-? `🛍️ طلب جديد رقم #${newOrderID}
-
-👤 الاسم: ${name}
-📞 الهاتف: ${phone}
-📦 الكمية: ${quantity} عبوة
-💰 السعر: ${price} دينار
-
-📍 العنوان:
-${address}
-
-💎 المنتج: LOR' Perfume`
-: `🛍️ NEW ORDER #${newOrderID}
-
-👤 Name: ${name}
-📞 Phone: ${phone}
-📦 Quantity: ${quantity} Bottle(s)
-💰 Price: ${price} JD
-
-📍 Address:
-${address}
-
-💎 Product: LOR' Perfume`;
-  
-  let whatsapp = "https://wa.me/962790276691?text=" + encodeURIComponent(message);
-
-  window.open(whatsapp, "_blank");
-}
-</script>
-<div id="exitPopup" class="exit-popup">
-  <div class="popup-box">
-    <h2>WAIT ✦</h2>
-    <p>Before you go… you still have a special offer</p>
-
-    <div class="offer">
-      🔥 10% OFF for limited time only
-    </div>
-
-<a href="#orderForm" class="popup-btn" onclick="goToOrder()">CLAIM OFFER</a>
-    
-    <button onclick="closePopup()" class="close-btn">No thanks</button>
+    <a class="wa"    href="https://wa.me/962790276691" target="_blank">💬 WhatsApp</a>
+    <a class="insta" href="https://www.instagram.com/lorperfumejordan?igsh=ZnhpODdhNGZ0a3pw" target="_blank">📸 Instagram</a>
+    <a class="fb"    href="https://www.facebook.com/people/LOR-Perfume-JO/61590472924155/" target="_blank">📘 Facebook</a>
   </div>
 </div>
-  </script>
-<script>
-let popupShown = false;
 
-document.addEventListener("mouseout", function(e){
-  if (e.clientY <= 0 && !popupShown){
-    document.getElementById("exitPopup").classList.add("active");
-    popupShown = true;
-  }
-});
-
-function closePopup(){
-  document.getElementById("exitPopup").classList.remove("active");
-}
-</script>
-  <script>
-
-  function goToOrder(){
-  // إغلاق البوب أب
-  document.getElementById("exitPopup").classList.remove("active");
-
-  // النزول إلى الفورم
-  document.getElementById("orderForm").scrollIntoView({
-    behavior: "smooth"
-  });
-}
-  </script>
-  <script>
-const quantityInput = document.getElementById("quantity");
-const totalPrice = document.getElementById("totalPrice");
-
-function updatePrice() {
-  let qty = parseInt(quantityInput.value) || 1;
-
-  if(qty < 1) qty = 1;
-
-  let price = 26 + ((qty - 1) * 23);
-
-totalPrice.innerHTML = isArabic
-  ? "السعر الإجمالي: " + price + " دينار"
-  : "Total Price: " + price + " JD";
-}
-
-quantityInput.addEventListener("input", updatePrice);
-
-updatePrice();
-</script>
-  <!-- FOOTER -->
+<!-- FOOTER -->
 <footer class="footer">
   <h3>Customer Service</h3>
-
   <a href="privacy.html">Privacy Policy</a>
   <a href="terms.html">Terms and Conditions</a>
   <a href="cancel.html">Cancellation Policy</a>
   <a href="refund.html">Refund & Returns Policy</a>
 </footer>
-  <div class="gold-particles">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
+
+<!-- EXIT POPUP -->
+<div id="exitPopup" class="exit-popup">
+  <div class="popup-box">
+    <h2>WAIT ✦</h2>
+    <p>Before you go… you still have a special offer</p>
+    <div class="offer">🔥 10% OFF for limited time only</div>
+    <a href="#orderForm" class="popup-btn" onclick="goToOrder()">CLAIM OFFER</a>
+    <button onclick="closePopup()" class="close-btn">No thanks</button>
+  </div>
 </div>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/962790276691" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- GOLD PARTICLES -->
+<div class="gold-particles">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<script>
+/* ===== GLOBALS ===== */
+var isArabic = false;
+
+/* ===== LOADER ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  var loader = document.getElementById("loader");
+  setTimeout(function () {
+    loader.classList.add("hide");
+    setTimeout(function () { loader.style.display = "none"; }, 600);
+  }, 1200);
+});
+
+/* ===== SCROLL TO TOP ===== */
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+
+window.addEventListener('load', function () {
+  window.scrollTo(0, 0);
+  setTimeout(function () { window.scrollTo(0, 0); }, 50);
+  setTimeout(function () { window.scrollTo(0, 0); }, 200);
+});
+
+window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });
+
+/* ===== COUNTDOWN ===== */
+function startCountdown() {
+  var end = new Date().getTime() + 3600000;
+  function update() {
+    var diff = end - new Date().getTime();
+    var h = Math.floor(diff / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    var el = document.getElementById("countdown");
+    if (el) el.innerText = "⏳ Offer ends in: " + h + "h " + m + "m " + s + "s";
+  }
+  update();
+  setInterval(update, 1000);
+}
+startCountdown();
+
+/* ===== PRODUCT TILT ===== */
+var container = document.querySelector(".hero-product");
+var product   = document.querySelector(".product-img");
+
+if (container && product) {
+  container.addEventListener("mousemove", function (e) {
+    var x = (container.offsetWidth  / 2 - e.offsetX) / 15;
+    var y = (container.offsetHeight / 2 - e.offsetY) / 15;
+    product.style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg) scale(1.05)";
+  });
+  container.addEventListener("mouseleave", function () {
+    product.style.transform = "rotateY(0deg) rotateX(0deg) scale(1)";
+  });
+}
+
+/* ===== PRICE CALCULATOR ===== */
+var quantityInput = document.getElementById("quantity");
+var totalPriceEl  = document.getElementById("totalPrice");
+
+function updatePrice() {
+  var qty = parseInt(quantityInput.value) || 1;
+  if (qty < 1) qty = 1;
+  var price = 26 + ((qty - 1) * 23);
+  totalPriceEl.innerHTML = isArabic
+    ? "السعر الإجمالي: " + price + " دينار"
+    : "Total Price: "    + price + " JD";
+}
+
+quantityInput.addEventListener("input", updatePrice);
+
+/* ===== SEND ORDER ===== */
+function sendOrder() {
+  var name     = document.getElementById("customerName").value.trim();
+  var phone    = document.getElementById("customerPhone").value.trim();
+  var address  = document.getElementById("customerAddress").value.trim();
+  var quantity = document.getElementById("quantity").value;
+
+  if (!name || !phone || !address) {
+    alert(isArabic ? "يرجى تعبئة جميع الحقول" : "Please fill all fields");
+    return;
+  }
+
+  var qty = parseInt(quantity);
+  if (qty < 1 || isNaN(qty)) {
+    alert(isArabic ? "يرجى إدخال كمية صحيحة" : "Enter valid quantity");
+    return;
+  }
+
+  var price = 26 + ((qty - 1) * 23);
+
+  var lastOrder = localStorage.getItem("orderID");
+  var newOrderID = lastOrder ? parseInt(lastOrder) + 1 : 1000;
+  localStorage.setItem("orderID", newOrderID);
+
+  var message = isArabic
+    ? "🛍️ طلب جديد رقم #" + newOrderID + "\n\n👤 الاسم: " + name + "\n📞 الهاتف: " + phone + "\n📦 الكمية: " + qty + " عبوة\n💰 السعر: " + price + " دينار\n\n📍 العنوان:\n" + address + "\n\n💎 المنتج: LOR' Perfume"
+    : "🛍️ NEW ORDER #" + newOrderID + "\n\n👤 Name: " + name + "\n📞 Phone: " + phone + "\n📦 Quantity: " + qty + " Bottle(s)\n💰 Price: " + price + " JD\n\n📍 Address:\n" + address + "\n\n💎 Product: LOR' Perfume";
+
+  window.open("https://wa.me/962790276691?text=" + encodeURIComponent(message), "_blank");
+}
+
+/* ===== EXIT POPUP ===== */
+var popupShown = false;
+
+document.addEventListener("mouseout", function (e) {
+  if (e.clientY <= 0 && !popupShown) {
+    document.getElementById("exitPopup").classList.add("active");
+    popupShown = true;
+  }
+});
+
+function closePopup() {
+  document.getElementById("exitPopup").classList.remove("active");
+}
+
+function goToOrder() {
+  closePopup();
+  document.getElementById("orderForm").scrollIntoView({ behavior: "smooth" });
+}
+
+/* ===== LANGUAGE ===== */
+function setLanguage(lang) {
+  isArabic = (lang === "ar");
+  localStorage.setItem("lang", lang);
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = isArabic ? "rtl" : "ltr";
+
+  /* lux bar */
+  var luxBarNodes = document.querySelector(".lux-bar").childNodes;
+  document.querySelector(".lux-bar").childNodes[0].textContent = isArabic
+    ? "🔥 إصدار فاخر محدود — متبقي 49 قطعة فقط "
+    : "🔥 Limited Luxury Drop — Only 49 Pieces Available ";
+  document.querySelector(".lux-bar span").innerText = isArabic
+    ? "⏳ ينتهي العرض خلال 24 ساعة"
+    : "⏳ Offer ends in 24H";
+
+  /* topbar */
+  document.querySelector("a[href='#story']").innerText  = isArabic ? "حول"   : "OUR STORY";
+  document.querySelector("a[href='#contact']").innerText = isArabic ? "تواصل" : "Contact";
+  document.querySelector(".buy").innerText               = isArabic ? "اطلبي الآن" : "BUY";
+  document.getElementById("langBtn").innerText           = isArabic ? "EN" : "AR";
+
+  /* hero */
+  document.querySelector(".hero h1").innerText = isArabic ? "فن العطر"  : "THE ART OF SCENT";
+  document.querySelector(".hero p").innerText  = isArabic ? "تجربة عطر فاخرة تتجاوز الرش" : "Luxury fragrance experience beyond spraying";
+
+  /* stats */
+  var stats = document.querySelectorAll(".stats-bar span");
+  if (stats.length >= 2) {
+    stats[0].innerText = isArabic ? "عميل"        : "Customers";
+    stats[1].innerText = isArabic ? "جودة فاخرة"  : "Luxury Quality";
+  }
+
+  /* product */
+  document.querySelector(".product-text h2").innerText = "LOR' Perfume";
+  document.querySelector(".buy-now").innerText = isArabic ? "اشتري الآن" : "BUY NOW";
+
+  /* trust bar */
+  var trust = document.querySelectorAll(".trust-bar span");
+  if (trust.length >= 3) {
+    trust[0].innerText = isArabic ? "🚚 توصيل سريع"         : "🚚 Fast Delivery";
+    trust[1].innerText = isArabic ? "💵 الدفع عند الاستلام"  : "💵 Cash On Delivery";
+    trust[2].innerText = isArabic ? "✨ تركيبة فاخرة"        : "✨ Premium Formula";
+  }
+
+  /* how to use */
+  document.querySelector(".how-use h2").innerText   = isArabic ? "طريقة الاستخدام"             : "HOW TO USE";
+  document.querySelector(".how-subtitle").innerText = isArabic ? "لمسة صغيرة فقط هي كل ما تحتاجه" : "A small touch is all you need.";
+
+  var howTitles = document.querySelectorAll(".how-step h3");
+  var howText   = document.querySelectorAll(".how-step p");
+  if (howTitles.length >= 3) {
+    howTitles[0].innerText = isArabic ? "اضغطي"  : "Press";
+    howTitles[1].innerText = isArabic ? "ضعيه"   : "Apply";
+    howTitles[2].innerText = isArabic ? "استمتعي" : "Enjoy";
+    howText[0].innerText   = isArabic ? "اضغطي المضخة بلطف للحصول على كمية صغيرة." : "Press the pump gently to release a small amount.";
+    howText[1].innerText   = isArabic ? "ضعيه على نقاط النبض مثل الرقبة أو المعصم أو خلف الأذن." : "Apply on pulse points like the neck, wrist or behind the ears.";
+    howText[2].innerText   = isArabic ? "دعي العطر ينساب على بشرتك ويكشف عن رائحته المميزة." : "Let the butter perfume melt into your skin and reveal its scent.";
+  }
+
+  /* inside box */
+  document.querySelector(".inside-title").innerText = isArabic ? "ماذا يوجد داخل المنتج" : "WHAT'S INSIDE";
+  var names = document.querySelectorAll(".inside-name");
+  var descs = document.querySelectorAll(".inside-desc");
+  if (names.length >= 4) {
+    if (isArabic) {
+      names[0].innerText = "عطر فاخر";      descs[0].innerText = "تركيبة عطر فاخرة بزبدة عطرية";
+      names[1].innerText = "ثبات طويل";     descs[1].innerText = "يدوم لساعات طويلة";
+      names[2].innerText = "تغليف أنيق";    descs[2].innerText = "تغليف فاخر مناسب للهدايا";
+      names[3].innerText = "تجربة مميزة";   descs[3].innerText = "رائحة تترك أثر قوي";
+    } else {
+      names[0].innerText = "Luxury Perfume";       descs[0].innerText = "Premium butter-based fragrance formula.";
+      names[1].innerText = "Long Lasting";          descs[1].innerText = "Designed to stay noticeable for hours.";
+      names[2].innerText = "Elegant Packaging";     descs[2].innerText = "Luxury presentation ready for gifting.";
+      names[3].innerText = "Signature Experience";  descs[3].innerText = "Crafted to leave a memorable impression.";
+    }
+  }
+
+  /* reviews */
+  var reviews = document.querySelectorAll(".about-card");
+  if (reviews.length >= 3) {
+    if (isArabic) {
+      reviews[0].querySelector("strong").innerText = "سارة ***"; reviews[0].querySelector("span").innerText = "عمّان";
+      reviews[1].querySelector("strong").innerText = "لين ***";  reviews[1].querySelector("span").innerText = "إربد";
+      reviews[2].querySelector("strong").innerText = "ميرا ***"; reviews[2].querySelector("span").innerText = "الزرقاء";
+      reviews[0].childNodes[reviews[0].childNodes.length - 1].textContent = '"أكتر اشي عجبني انه مش عطر رش عادي وقوامه مختلف وفخم كتير والريحة بتضل فواحة لفترة طويلة وكل اللي حولي سألوني عنه."';
+      reviews[1].childNodes[reviews[1].childNodes.length - 1].textContent = '"بصراحة ما كنت متوقعة الثبات هيك بحط منه كمية قليله وبتضل الريحة معي لساعات وكمان سهل كتير بالاستخدام"';
+      reviews[2].childNodes[reviews[2].childNodes.length - 1].textContent = '"وصلني اسرع من المتوقع والتغليف مرتب كتير والريحة فخمة بتعطي احساس عطر غالي"';
+    } else {
+      reviews[0].querySelector("strong").innerText = "Sarah ***"; reviews[0].querySelector("span").innerText = "Amman";
+      reviews[1].querySelector("strong").innerText = "Lynn ***";  reviews[1].querySelector("span").innerText = "Irbid";
+      reviews[2].querySelector("strong").innerText = "Mira ***";  reviews[2].querySelector("span").innerText = "Zarqa";
+      reviews[0].childNodes[reviews[0].childNodes.length - 1].textContent = '"What I loved most is that it is not a regular spray perfume. The texture feels luxurious and the scent stays noticeable for a long time. Everyone around me kept asking about it."';
+      reviews[1].childNodes[reviews[1].childNodes.length - 1].textContent = '"Honestly, I did not expect this level of longevity. A small amount is enough and the scent stays with me for hours. It is also very easy to use."';
+      reviews[2].childNodes[reviews[2].childNodes.length - 1].textContent = '"It arrived faster than expected, the packaging was very neat, and the scent feels luxurious like an expensive perfume."';
+    }
+  }
+
+  var reviewsBtn = document.querySelector(".reviews-page-btn");
+  if (reviewsBtn) reviewsBtn.innerText = isArabic ? "⭐ عرض جميع التقييمات" : "⭐ View All Customer Reviews";
+
+  /* story */
+  document.querySelector(".story-title").innerText = isArabic ? "قصة عطر LOR" : "THE STORY OF LOR PERFUME";
+  document.querySelector(".story-text").innerText  = isArabic
+    ? "وُلدت LOR Perfume من رؤية لإعادة تعريف الفخامة العطرية الحديثة."
+    : "LOR Perfume was born from a vision of redefining modern luxury fragrance. More than a perfume, it is a statement of elegance, confidence, and identity.";
+
+  var features = document.querySelectorAll(".feature-item");
+  if (features.length >= 6) {
+    if (isArabic) {
+      features[0].innerText = "✦ مصنوع من زيوت عطرية فاخرة قائمة على الزبدة";
+      features[1].innerText = "✦ مصمم ليمنحك رائحة مميزة تدوم طويلاً";
+      features[2].innerText = "✦ مستوحى من دور الأزياء الفاخرة والبساطة العصرية";
+      features[3].innerText = "✦ تركيبة فاخرة تنساب بسلاسة على البشرة";
+      features[4].innerText = "✦ تمنحك هوية عطرية فريدة تعكس شخصيتك";
+      features[5].innerText = "✦ مناسبة للاستخدام اليومي والمناسبات الخاصة";
+    } else {
+      features[0].innerText = "✦ Crafted with premium butter-based fragrance oils";
+      features[1].innerText = "✦ Designed for a long-lasting signature scent experience";
+      features[2].innerText = "✦ Inspired by luxury fashion houses & modern minimalism";
+      features[3].innerText = "✦ Luxurious texture that melts smoothly on the skin";
+      features[4].innerText = "✦ Creates a unique personal scent identity";
+      features[5].innerText = "✦ Suitable for daily wear and special occasions";
+    }
+  }
+
+  /* policy */
+  var policyTitles = document.querySelectorAll(".policy-section h2");
+  var policyText   = document.querySelectorAll(".policy-section p");
+  if (policyTitles.length >= 2) {
+    policyTitles[0].innerText = isArabic ? "قصة العطر"  : "FRAGRANCE STORY BREAKDOWN";
+    policyTitles[1].innerText = isArabic ? "التجربة"    : "THE EXPERIENCE";
+  }
+  if (policyText.length >= 3) {
+    policyText[0].innerText = isArabic
+      ? "تم ابتكار عطر LOR لإعادة تعريف مفهوم العطر الفاخر العصري، فهو ليس مجرد رائحة بل هو جزء من هويتك."
+      : "LOR Perfume was created to redefine what a modern luxury fragrance means. It is not just a scent — it is a personal identity that stays with you.";
+    policyText[1].innerText = isArabic
+      ? "الفكرة وراء هذا العطر هي الجمع بين الأناقة والثقة والحضور طويل الأمد في تجربة واحدة مميزة."
+      : "The idea behind this fragrance is to combine elegance, confidence, and long-lasting presence in one signature experience.";
+    policyText[2].innerText = isArabic
+      ? "يتطور العطر على بشرتك ليمنحك تجربة متكاملة تبدأ بنفحات منعشة وتنتهي بلمسات دافئة وعميقة."
+      : "This perfume evolves on your skin: fresh at first, warm in the middle, and deep at the end.";
+  }
+
+  /* order form */
+  document.querySelector(".order-form h2").innerText            = isArabic ? "اطلبي الآن"  : "Place Your Order";
+  document.getElementById("quantity").placeholder              = isArabic ? "الكمية"       : "Quantity";
+  document.getElementById("customerName").placeholder          = isArabic ? "الاسم الكامل" : "Full Name";
+  document.getElementById("customerPhone").placeholder         = isArabic ? "رقم الهاتف"   : "Phone Number";
+  document.getElementById("customerAddress").placeholder       = isArabic ? "عنوان التوصيل" : "Delivery Address";
+  document.querySelector(".secure-note").innerText             = isArabic ? "🔒 معلوماتك تستخدم فقط لأغراض التوصيل" : "🔒 Your information is used only for delivery purposes.";
+  document.querySelector(".order-form button").innerText       = isArabic ? "إرسال الطلب"  : "PLACE ORDER";
+
+  /* contact */
+  document.querySelector("#contact h2").innerText = isArabic ? "تواصل معنا" : "Contact us";
+  document.querySelector("#contact p").innerText  = isArabic
+    ? "نحن هنا لمساعدتك في الطلبات والاستفسارات والدعم."
+    : "We're here to help you with orders, questions, and support.";
+
+  /* footer */
+  document.querySelector(".footer h3").innerText = isArabic ? "خدمة العملاء" : "Customer Service";
+  var footerLinks = document.querySelectorAll(".footer a");
+  if (footerLinks.length >= 4) {
+    footerLinks[0].innerText = isArabic ? "سياسة الخصوصية"            : "Privacy Policy";
+    footerLinks[1].innerText = isArabic ? "الشروط والأحكام"            : "Terms and Conditions";
+    footerLinks[2].innerText = isArabic ? "سياسة الإلغاء"              : "Cancellation Policy";
+    footerLinks[3].innerText = isArabic ? "سياسة الاسترجاع والاستبدال" : "Refund & Returns Policy";
+  }
+
+  /* popup */
+  document.querySelector(".popup-box h2").innerText   = isArabic ? "انتظري ✦" : "WAIT ✦";
+  document.querySelector(".popup-box p").innerText    = isArabic ? "قبل أن تغادري… لا يزال لديك عرض خاص" : "Before you go… you still have a special offer";
+  document.querySelector(".offer").innerText          = isArabic ? "🔥 خصم 10% لفترة محدودة فقط" : "🔥 10% OFF for limited time only";
+  document.querySelector(".popup-btn").innerText      = isArabic ? "احصلي على العرض" : "CLAIM OFFER";
+  document.querySelector(".close-btn").innerText      = isArabic ? "لا، شكراً" : "No thanks";
+
+  updatePrice();
+}
+
+/* ===== LANG BUTTON ===== */
+document.getElementById("langBtn").addEventListener("click", function () {
+  var newLang = isArabic ? "en" : "ar";
+  localStorage.setItem("lang", newLang);
+  location.reload();
+});
+
+/* ===== INIT LANGUAGE ===== */
+window.addEventListener("load", function () {
+  var saved = localStorage.getItem("lang") || "ar";
+  setLanguage(saved);
+  updatePrice();
+});
+</script>
+
 </body>
 </html>
+HTMLEOF
+echo "Done"
+
+
+
+
+Claude is AI and can make mistakes. Please double-check responses.
